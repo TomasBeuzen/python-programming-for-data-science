@@ -1,0 +1,21 @@
+- file: README
+  numbered: false
+
+- part: Lectures
+  chapters:
+  - file: lectures/lecture1-basics
+  - file: lectures/lecture2-loops-functions
+  - file: lectures/lecture3-tests-classes
+  - file: lectures/lecture4-style-scripts-imports
+  - file: lectures/lecture5-numpy
+  - file: lectures/lecture5-numpy-addendum
+  - file: lectures/lecture6-pandas
+  - file: lectures/lecture7-wrangling-basics
+  - file: lectures/lecture8-wrangling-advanced
+
+- part: Lab Assignments
+  chapters:
+  - file: lab-assignments/lab1/lab1.ipynb
+  - file: lab-assignments/lab2/lab2.ipynb
+  - file: lab-assignments/lab3/lab3.ipynb
+  - file: lab-assignments/lab4/lab4.ipynb
