@@ -1,0 +1,932 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Lab 1: Python Basics, Loops &amp; Functions &#8212; Python Programming for Data Science</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-dropdown.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Lab 2: Tests, Classes, Style &amp; Imports" href="../lab2/lab2.html" />
+    <link rel="prev" title="Lecture 8: Advanced Data Wrangling With Pandas" href="../../lectures/lecture8-wrangling-advanced.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/511_logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Python Programming for Data Science</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../README.html">
+   Python Programming for Data Science
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Lectures
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../lectures/lecture1-basics.html">
+   Lecture 1: Python Basics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../lectures/lecture2-loops-functions.html">
+   Lecture 2: Loops &amp; Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../lectures/lecture3-tests-classes.html">
+   Lecture 3: Unit Tests &amp; Classes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../lectures/lecture4-style-scripts-imports.html">
+   Lecture 4: Style Guides, Scripts, Imports
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../lectures/lecture5-numpy.html">
+   Lecture 5: Part 1 - Introduction to NumPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../lectures/lecture5-numpy-addendum.html">
+   Lecture 5: Part 2 - NumPy Implementation Details
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../lectures/lecture6-pandas.html">
+   Lecture 6: Introduction to Pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../lectures/lecture7-wrangling-basics.html">
+   Lecture 7: Basic Data Wrangling With Pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../lectures/lecture8-wrangling-advanced.html">
+   Lecture 8: Advanced Data Wrangling With Pandas
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Lab Assignments
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Lab 1: Python Basics, Loops &amp; Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../lab2/lab2.html">
+   Lab 2: Tests, Classes, Style &amp; Imports
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../lab3/lab3.html">
+   Lab 3: Introduction to NumPy and Pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../lab4/lab4.html">
+   Lab 4: Advanced Wrangling with Pandas
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Tomas Beuzen, MDS 2020<br>Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/lab-assignments/lab1/lab1.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/TomasBeuzen/python-programming-for-data-science/master?urlpath=tree/lab-assignments/lab1/lab1.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/TomasBeuzen/python-programming-for-data-science/blob/master/lab-assignments/lab1/lab1.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise-1-warming-up">
+   Exercise 1: Warming Up
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     1.1
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     1.2
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     1.3
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     1.4
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise-2-treasure-hunt">
+   Exercise 2: Treasure Hunt
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     2.1
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     2.2
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id7">
+     2.3
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise-3-practice-with-loops">
+   Exercise 3: Practice with Loops
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id8">
+     3.1
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id9">
+     3.2
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#optional-exercise-4-making-sushi">
+   (OPTIONAL) Exercise 4: Making Sushi
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise-5-working-with-strings">
+   Exercise 5: Working with Strings
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id10">
+     5.1
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id11">
+     5.2
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id12">
+     5.3
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#optional-exercise-6-python-picasso">
+   (OPTIONAL) Exercise 6: Python Picasso
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id13">
+     6.1
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id14">
+     6.2
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise-7-simulating-a-random-walk-in-2d">
+   Exercise 7: Simulating a Random Walk in 2D
+  </a>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <p><img alt="" src="../../_images/511_banner1.png" /></p>
+<div class="section" id="lab-1-python-basics-loops-functions">
+<h1>Lab 1: Python Basics, Loops &amp; Functions<a class="headerlink" href="#lab-1-python-basics-loops-functions" title="Permalink to this headline">¶</a></h1>
+<p><strong>Tomas Beuzen, September 2020</strong></p>
+<p>In this lab, you’ll complete various exercises related to Python basics, loops &amp; functions. Many of these exercises require you to combine multiple different Python data types, functions, and concepts to solve them.</p>
+<h2>Table of Contents<span class="tocSkip"></span></h2>
+<div class="toc"><ul class="toc-item"><li><span><a href="#exercise-1-warming-up" data-toc-modified-id="Exercise-1:-Warming-Up-2">Exercise 1: Warming Up</a></span></li><li><span><a href="#exercise-2-treasure-hunt" data-toc-modified-id="Exercise-2:-Treasure-Hunt-3">Exercise 2: Treasure Hunt</a></span></li><li><span><a href="#exercise-3-practice-with-loops" data-toc-modified-id="Exercise-3:-Practice-with-Loops-4">Exercise 3: Practice with Loops</a></span></li><li><span><a href="#optional-exercise-4-making-sushi" data-toc-modified-id="(OPTIONAL)-Exercise-4:-Making-Sushi-5">(OPTIONAL) Exercise 4: Making Sushi</a></span></li><li><span><a href="#exercise-5-working-with-strings" data-toc-modified-id="Exercise-5:-Working-with-Strings-6">Exercise 5: Working with Strings</a></span></li><li><span><a href="#optional-exercise-6-python-picasso" data-toc-modified-id="(OPTIONAL)-Exercise-6:-Python-Picasso-7">(OPTIONAL) Exercise 6: Python Picasso</a></span></li><li><span><a href="#exercise-7-simulating-a-random-walk-in-2d" data-toc-modified-id="Exercise-7:-Simulating-a-Random-Walk-in-2D-8">Exercise 7: Simulating a Random Walk in 2D</a></span></li><li><span><a href="#run-autograding" data-toc-modified-id="Run-Autograding-9">Run Autograding</a></span></li><li><span><a href="#submission-to-canvas" data-toc-modified-id="Submission-to-Canvas-10">Submission to Canvas</a></span></li></ul></div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># These imports are required to build some of the questions in this lab and run tests.</span>
+<span class="c1"># You will not have to use them in your solutions, but you do need to run this cell.</span>
+<span class="c1"># We&#39;ll learn more about imports in a later lectuer.</span>
+<span class="kn">import</span> <span class="nn">string</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">random</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="exercise-1-warming-up">
+<h2>Exercise 1: Warming Up<a class="headerlink" href="#exercise-1-warming-up" title="Permalink to this headline">¶</a></h2>
+<hr><div class="section" id="id1">
+<h3>1.1<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>rubric={autograde:1}</p>
+<p>Given the list <code class="docutils literal notranslate"><span class="pre">numbers</span></code> below, use a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop and <code class="docutils literal notranslate"><span class="pre">if/else</span></code> statement that squares the even numbers in <code class="docutils literal notranslate"><span class="pre">numbers</span></code> and cubes the odd numbers in <code class="docutils literal notranslate"><span class="pre">numbers</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">numbers</span><span class="p">:</span>
+    <span class="k">pass</span>  <span class="c1"># remove if providing a solution</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your answer goes here.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id2">
+<h3>1.2<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>rubric={autograde:1}</p>
+<p>Given this sentence: “Make this sentence more Pythonic!”. Do the following:</p>
+<ol class="simple">
+<li><p>Make all letters lowercase;</p></li>
+<li><p>Replace spaces with underscores (<code class="docutils literal notranslate"><span class="pre">_</span></code>);</p></li>
+<li><p>Remove punctuation.</p></li>
+</ol>
+<p><code class="docutils literal notranslate"><span class="pre">sentence</span></code> should look like this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;make_this_sentence_more_pythonic&#39;</span>
+</pre></div>
+</div>
+<p>Be sure to save your result back as the variable <code class="docutils literal notranslate"><span class="pre">sentence</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sentence</span> <span class="o">=</span> <span class="s2">&quot;Make this sentence more Pythonic!&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your answer goes here.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id3">
+<h3>1.3<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>rubric={autograde:1}</p>
+<p>Combine all the values of the dictionary below (not the keys) into a single list called <code class="docutils literal notranslate"><span class="pre">d_list</span></code>. Your final list should contain a string, a list, and a float respectively and look like this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s1">&#39;MDS 2020&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="mf">3.141</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="s2">&quot;MDS 2020&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+     <span class="s2">&quot;c&quot;</span><span class="p">:</span> <span class="mf">3.141</span><span class="p">}</span>
+<span class="n">d_list</span> <span class="o">=</span> <span class="kc">None</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your answer goes here.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id4">
+<h3>1.4<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>rubric={autograde:1}</p>
+<p>For the <code class="docutils literal notranslate"><span class="pre">messy_list</span></code> below, remove all duplicate values, sort them in ascending order and store in a new list variable called <code class="docutils literal notranslate"><span class="pre">clean_list</span></code>, which should look like:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">messy_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+<span class="n">clean_list</span> <span class="o">=</span> <span class="kc">None</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your answer goes here.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="exercise-2-treasure-hunt">
+<h2>Exercise 2: Treasure Hunt<a class="headerlink" href="#exercise-2-treasure-hunt" title="Permalink to this headline">¶</a></h2>
+<hr><p>For each of the following cases, index into the Python object to obtain the “T” (for Treasure). <strong>Your code should always print out just “T” at the end</strong>. In these questions, the goal is not to understand the code itself, which may be confusing. Instead, try to probe the types of the various objects. An example is shown below:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;nothing&quot;</span><span class="p">,</span> <span class="p">{</span><span class="o">-</span><span class="n">i</span> <span class="p">:</span> <span class="n">l</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">l</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">letters</span><span class="p">)})</span>
+<span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="o">-</span><span class="mi">19</span><span class="p">]</span>
+<span class="s1">&#39;T&#39;</span>
+</pre></div>
+</div>
+<p>In the example above, <code class="docutils literal notranslate"><span class="pre">type(x)</span></code> would reveal that <code class="docutils literal notranslate"><span class="pre">x</span></code> is a tuple, and <code class="docutils literal notranslate"><span class="pre">len(x)</span></code> would reveal that it has two elements. Element 0 just contains the string <code class="docutils literal notranslate"><span class="pre">&quot;nothing&quot;</span></code>, but Element 1 contains more stuff, hence <code class="docutils literal notranslate"><span class="pre">x[1]</span></code>. Then we can again probe <code class="docutils literal notranslate"><span class="pre">type(x[1])</span></code> and see that it’s a dictionary. If you <code class="docutils literal notranslate"><span class="pre">print(x[1])</span></code> you’ll see that the letter “T” corresponds to the key -19, hence <code class="docutils literal notranslate"><span class="pre">x[1][-19]</span></code>.</p>
+<div class="section" id="id5">
+<h3>2.1<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>rubric={accuracy:1}</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">letters</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">ascii_uppercase</span>
+<span class="n">x</span> <span class="o">=</span> <span class="p">[[</span><span class="n">letters</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">26</span><span class="p">)</span> <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="n">letters</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">26</span><span class="p">)</span> <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your answer goes here.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id6">
+<h3>2.2<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p>rubric={accuracy:1}</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">letters</span><span class="p">)</span><span class="o">-</span><span class="nb">set</span><span class="p">(</span><span class="s2">&quot;T&quot;</span><span class="p">)),</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">26</span><span class="p">),</span><span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">x</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">26</span><span class="p">)]</span> <span class="o">=</span> <span class="s2">&quot;T&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your answer goes here.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id7">
+<h3>2.3<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p>rubric={accuracy:1}</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">26</span>
+<span class="n">x</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">x</span><span class="p">[</span><span class="n">string</span><span class="o">.</span><span class="n">ascii_lowercase</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{</span><span class="n">string</span><span class="o">.</span><span class="n">ascii_lowercase</span><span class="p">[(</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">%</span><span class="k">n</span>] : [[letters[j]] if j-2==i else None] for j in range(n)}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your answer goes here.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="exercise-3-practice-with-loops">
+<h2>Exercise 3: Practice with Loops<a class="headerlink" href="#exercise-3-practice-with-loops" title="Permalink to this headline">¶</a></h2>
+<hr><div class="section" id="id8">
+<h3>3.1<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<p>rubric={autograde:1}</p>
+<p>The <a class="reference external" href="https://mathworld.wolfram.com/AdditivePersistence.html">additive persistence</a> of a number is the amount of times you have to consecutively sum the digits of the number until you are left with only a single digit number. For example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">9257</span>
+<span class="mi">9257</span> <span class="o">=</span> <span class="mi">9</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">5</span> <span class="o">+</span> <span class="mi">7</span> <span class="o">=</span> <span class="mi">23</span>
+<span class="mi">23</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">=</span> <span class="mi">5</span>
+</pre></div>
+</div>
+<p>The above took two repetitions so the additive persistence is 2. For a given number <code class="docutils literal notranslate"><span class="pre">n</span></code> use a <code class="docutils literal notranslate"><span class="pre">while</span></code> loop to calculate its additive persistence. Some starter code has been provided for you.</p>
+<p><em>Hint</em>: you can determine the sum of the digits in a number using this code:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">number</span> <span class="o">=</span> <span class="mi">12345</span>
+<span class="nb">sum</span><span class="p">([</span><span class="nb">int</span><span class="p">(</span><span class="n">digit</span><span class="p">)</span> <span class="k">for</span> <span class="n">digit</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">number</span><span class="p">)])</span>
+<span class="mi">15</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add_persistence</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">pass</span>
+<span class="c1"># Uncomment the starter code below</span>
+<span class="c1">#     additive_persistence = 0</span>
+<span class="c1">#     while ...:</span>
+<span class="c1">#         ...</span>
+<span class="c1">#     return additive_persistence</span>
+
+<span class="c1"># Your answer goes here.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id9">
+<h3>3.2<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<p>rubric={autograde:1}</p>
+<p>The object <code class="docutils literal notranslate"><span class="pre">nested_list</span></code> below contains three lists as elements. Write a nested loop (i.e., a loop within a loop) to “flatten” <code class="docutils literal notranslate"><span class="pre">nested_list</span></code>, and store the result in a variable named <code class="docutils literal notranslate"><span class="pre">flat_list</span></code>. By “flatten”, we mean to remove the nested structure so that <code class="docutils literal notranslate"><span class="pre">flat_list</span></code> contains the elements of the sub-lists, in the order seen below e.g., <code class="docutils literal notranslate"><span class="pre">[Sam,</span> <span class="pre">Sarah,</span> <span class="pre">Darcy,</span> <span class="pre">34,</span> <span class="pre">32,</span> <span class="pre">etc.]</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nested_list</span> <span class="o">=</span> <span class="p">[[</span><span class="s2">&quot;Tom&quot;</span><span class="p">,</span> <span class="s2">&quot;Mike&quot;</span><span class="p">,</span> <span class="s2">&quot;Tiffany&quot;</span><span class="p">],</span> <span class="p">[</span><span class="mi">34</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">30</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;Strawberry&quot;</span><span class="p">,</span> <span class="s2">&quot;Chocoloate&quot;</span><span class="p">,</span> <span class="s2">&quot;Salted Caramel&quot;</span><span class="p">]]</span>
+<span class="n">flat_list</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="c1"># Your answer goes here.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="optional-exercise-4-making-sushi">
+<h2>(OPTIONAL) Exercise 4: Making Sushi<a class="headerlink" href="#optional-exercise-4-making-sushi" title="Permalink to this headline">¶</a></h2>
+<hr>
+<p>rubric={accuracy:1}</p>
+<p>You have just taken over a sushi restaurant in Vancouver. As a data scientist you want to optimize the way you produce sushi for your customers, such that you never waste ingredients. Your most popular sushi is an Unagi (eel) roll. In a given night, you have access to different amounts of small pieces of Unagi (1 inch long), and big pieces of Unagi (5 inches long). Write a function to determine if you can create a roll of sushi of length <code class="docutils literal notranslate"><span class="pre">length</span></code> inches with only the given amount of small and big pieces of Unagi.</p>
+<p><strong>You may use as many or as few of the available pieces given, but you may not cut a big piece onto smaller pieces</strong>.</p>
+<p>For example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">make_sushi</span><span class="p">(</span><span class="n">small</span><span class="p">,</span> <span class="n">big</span><span class="p">,</span> <span class="n">length</span><span class="p">):</span>
+    <span class="c1"># code</span>
+
+<span class="c1"># Example cases</span>
+<span class="n">make_sushi</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>  <span class="c1"># (use 3 small and 1 big)</span>
+<span class="kc">True</span>
+<span class="n">make_sushi</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>  <span class="c1"># (not possible)</span>
+<span class="kc">False</span>
+<span class="n">make_sushi</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span> <span class="c1"># (use 0 small and 2 big)</span>
+<span class="kc">True</span>
+<span class="n">make_sushi</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>  <span class="c1"># (not possible)</span>
+<span class="kc">False</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">make_sushi</span><span class="p">(</span><span class="n">small</span><span class="p">,</span> <span class="n">big</span><span class="p">,</span> <span class="n">length</span><span class="p">):</span>
+    <span class="k">pass</span>  <span class="c1"># remove this line if providing a solution</span>
+<span class="c1"># Your answer goes here.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="exercise-5-working-with-strings">
+<h2>Exercise 5: Working with Strings<a class="headerlink" href="#exercise-5-working-with-strings" title="Permalink to this headline">¶</a></h2>
+<hr><p>In this exercise, you’ll practice working with strings and string methods.</p>
+<div class="section" id="id10">
+<h3>5.1<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<p>rubric={autograde:1}</p>
+<p>Write a function <code class="docutils literal notranslate"><span class="pre">string_sorter(string)</span></code> that takes a string as an argument and returns the string in alphabetical order, with only the first letter capitalized. Assume that only english-language letters will be included in the passed string (i.e., no punctuation, numbers, spaces, etc).</p>
+<p>Here are some example inputs/outputs:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">string_sorter</span><span class="p">(</span><span class="s2">&quot;dbeca&quot;</span><span class="p">)</span>
+<span class="s2">&quot;Abcde&quot;</span>
+<span class="n">string_sorter</span><span class="p">(</span><span class="s2">&quot;HELLO&quot;</span><span class="p">)</span>
+<span class="s2">&quot;Ehllo&quot;</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">string_sorter</span><span class="p">(</span><span class="n">string</span><span class="p">):</span>
+    <span class="k">pass</span>  <span class="c1"># remove this line if providing a solution</span>
+<span class="c1"># Your answer goes here.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id11">
+<h3>5.2<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<p>rubric={autograde:1}</p>
+<p>Write a function <code class="docutils literal notranslate"><span class="pre">longest_word(sentence)</span></code> that takes a sentence as input and returns the longest word. If there are two or more words that are the same length, return the first word from the string with that length. Ignore punctuation in the sentence.</p>
+<p><em>Hint: the <code class="docutils literal notranslate"><span class="pre">isalpha()</span></code> method might be helpful here to determine if a word contains punctuation or not.</em>*</p>
+<p>Here are some example inputs/outputs:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">longest_word</span><span class="p">(</span><span class="s2">&quot;My name is Tom.&quot;</span><span class="p">)</span>
+<span class="s2">&quot;name&quot;</span>
+<span class="n">longest_word</span><span class="p">(</span><span class="s2">&quot;I love Python &amp; R!!!&quot;</span><span class="p">)</span>
+<span class="s2">&quot;Python&quot;</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">longest_word</span><span class="p">(</span><span class="n">sentence</span><span class="p">):</span>
+    <span class="k">pass</span>  <span class="c1"># remove this line if providing a solution</span>
+<span class="c1"># Your answer goes here.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id12">
+<h3>5.3<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<p>rubric={autograde:1}</p>
+<p>Writing readable and consistent docstrings are important for documenting your code, but also for helping other applications/software read and parse your documentation (for example, how Jupyter renders a docstring to html and displays it when you use <code class="docutils literal notranslate"><span class="pre">shift</span> <span class="pre">+</span> <span class="pre">tab</span></code>). Your task is to write a function called <code class="docutils literal notranslate"><span class="pre">parse_docstring(function)</span></code> that accepts another function as an argument, and returns a list of the passed function’s input arguments.</p>
+<p>As an example, recall the <code class="docutils literal notranslate"><span class="pre">make_palindrome()</span></code> function from Lecture 2:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">make_palindrome</span><span class="p">(</span><span class="n">string</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Turns the string into a palindrome by concatenating </span>
+<span class="sd">    itself with a reversed version of itself.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    string : str</span>
+<span class="sd">        The string to turn into a palindrome.</span>
+<span class="sd">        </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    str</span>
+<span class="sd">        string concatenated with a reversed version of string</span>
+<span class="sd">        </span>
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; make_palindrome(&#39;tom&#39;)</span>
+<span class="sd">    &#39;tommot&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">string</span> <span class="o">+</span> <span class="n">string</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Your function should behave as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">parse_docstring</span><span class="p">(</span><span class="n">make_palindrome</span><span class="p">)</span>
+<span class="p">[</span><span class="s2">&quot;string&quot;</span><span class="p">]</span>  <span class="c1"># only one input argument to extract here</span>
+</pre></div>
+</div>
+<p>Here are some other examples:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>  <span class="c1"># we&#39;ll learn about what this line is and what &quot;import&quot; means in a later lecture</span>
+
+<span class="n">parse_docstring</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">)</span>
+<span class="p">[</span><span class="s1">&#39;start&#39;</span><span class="p">,</span> <span class="s1">&#39;stop&#39;</span><span class="p">,</span> <span class="s1">&#39;step&#39;</span><span class="p">,</span> <span class="s1">&#39;dtype&#39;</span><span class="p">]</span>
+<span class="n">parse_docstring</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">)</span>
+<span class="p">[</span><span class="s1">&#39;object&#39;</span><span class="p">,</span> <span class="s1">&#39;dtype&#39;</span><span class="p">,</span> <span class="s1">&#39;copy&#39;</span><span class="p">,</span> <span class="s1">&#39;order&#39;</span><span class="p">,</span> <span class="s1">&#39;subok&#39;</span><span class="p">,</span> <span class="s1">&#39;ndmin&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p><em>Hint</em>: you can read a function’s docstring as a string using <code class="docutils literal notranslate"><span class="pre">docstring</span> <span class="pre">=</span> <span class="pre">function.__doc__</span></code>, you should then take a look at the variable <code class="docutils literal notranslate"><span class="pre">docstring</span></code> and look for patterns you can use to extract input arguments using string methods like <code class="docutils literal notranslate"><span class="pre">.find()</span></code>, <code class="docutils literal notranslate"><span class="pre">.replace()</span></code>, etc</p>
+<p><em>Note: we’ll learn how to parse these docstrings much more efficiently using regular expressions (regex) in a later lecture.</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">parse_docstring</span><span class="p">(</span><span class="n">function</span><span class="p">):</span>
+    <span class="k">pass</span>  <span class="c1"># remove this line if providing a solution</span>
+<span class="c1"># Your answer goes here.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="optional-exercise-6-python-picasso">
+<h2>(OPTIONAL) Exercise 6: Python Picasso<a class="headerlink" href="#optional-exercise-6-python-picasso" title="Permalink to this headline">¶</a></h2>
+<hr><div class="section" id="id13">
+<h3>6.1<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
+<p>rubric={accuracy:1}</p>
+<p>You’re an up-and-coming abstract artist that uses Python to print artwork to your computer screen. Your artwork mostly involves printing the characters <code class="docutils literal notranslate"><span class="pre">*</span></code>, <code class="docutils literal notranslate"><span class="pre">O</span></code>, and <code class="docutils literal notranslate"><span class="pre">-</span></code> in various patterns. Let’s start with some line art. Write a function <code class="docutils literal notranslate"><span class="pre">line_art(n)</span></code> that prints <code class="docutils literal notranslate"><span class="pre">n</span></code> characters to the screen with the following conditions:</p>
+<ul class="simple">
+<li><p>The first and last character are printed as “*”;</p></li>
+<li><p>Every odd character is printed as “-“;</p></li>
+<li><p>Every even character is printed as “O” (the letter);</p></li>
+<li><p>Each character is separated by a space ” “.</p></li>
+</ul>
+<p>You can assume that n is always &gt; 3.</p>
+<p>For example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">line_art</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span>
+<span class="o">*</span> <span class="n">O</span> <span class="o">-</span> <span class="n">O</span> <span class="o">-</span> <span class="n">O</span> <span class="o">-</span> <span class="n">O</span> <span class="o">-</span> <span class="n">O</span> <span class="o">*</span>
+<span class="n">line_art</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="o">*</span> <span class="n">O</span> <span class="o">*</span>
+</pre></div>
+</div>
+<p><em>Hint: my solution combines list comprehenssion, an if/else statement, and converting a list to a string using <code class="docutils literal notranslate"><span class="pre">&quot;&quot;.join(some_list)</span></code>.</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">line_art</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">pass</span>  <span class="c1"># remove this line if providing a solution</span>
+<span class="c1"># Your answer goes here.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id14">
+<h3>6.2<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
+<p>rubric={accuracy:1}</p>
+<p>You’re Python “line art” was a total hit and your customers are now asking for square art. Write a function <code class="docutils literal notranslate"><span class="pre">square_art(n)</span></code> that prints a square of “artwork” to the screen of size <code class="docutils literal notranslate"><span class="pre">n</span></code> rows and <code class="docutils literal notranslate"><span class="pre">n</span></code> columns, with the following conditions:</p>
+<ul class="simple">
+<li><p>The border of the artwork must be “*”;</p></li>
+<li><p>If the row and column are both odd, print “-“;</p></li>
+<li><p>Otherwise print “O”.</p></li>
+</ul>
+<p>Here’s an example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">square_art</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="o">*</span> <span class="o">*</span> <span class="o">*</span> <span class="o">*</span> <span class="o">*</span> 
+<span class="o">*</span> <span class="n">O</span> <span class="n">O</span> <span class="n">O</span> <span class="o">*</span>
+<span class="o">*</span> <span class="n">O</span> <span class="o">-</span> <span class="n">O</span> <span class="o">*</span>
+<span class="o">*</span> <span class="n">O</span> <span class="n">O</span> <span class="n">O</span> <span class="o">*</span>
+<span class="o">*</span> <span class="o">*</span> <span class="o">*</span> <span class="o">*</span> <span class="o">*</span> 
+
+<span class="n">square_art</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span>
+<span class="o">*</span> <span class="o">*</span> <span class="o">*</span> <span class="o">*</span> <span class="o">*</span> <span class="o">*</span> <span class="o">*</span> <span class="o">*</span> <span class="o">*</span> <span class="o">*</span> <span class="o">*</span> <span class="o">*</span> <span class="o">*</span> <span class="o">*</span> <span class="o">*</span> 
+<span class="o">*</span> <span class="n">O</span> <span class="n">O</span> <span class="n">O</span> <span class="n">O</span> <span class="n">O</span> <span class="n">O</span> <span class="n">O</span> <span class="n">O</span> <span class="n">O</span> <span class="n">O</span> <span class="n">O</span> <span class="n">O</span> <span class="n">O</span> <span class="o">*</span>
+<span class="o">*</span> <span class="n">O</span> <span class="o">-</span> <span class="n">O</span> <span class="o">-</span> <span class="n">O</span> <span class="o">-</span> <span class="n">O</span> <span class="o">-</span> <span class="n">O</span> <span class="o">-</span> <span class="n">O</span> <span class="o">-</span> <span class="n">O</span> <span class="o">*</span>
+<span class="o">*</span> <span class="n">O</span> <span class="n">O</span> <span class="n">O</span> <span class="n">O</span> <span class="n">O</span> <span class="n">O</span> <span class="n">O</span> <span class="n">O</span> <span class="n">O</span> <span class="n">O</span> <span class="n">O</span> <span class="n">O</span> <span class="n">O</span> <span class="o">*</span>
+<span class="o">*</span> <span class="n">O</span> <span class="o">-</span> <span class="n">O</span> <span class="o">-</span> <span class="n">O</span> <span class="o">-</span> <span class="n">O</span> <span class="o">-</span> <span class="n">O</span> <span class="o">-</span> <span class="n">O</span> <span class="o">-</span> <span class="n">O</span> <span class="o">*</span>
+<span class="o">*</span> <span class="n">O</span> <span class="n">O</span> <span class="n">O</span> <span class="n">O</span> <span class="n">O</span> <span class="n">O</span> <span class="n">O</span> <span class="n">O</span> <span class="n">O</span> <span class="n">O</span> <span class="n">O</span> <span class="n">O</span> <span class="n">O</span> <span class="o">*</span>
+<span class="o">*</span> <span class="n">O</span> <span class="o">-</span> <span class="n">O</span> <span class="o">-</span> <span class="n">O</span> <span class="o">-</span> <span class="n">O</span> <span class="o">-</span> <span class="n">O</span> <span class="o">-</span> <span class="n">O</span> <span class="o">-</span> <span class="n">O</span> <span class="o">*</span>
+<span class="o">*</span> <span class="n">O</span> <span class="n">O</span> <span class="n">O</span> <span class="n">O</span> <span class="n">O</span> <span class="n">O</span> <span class="n">O</span> <span class="n">O</span> <span class="n">O</span> <span class="n">O</span> <span class="n">O</span> <span class="n">O</span> <span class="n">O</span> <span class="o">*</span>
+<span class="o">*</span> <span class="n">O</span> <span class="o">-</span> <span class="n">O</span> <span class="o">-</span> <span class="n">O</span> <span class="o">-</span> <span class="n">O</span> <span class="o">-</span> <span class="n">O</span> <span class="o">-</span> <span class="n">O</span> <span class="o">-</span> <span class="n">O</span> <span class="o">*</span>
+<span class="o">*</span> <span class="n">O</span> <span class="n">O</span> <span class="n">O</span> <span class="n">O</span> <span class="n">O</span> <span class="n">O</span> <span class="n">O</span> <span class="n">O</span> <span class="n">O</span> <span class="n">O</span> <span class="n">O</span> <span class="n">O</span> <span class="n">O</span> <span class="o">*</span>
+<span class="o">*</span> <span class="n">O</span> <span class="o">-</span> <span class="n">O</span> <span class="o">-</span> <span class="n">O</span> <span class="o">-</span> <span class="n">O</span> <span class="o">-</span> <span class="n">O</span> <span class="o">-</span> <span class="n">O</span> <span class="o">-</span> <span class="n">O</span> <span class="o">*</span>
+<span class="o">*</span> <span class="n">O</span> <span class="n">O</span> <span class="n">O</span> <span class="n">O</span> <span class="n">O</span> <span class="n">O</span> <span class="n">O</span> <span class="n">O</span> <span class="n">O</span> <span class="n">O</span> <span class="n">O</span> <span class="n">O</span> <span class="n">O</span> <span class="o">*</span>
+<span class="o">*</span> <span class="n">O</span> <span class="o">-</span> <span class="n">O</span> <span class="o">-</span> <span class="n">O</span> <span class="o">-</span> <span class="n">O</span> <span class="o">-</span> <span class="n">O</span> <span class="o">-</span> <span class="n">O</span> <span class="o">-</span> <span class="n">O</span> <span class="o">*</span>
+<span class="o">*</span> <span class="n">O</span> <span class="n">O</span> <span class="n">O</span> <span class="n">O</span> <span class="n">O</span> <span class="n">O</span> <span class="n">O</span> <span class="n">O</span> <span class="n">O</span> <span class="n">O</span> <span class="n">O</span> <span class="n">O</span> <span class="n">O</span> <span class="o">*</span>
+<span class="o">*</span> <span class="o">*</span> <span class="o">*</span> <span class="o">*</span> <span class="o">*</span> <span class="o">*</span> <span class="o">*</span> <span class="o">*</span> <span class="o">*</span> <span class="o">*</span> <span class="o">*</span> <span class="o">*</span> <span class="o">*</span> <span class="o">*</span> <span class="o">*</span> 
+</pre></div>
+</div>
+<p><em>Hint: I recommend printing one row/column at a time.</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">square_art</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">pass</span>  <span class="c1"># remove this line if providing a solution</span>
+<span class="c1"># Your answer goes here.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="exercise-7-simulating-a-random-walk-in-2d">
+<h2>Exercise 7: Simulating a Random Walk in 2D<a class="headerlink" href="#exercise-7-simulating-a-random-walk-in-2d" title="Permalink to this headline">¶</a></h2>
+<p>rubric={accuracy:3,quality:3}</p>
+<p>An MDS student falls asleep watching Tom’s lecture online and begins sleepwalking randomly, starting outside of their home. The student repeatedly takes one step at random, either north, east, south, or west, each with probability 25%. How far will the student be from the classroom after <span class="math notranslate nohighlight">\(T\)</span> steps?</p>
+<p>Write a function
+<code class="docutils literal notranslate"><span class="pre">random_walker(T)</span></code> that takes an integer argument <code class="docutils literal notranslate"><span class="pre">T</span></code> and simulates the motion of this random sleepwalker for <span class="math notranslate nohighlight">\(T\)</span> steps. After each step, print the location of the random walker, treating the front door as the origin <span class="math notranslate nohighlight">\((0, 0)\)</span>. The function should return the Euclidean distance from the origin <strong>rounded to 2 decimal places</strong> (hint: use the <code class="docutils literal notranslate"><span class="pre">round()</span></code> function), i.e.:</p>
+<div class="math notranslate nohighlight">
+\[ distance = \sqrt{x^2+y^2} \]</div>
+<p>An example run is shown below, and illustrated in the figure below (you do <strong>NOT</strong> need to produce a plot as part of this assignment, this is just for illustration purposes).</p>
+<p><img alt="" src="../../_images/random-walk.png" /></p>
+<p>For the random part, you can generate a random number between <span class="math notranslate nohighlight">\(0\)</span> and <span class="math notranslate nohighlight">\(1\)</span> using <code class="docutils literal notranslate"><span class="pre">random()</span></code> (which we loaded at the top of this lab with <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">random</span> <span class="pre">import</span> <span class="pre">random</span></code>). Then, to make something happen with 25% probability, you can check if this number is less than <span class="math notranslate nohighlight">\(0.25\)</span> - if yes, step a direction, if not, is it less than <span class="math notranslate nohighlight">\(0.50\)</span> - if yes, step a different direction, if not, etc.</p>
+<p>Here is an example output for one run of the code called with <code class="docutils literal notranslate"><span class="pre">random_walker(10)</span></code> (keep in mind that, due to randomness, your program will not produce the same output every time you run it!).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">random_walker</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+<span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+<span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">)</span>
+<span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">)</span>
+<span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+<span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">)</span>
+<span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">)</span>
+<span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">)</span>
+<span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">)</span>
+<span class="mi">4</span>
+</pre></div>
+</div>
+<p>Attribution: This exercise adapted with permission from COS 126, <a class="reference external" href="http://www.cs.princeton.edu/courses/archive/fall10/cos126/assignments/loops.html">Conditionals and Loops</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># example of generating a random number</span>
+<span class="n">random</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.31700731954237293
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">random_walker</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">pass</span>  <span class="c1"># remove this line if providing a solution</span>
+
+<span class="c1"># Your answer goes here.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./lab-assignments/lab1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="../../lectures/lecture8-wrangling-advanced.html" title="previous page">Lecture 8: Advanced Data Wrangling With Pandas</a>
+    <a class='right-next' id="next-link" href="../lab2/lab2.html" title="next page">Lab 2: Tests, Classes, Style &amp; Imports</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Tomas Beuzen<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../../_static/js/index.js"></script>
+    
+  </body>
+</html>

@@ -1,0 +1,422 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Python Programming for Data Science &#8212; Python Programming for Data Science</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-dropdown.css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/sphinx-book-theme.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.png"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Lecture 1: Python Basics" href="lectures/lecture1-basics.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  <img src="_static/511_logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Python Programming for Data Science</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="#">
+   Python Programming for Data Science
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Lectures
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="lectures/lecture1-basics.html">
+   Lecture 1: Python Basics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lectures/lecture2-loops-functions.html">
+   Lecture 2: Loops &amp; Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lectures/lecture3-tests-classes.html">
+   Lecture 3: Unit Tests &amp; Classes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lectures/lecture4-style-scripts-imports.html">
+   Lecture 4: Style Guides, Scripts, Imports
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lectures/lecture5-numpy.html">
+   Lecture 5: Part 1 - Introduction to NumPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lectures/lecture5-numpy-addendum.html">
+   Lecture 5: Part 2 - NumPy Implementation Details
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lectures/lecture6-pandas.html">
+   Lecture 6: Introduction to Pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lectures/lecture7-wrangling-basics.html">
+   Lecture 7: Basic Data Wrangling With Pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lectures/lecture8-wrangling-advanced.html">
+   Lecture 8: Advanced Data Wrangling With Pandas
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Lab Assignments
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab-assignments/lab1/lab1.html">
+   Lab 1: Python Basics, Loops &amp; Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab-assignments/lab2/lab2.html">
+   Lab 2: Tests, Classes, Style &amp; Imports
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab-assignments/lab3/lab3.html">
+   Lab 3: Introduction to NumPy and Pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab-assignments/lab4/lab4.html">
+   Lab 4: Advanced Wrangling with Pandas
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Tomas Beuzen, MDS 2020<br>Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/README.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#course-learning-outcomes">
+   Course Learning Outcomes
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lectures">
+   Lectures
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dealing-with-covid-19">
+   Dealing With COVID-19
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#optional-additional-reference-learning-materials">
+   Optional Additional Reference/Learning Materials
+  </a>
+  <ul class="nav section-nav flex-column">
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <p><img alt="" src="_images/511_banner.png" /></p>
+<div class="section" id="python-programming-for-data-science">
+<h1>Python Programming for Data Science<a class="headerlink" href="#python-programming-for-data-science" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p><a class="reference external" href="https://www.tomasbeuzen.com/python-programming-for-data-science/">View this course as a website!</a></p>
+</div></blockquote>
+<p>This repository contains material used to teach DSCI 511 Python Programming for Data Science in the 2020/2021 offering of the University of British Columbia’s Master of Data Science Program.  The course covers program design and data manipulation with Python. Overview of data structures, iteration, flow control, program design, and using libraries like NumPy and Pandas for data exploration and analysis.</p>
+<div class="section" id="course-learning-outcomes">
+<h2>Course Learning Outcomes<a class="headerlink" href="#course-learning-outcomes" title="Permalink to this headline">¶</a></h2>
+<details>
+<summary>Click to expand!</summary>
+<p>
+<p>By the end of the course, students are expected to:</p>
+<ol class="simple">
+<li><p>Translate fundamental programming concepts such as loops, conditionals, etc into Python code.</p></li>
+<li><p>Understand the key data structures in Python.</p></li>
+<li><p>Understand how to write functions in Python and assess if they are correct via unit testing.</p></li>
+<li><p>Know when and how to abstract code (e.g., into functions, or classes) to make it more modular and robust.</p></li>
+<li><p>Produce human-readable code that incorporates best practices of programming, documentation, and coding style.</p></li>
+<li><p>Use NumPy perform common data wrangling and computational tasks in Python.</p></li>
+<li><p>Use Pandas to create and manipulate data structures like Series and DataFrames.</p></li>
+<li><p>Wrangle different types of data in Pandas including numeric data, strings, and datetimes.</p></li>
+</ol>
+</p>
+</details>
+</div>
+<div class="section" id="lectures">
+<h2>Lectures<a class="headerlink" href="#lectures" title="Permalink to this headline">¶</a></h2>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:center head"><p>Lecture</p></th>
+<th class="head"><p>Topic</p></th>
+<th class="head"><p>Optional Pre-readings</p></th>
+<th class="head"><p>Practice exercises</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:center"><p>1</p></td>
+<td><p>Basics</p></td>
+<td><p><a class="reference external" href="https://jakevdp.github.io/WhirlwindTourOfPython/index.html">WTP: Section 3 - Section 7</a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>2</p></td>
+<td><p>Loops &amp; Functions</p></td>
+<td><p><a class="reference external" href="https://jakevdp.github.io/WhirlwindTourOfPython/index.html">WTP: Section 8 - Section 13</a><br><a class="reference external" href="https://www.python.org/dev/peps/pep-0257/">PEP 257: Docstrings</a><br><a class="reference external" href="https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_numpy.html">NumPy docstring examples</a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>3</p></td>
+<td><p>Unit Tests &amp; Classes</p></td>
+<td><p><a class="reference external" href="https://docs.python.org/3/tutorial/classes.html">Python documentation: 9. Classes</a><br><a class="reference external" href="http://greenteapress.com/thinkpython/html/index.html">Think Python</a>: “Classes and objects”, “Classes and functions”, “Classes and methods”</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>4</p></td>
+<td><p>Style Guides, Scripts, Imports</p></td>
+<td><p><a class="reference external" href="https://www.python.org/dev/peps/pep-0008/">PEP 257: Style Guide</a><br><a class="reference external" href="https://code.visualstudio.com/docs/python/python-tutorial">Getting Started with Python in VS Code</a> up to “Run Hello World”<br><a class="reference external" href="https://docs.python.org/3/reference/import.html">Python documentation: 5. The import system</a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>5</p></td>
+<td><p>Introduction to NumPy</p></td>
+<td><p><a class="reference external" href="https://jakevdp.github.io/PythonDataScienceHandbook/02.00-introduction-to-numpy.html">PDSH: Introduction to Numpy</a><br><a class="reference external" href="https://numpy.org/doc/1.19/">Numpy documentation: Quickstart tutorial</a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>6</p></td>
+<td><p>Introduction to Pandas</p></td>
+<td><p><a class="reference external" href="https://jakevdp.github.io/PythonDataScienceHandbook/03.00-introduction-to-pandas.html">PDSH: Data Manipulation with Pandas</a> up to “Operating on Data in Pandas”<br><a class="reference external" href="https://pandas.pydata.org/docs/user_guide/10min.html">Pandas documentation: 10 minutes to pandas</a>, up to “Selection”</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>7</p></td>
+<td><p>Basic Data Wrangling with Pandas</p></td>
+<td><p><a class="reference external" href="https://jakevdp.github.io/PythonDataScienceHandbook/03.00-introduction-to-pandas.html">PDSH: Data Manipulation with Pandas</a><br><a class="reference external" href="https://pandas.pydata.org/docs/user_guide/10min.html">Pandas documentation: 10 minutes to pandas</a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>8</p></td>
+<td><p>Advanced Data Wrangling with Pandas</p></td>
+<td><p><a class="reference external" href="https://jakevdp.github.io/PythonDataScienceHandbook/03.00-introduction-to-pandas.html">PDSH: Data Manipulation with Pandas</a><br><a class="reference external" href="https://pandas.pydata.org/docs/user_guide/10min.html">Pandas documentation: 10 minutes to pandas</a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="dealing-with-covid-19">
+<h2>Dealing With COVID-19<a class="headerlink" href="#dealing-with-covid-19" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference external" href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019/events-as-they-happen">COVID-19 pandemic</a> has affected us all in different ways: it’s okay to not be okay, and we all need to support each other during this time. With that said:</p>
+<ul class="simple">
+<li><p>My (virtual) door is always open, please feel free to talk to me about how you’re doing and if/how I can help you (and if I can’t help you, I can point you in the direction of someone who can);</p></li>
+<li><p>You don’t ever need to explain yourself; if you need support, need to miss a class, or need extra time for an assignment, just ask;</p></li>
+<li><p>UBC has <a class="reference external" href="https://students.ubc.ca/covid19">great student support resources</a> related to COVID-19 (and otherwise).</p></li>
+</ul>
+<p>Further, teaching/learning an intense graduate course like MDS online is a very new concept to all of us. If you have feedback on how I can improve the teaching experience, don’t hesitate to reach out - I’m sure things won’t be perfect from the get-go.</p>
+<p>Finally, here is an official statement from UBC regarding the online learning experience:</p>
+<blockquote>
+<div><p><em>During this pandemic, the shift to online learning has greatly altered teaching and studying at UBC, including changes to health and safety considerations. Keep in mind that some UBC courses might cover topics that are censored or considered illegal by non-Canadian governments. This may include, but is not limited to, human rights, representative government, defamation, obscenity, gender or sexuality, and historical or current geopolitical controversies. If you are a student living abroad, you will be subject to the laws of your local jurisdiction, and your local authorities might limit your access to course material or take punitive action against you. UBC is strongly committed to academic freedom, but has no control over foreign authorities (please visit http://www.calendar.ubc.ca/vancouver/index.cfm?tree=3,33,86,0 for an articulation of the values of the University conveyed in the Senate Statement on Academic Freedom). Thus, we recognize that students will have legitimate reason to exercise caution in studying certain subjects. If you have concerns regarding your personal situation, consider postponing taking a course with manifest risks, until you are back on campus or reach out to your academic advisor to find substitute courses. For further information and support, please visit: http://academic.ubc.ca/support-resources/freedom-expression.</em></p>
+</div></blockquote>
+</div>
+<div class="section" id="optional-additional-reference-learning-materials">
+<h2>Optional Additional Reference/Learning Materials<a class="headerlink" href="#optional-additional-reference-learning-materials" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/3/index.html">Python documentation</a></p></li>
+<li><p><a class="reference external" href="https://greenteapress.com/wp/think-python/">Think Python: How to Think Like a Computer Scientist</a></p></li>
+<li><p><a class="reference external" href="https://jakevdp.github.io/WhirlwindTourOfPython/index.html">A Whirlwind Tour of Python (WTP)</a>, Jake VanderPlas (O’Reilly). Copyright 2016 O’Reilly Media, Inc., 978-1-491-96465-1.</p></li>
+<li><p><a class="reference external" href="https://github.com/jakevdp/PythonDataScienceHandbook">Python Data Science Handbook (PDSH)</a>, Jake VanderPlas (O’Reilly). Copyright 2016 O’Reilly Media, Inc., 978-1-491-91205-8.</p></li>
+<li><p><a class="reference external" href="http://webcat1.library.ubc.ca/vwebv/holdingsInfo?searchId=1382036&amp;recCount=10&amp;recPointer=0&amp;bibId=7430458">Python for Data Analysis</a>, Wes McKinney (O’Reilly). Copyright 2013 O’Reilly Media, Inc, <em>you can download chapters from the book for free from the UBC library</em>.</p></li>
+<li><p><a class="reference external" href="https://www.kaggle.com/learn/python">Kaggle Learn Python Tutorials</a></p></li>
+</ul>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='right-next' id="next-link" href="lectures/lecture1-basics.html" title="next page">Lecture 1: Python Basics</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Tomas Beuzen<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="_static/js/index.js"></script>
+    
+  </body>
+</html>

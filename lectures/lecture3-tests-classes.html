@@ -1,0 +1,2399 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Lecture 3: Unit Tests &amp; Classes &#8212; Python Programming for Data Science</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-dropdown.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Lecture 4: Style Guides, Scripts, Imports" href="lecture4-style-scripts-imports.html" />
+    <link rel="prev" title="Lecture 2: Loops &amp; Functions" href="lecture2-loops-functions.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/511_logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Python Programming for Data Science</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../README.html">
+   Python Programming for Data Science
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Lectures
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="lecture1-basics.html">
+   Lecture 1: Python Basics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lecture2-loops-functions.html">
+   Lecture 2: Loops &amp; Functions
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Lecture 3: Unit Tests &amp; Classes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lecture4-style-scripts-imports.html">
+   Lecture 4: Style Guides, Scripts, Imports
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lecture5-numpy.html">
+   Lecture 5: Part 1 - Introduction to NumPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lecture5-numpy-addendum.html">
+   Lecture 5: Part 2 - NumPy Implementation Details
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lecture6-pandas.html">
+   Lecture 6: Introduction to Pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lecture7-wrangling-basics.html">
+   Lecture 7: Basic Data Wrangling With Pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lecture8-wrangling-advanced.html">
+   Lecture 8: Advanced Data Wrangling With Pandas
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Lab Assignments
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../lab-assignments/lab1/lab1.html">
+   Lab 1: Python Basics, Loops &amp; Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../lab-assignments/lab2/lab2.html">
+   Lab 2: Tests, Classes, Style &amp; Imports
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../lab-assignments/lab3/lab3.html">
+   Lab 3: Introduction to NumPy and Pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../lab-assignments/lab4/lab4.html">
+   Lab 4: Advanced Wrangling with Pandas
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Tomas Beuzen, MDS 2020<br>Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/lectures/lecture3-tests-classes.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/TomasBeuzen/python-programming-for-data-science/master?urlpath=tree/lectures/lecture3-tests-classes.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/TomasBeuzen/python-programming-for-data-science/blob/master/lectures/lecture3-tests-classes.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lecture-learning-objectives">
+   Lecture Learning Objectives
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#unit-tests">
+   1. Unit Tests
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#assert-statements">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       assert
+      </span>
+     </code>
+     statements
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#test-driven-development">
+     Test Driven Development
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#testing-woes-false-positives">
+     Testing woes - false positives
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#corner-cases">
+     Corner cases
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#eafp-versus-lbyl">
+     EAFP versus LBYL
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#debugging">
+   2. Debugging
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#python-classes">
+   3. Python Classes
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#why-create-your-own-types-classes">
+     Why create your own types/classes?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#creating-a-class">
+     Creating a Class
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#instance-class-attributes">
+     Instance &amp; Class Attributes
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#methods-class-methods-static-methods">
+     Methods, Class Methods &amp; Static Methods
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#optional-decorators">
+     (OPTIONAL) Decorators
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#inheritance-subclasses">
+     Inheritance &amp; Subclasses
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#getters-setters-deleters">
+     Getters/Setters/Deleters
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <p><img alt="" src="../_images/511_banner.png" /></p>
+<div class="section" id="lecture-3-unit-tests-classes">
+<h1>Lecture 3: Unit Tests &amp; Classes<a class="headerlink" href="#lecture-3-unit-tests-classes" title="Permalink to this headline">¶</a></h1>
+<p><strong>Tomas Beuzen, September 2020</strong></p>
+<h2>Lecture Outline<span class="tocSkip"></span></h2>
+<div class="toc"><ul class="toc-item"><li><span><a href="#unit-tests" data-toc-modified-id="1.-Unit-Tests-1">1. Unit Tests</a></span></li><li><span><a href="#debugging" data-toc-modified-id="2.-Debugging-2">2. Debugging</a></span></li><li><span><a href="#python-classes" data-toc-modified-id="3.-Python-Classes-3">3. Python Classes</a></span></li></ul></div><div class="section" id="lecture-learning-objectives">
+<h2>Lecture Learning Objectives<a class="headerlink" href="#lecture-learning-objectives" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Formulate a test case to prove a function design specification</p></li>
+<li><p>Use an <code class="docutils literal notranslate"><span class="pre">assert</span></code> statement to validate a test case</p></li>
+<li><p>Debug Python code with the <code class="docutils literal notranslate"><span class="pre">pdb</span></code> module, or by using <code class="docutils literal notranslate"><span class="pre">%debug</span></code> in a Jupyter code cell</p></li>
+<li><p>Describe the difference between a <code class="docutils literal notranslate"><span class="pre">class</span></code> and a <code class="docutils literal notranslate"><span class="pre">function</span></code> in Python</p></li>
+<li><p>Be able to create a <code class="docutils literal notranslate"><span class="pre">class</span></code></p></li>
+<li><p>Differentiate between <code class="docutils literal notranslate"><span class="pre">instance</span> <span class="pre">attributes</span></code> and <code class="docutils literal notranslate"><span class="pre">class</span> <span class="pre">attributes</span></code></p></li>
+<li><p>Differentiate between <code class="docutils literal notranslate"><span class="pre">methods</span></code>, <code class="docutils literal notranslate"><span class="pre">class</span> <span class="pre">methods</span></code> and <code class="docutils literal notranslate"><span class="pre">static</span> <span class="pre">methods</span></code></p></li>
+<li><p>Understand and implement <code class="docutils literal notranslate"><span class="pre">subclassing</span></code>/<code class="docutils literal notranslate"><span class="pre">inheritance</span></code> with Python classes</p></li>
+</ul>
+</div>
+<div class="section" id="unit-tests">
+<h2>1. Unit Tests<a class="headerlink" href="#unit-tests" title="Permalink to this headline">¶</a></h2>
+<hr><ul class="simple">
+<li><p>Last lecture we discussed Python functions</p></li>
+<li><p>But how can we be sure that our function is doing exactly what we expect it to do?</p></li>
+<li><p><strong>Unit testing</strong> is the process of testing our function to ensure it’s giving us the results we expect</p></li>
+<li><p>You’ll explore testing in more detail in DSCI 524, including automating testing and designing robust testing regimes</p></li>
+<li><p>But let’s briefly introduce the concept here</p></li>
+</ul>
+<div class="section" id="assert-statements">
+<h3><code class="docutils literal notranslate"><span class="pre">assert</span></code> statements<a class="headerlink" href="#assert-statements" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">assert</span></code> statements are the most common way to test your functions</p></li>
+<li><p>They cause your program to fail if the tested condition is <code class="docutils literal notranslate"><span class="pre">False</span></code></p></li>
+<li><p>The syntax is:</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">expression</span><span class="p">,</span> <span class="s2">&quot;Error message if expression is False or raises an error.&quot;</span>
+</pre></div>
+</div>
+<div class="cell tag_raises-exception docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="mi">1</span> <span class="o">==</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;1 is not equal to 2.&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AssertionError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="mi">74</span><span class="n">b71e52d7cf</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="k">assert</span> <span class="mi">1</span> <span class="o">==</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;1 is not equal to 2.&quot;</span>
+
+<span class="ne">AssertionError</span>: 1 is not equal to 2.
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Asserting that two numbers are approximately equal can also be helpful</p></li>
+<li><p>Due to the limitations of floating-point arithmetic in computers, numbers we expect to be equal are sometimes not (more on that in 572)</p></li>
+</ul>
+<div class="cell tag_raises-exception docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.2</span> <span class="o">==</span> <span class="mf">0.3</span><span class="p">,</span> <span class="s2">&quot;Not equal!&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AssertionError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">2</span><span class="o">-</span><span class="n">be33c16f53c8</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="k">assert</span> <span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.2</span> <span class="o">==</span> <span class="mf">0.3</span><span class="p">,</span> <span class="s2">&quot;Not equal!&quot;</span>
+
+<span class="ne">AssertionError</span>: Not equal!
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>  <span class="c1"># we&#39;ll learn about importing modules next lecture</span>
+<span class="k">assert</span> <span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">),</span> <span class="s2">&quot;Not equal!&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>You can test any statement that evaluates to a boolean</p></li>
+</ul>
+<div class="cell tag_raises-exception docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="s1">&#39;varada&#39;</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;mike&#39;</span><span class="p">,</span> <span class="s1">&#39;tom&#39;</span><span class="p">,</span> <span class="s1">&#39;tiffany&#39;</span><span class="p">],</span> <span class="s2">&quot;Instructor not present!&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AssertionError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">4</span><span class="o">-</span><span class="n">ff5cfa3cbd54</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="k">assert</span> <span class="s1">&#39;varada&#39;</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;mike&#39;</span><span class="p">,</span> <span class="s1">&#39;tom&#39;</span><span class="p">,</span> <span class="s1">&#39;tiffany&#39;</span><span class="p">],</span> <span class="s2">&quot;Instructor not present!&quot;</span>
+
+<span class="ne">AssertionError</span>: Instructor not present!
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="test-driven-development">
+<h3>Test Driven Development<a class="headerlink" href="#test-driven-development" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Test Driven Development (TDD) is where you write your tests before your actual function (<a class="reference external" href="https://py-pkgs.org/chapters/04-testing#when-to-write-your-tests">more here</a>)</p></li>
+<li><p>This may seem a little counter-intuitive, but you’re creating the expectations of your function before the actual function</p></li>
+<li><p>This can be helpful for several reasons:</p>
+<ul>
+<li><p>you will better understand exactly what code you need to write;</p></li>
+<li><p>you are forced to write tests upfront;</p></li>
+<li><p>you won’t encounter large time-consuming bugs down the line; and,</p></li>
+<li><p>it helps to keep your workflow manageable by focussing on small, incremental code improvements and additions.</p></li>
+</ul>
+</li>
+</ul>
+<ul class="simple">
+<li><p>In general, the approach is as follows:</p>
+<ol class="simple">
+<li><p>Write a stub: a function that does nothing but accept all input parameters and return the correct datatype.</p></li>
+<li><p>Write tests to satisfy your design specifications.</p></li>
+<li><p>Outline the program with pseudo-code.</p></li>
+<li><p>Write code and test frequently.</p></li>
+<li><p>Write documentation.</p></li>
+</ol>
+</li>
+</ul>
+<ul class="simple">
+<li><p><strong>You do not have to do TDD in MDS</strong>, but you may find it helpful, especially when it comes to designing more complex programs/packages.</p></li>
+</ul>
+</div>
+<div class="section" id="testing-woes-false-positives">
+<h3>Testing woes - false positives<a class="headerlink" href="#testing-woes-false-positives" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><strong>Just because all your tests pass, this does not mean your program is correct!!</strong></p></li>
+<li><p>This happens all the time. How to deal with it?</p>
+<ul>
+<li><p>Write a lot of tests!</p></li>
+<li><p>Write documentation.</p></li>
+<li><p>Don’t be overconfident, even after writing a lot of tests!</p></li>
+</ul>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sample_median</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Finds the median of a list of numbers.&quot;&quot;&quot;</span>
+    <span class="n">x_sorted</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">x_sorted</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">x_sorted</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span><span class="p">]</span>
+
+<span class="k">assert</span> <span class="n">sample_median</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span> <span class="o">==</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;test failed!&quot;</span>
+<span class="k">assert</span> <span class="n">sample_median</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;test failed!&quot;</span>
+<span class="k">assert</span> <span class="n">sample_median</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span> <span class="o">==</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;test failed!&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Looks like our tests passed! We must be good to go…</p></li>
+<li><p>But wait…</p></li>
+</ul>
+<div class="cell tag_raises-exception docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">sample_median</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span> <span class="o">==</span> <span class="mf">2.5</span><span class="p">,</span> <span class="s2">&quot;test failed!&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AssertionError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">6</span><span class="o">-</span><span class="mi">395</span><span class="n">f3a80c842</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="k">assert</span> <span class="n">sample_median</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span> <span class="o">==</span> <span class="mf">2.5</span><span class="p">,</span> <span class="s2">&quot;test failed!&quot;</span>
+
+<span class="ne">AssertionError</span>: test failed!
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="corner-cases">
+<h3>Corner cases<a class="headerlink" href="#corner-cases" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>A <strong>corner case</strong> is an input that is reasonable but a bit unusual, and may trip up your code.</p></li>
+<li><p>For example, taking the median of an empty list, or a list with only one element.</p></li>
+<li><p>Often it is desirable to add test cases to address corner cases.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">sample_median</span><span class="p">([</span><span class="mi">1</span><span class="p">])</span> <span class="o">==</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>In this case the code worked with no extra effort, but sometimes we need <code class="docutils literal notranslate"><span class="pre">if</span></code> statements to handle the weird cases.</p></li>
+<li><p>For example, sometimes we want the code to throw a particular error</p></li>
+<li><p>We’ll learn about writing tests for code that raises a specified error in 524</p></li>
+</ul>
+</div>
+<div class="section" id="eafp-versus-lbyl">
+<h3>EAFP versus LBYL<a class="headerlink" href="#eafp-versus-lbyl" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Somewhat related to testing and function design are the philosophies EAFP and LBYL</p></li>
+<li><p>EAFP = “Easier to ask for fogiveness than permission”</p>
+<ul>
+<li><p>In coding lingo: try doing something, and if it doesn’t work, catch the error</p></li>
+</ul>
+</li>
+<li><p>LBYL = “Look before you leep”</p>
+<ul>
+<li><p>In coding lingo: check that you can do something before trying to do it</p></li>
+</ul>
+</li>
+<li><p>These two acronyms refer to coding philosophies about how to write your code</p></li>
+<li><p>Let’s see an example</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Doctor Python&#39;</span><span class="p">,</span>
+     <span class="s1">&#39;superpower&#39;</span><span class="p">:</span> <span class="s1">&#39;programming&#39;</span><span class="p">,</span>
+     <span class="s1">&#39;weakness&#39;</span><span class="p">:</span> <span class="s1">&#39;mountain dew&#39;</span><span class="p">,</span>
+     <span class="s1">&#39;enemies&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># EAFP</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">d</span><span class="p">[</span><span class="s1">&#39;address&#39;</span><span class="p">]</span>
+<span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Please forgive me!&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Please forgive me!
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># LBYL</span>
+<span class="k">if</span> <span class="s1">&#39;address&#39;</span> <span class="ow">in</span> <span class="n">d</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="n">d</span><span class="p">[</span><span class="s1">&#39;address&#39;</span><span class="p">]</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Saved you before you leapt!&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Saved you before you leapt!
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>While EAFP is often vouched for in Python, there’s no right and wrong way to code and it’s often context-specific</p></li>
+<li><p>I personally mix the two philosophies most of the time</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="debugging">
+<h2>2. Debugging<a class="headerlink" href="#debugging" title="Permalink to this headline">¶</a></h2>
+<hr><ul class="simple">
+<li><p>My Python code doesn’t work: what do I do?</p></li>
+<li><p>At the moment, most of you probably do “manual testing” or “exploratory testing”</p></li>
+<li><p>You keep changing your code until it works, maybe add some print statements around the place to isolate any problems</p></li>
+<li><p>For example, recall the <code class="docutils literal notranslate"><span class="pre">random_walker</span></code> from lab 1, which is adapted with permission from COS 126, <a class="reference external" href="http://www.cs.princeton.edu/courses/archive/fall10/cos126/assignments/loops.html">Conditionals and Loops</a>:</p></li>
+</ul>
+<div class="cell tag_ignore docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">random</span>
+
+<span class="k">def</span> <span class="nf">random_walker</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Simulates T steps of a 2D random walk, and prints the result after each step.</span>
+<span class="sd">    Returns the squared distance from the origin.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    T : int</span>
+<span class="sd">        The number of steps to take.</span>
+<span class="sd">        </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float</span>
+<span class="sd">        The squared distance from the origin to the endpoint, rounded to 2 decimals.</span>
+<span class="sd">        </span>
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; random_walker(3)</span>
+<span class="sd">    (0, -1)</span>
+<span class="sd">    (0, 0)</span>
+<span class="sd">    (0, -1)</span>
+<span class="sd">    1.0</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
+        <span class="n">rand</span> <span class="o">=</span> <span class="n">random</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">rand</span> <span class="o">&lt;</span> <span class="mf">0.25</span><span class="p">:</span>
+            <span class="n">x</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="n">rand</span> <span class="o">&lt;</span> <span class="mf">0.5</span><span class="p">:</span>
+            <span class="n">x</span> <span class="o">-=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="n">rand</span> <span class="o">&lt;</span> <span class="mf">0.75</span><span class="p">:</span>
+            <span class="n">y</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">y</span> <span class="o">-=</span> <span class="mi">1</span>
+        <span class="nb">print</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span>
+    <span class="k">return</span> <span class="nb">round</span><span class="p">((</span><span class="n">x</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">y</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">**</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="n">random_walker</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(-1, 1)
+(-1, 0)
+(-1, 1)
+(-2, 2)
+(-2, 3)
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.61
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>If we re-run the code above, our random walker never goes right (the x-coordinate is never +ve)…</p></li>
+<li><p>We might try to add some print statement here to see what’s going on</p></li>
+</ul>
+<div class="cell tag_ignore docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">random_walker</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Simulates T steps of a 2D random walk, and prints the result after each step.</span>
+<span class="sd">    Returns the squared distance from the origin.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    T : int</span>
+<span class="sd">        The number of steps to take.</span>
+<span class="sd">        </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float</span>
+<span class="sd">        The squared distance from the origin to the endpoint, rounded to 2 decimals.</span>
+<span class="sd">        </span>
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; random_walker(3)</span>
+<span class="sd">    (0, -1)</span>
+<span class="sd">    (0, 0)</span>
+<span class="sd">    (0, -1)</span>
+<span class="sd">    1.0</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
+        <span class="n">rand</span> <span class="o">=</span> <span class="n">random</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">rand</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">rand</span> <span class="o">&lt;</span> <span class="mf">0.25</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;I&#39;m going right!&quot;</span><span class="p">)</span>
+            <span class="n">x</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="n">rand</span> <span class="o">&lt;</span> <span class="mf">0.5</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;I&#39;m going left!&quot;</span><span class="p">)</span>
+            <span class="n">x</span> <span class="o">-=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="n">rand</span> <span class="o">&lt;</span> <span class="mf">0.75</span><span class="p">:</span>
+            <span class="n">y</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">y</span> <span class="o">-=</span> <span class="mi">1</span>
+        <span class="nb">print</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span>
+    <span class="k">return</span> <span class="nb">round</span><span class="p">((</span><span class="n">x</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">y</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">**</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="n">random_walker</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9860130141883825
+(0, -1)
+0.6511264330921651
+(0, 0)
+0.3266533430279309
+I&#39;m going left!
+(-1, 1)
+0.15548887675244993
+I&#39;m going right!
+I&#39;m going left!
+(-1, 2)
+0.6313969833620015
+(-1, 3)
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.16
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Ah! We see that even every time after a <code class="docutils literal notranslate"><span class="pre">&quot;I'm</span> <span class="pre">going</span> <span class="pre">right!&quot;</span></code> we immediately get a <code class="docutils literal notranslate"><span class="pre">&quot;I'm</span> <span class="pre">going</span> <span class="pre">left!&quot;</span></code></p></li>
+<li><p>The problem is in our <code class="docutils literal notranslate"><span class="pre">if</span></code> statements, we should be using <code class="docutils literal notranslate"><span class="pre">elif</span></code> for each statement after the intial <code class="docutils literal notranslate"><span class="pre">if</span></code>, otherwise multiple conditions may be met each time…</p></li>
+</ul>
+<ul class="simple">
+<li><p>This was a pretty simple debugging case, adding print statements is not always helpful or efficient</p></li>
+<li><p>Alternative: <code class="docutils literal notranslate"><span class="pre">pdb</span></code></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/pdb.html"><code class="docutils literal notranslate"><span class="pre">pdb</span></code> is the Python Debugger</a> included with the standard library</p></li>
+<li><p>We can use <code class="docutils literal notranslate"><span class="pre">breakpoint()</span></code> to leverage <code class="docutils literal notranslate"><span class="pre">pdb</span></code> and set a “break point” at any point in our code and then inspect our variables</p></li>
+<li><p>See the <code class="docutils literal notranslate"><span class="pre">pdb</span></code> docs <a class="reference external" href="https://docs.python.org/3/library/pdb.html">here</a> and this <a class="reference external" href="https://appletree.or.kr/quick_reference_cards/Python/Python%20Debugger%20Cheatsheet.pdf">cheatsheet</a> for help interacting with the debugger console</p></li>
+</ul>
+<div class="cell tag_raises-exception docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">random_walker</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Simulates T steps of a 2D random walk, and prints the result after each step.</span>
+<span class="sd">    Returns the squared distance from the origin.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    T : int</span>
+<span class="sd">        The number of steps to take.</span>
+<span class="sd">        </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float</span>
+<span class="sd">        The squared distance from the origin to the endpoint, rounded to 2 decimals.</span>
+<span class="sd">        </span>
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; random_walker(3)</span>
+<span class="sd">    (0, -1)</span>
+<span class="sd">    (0, 0)</span>
+<span class="sd">    (0, -1)</span>
+<span class="sd">    1.0</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
+        <span class="n">rand</span> <span class="o">=</span> <span class="n">random</span><span class="p">()</span>
+        <span class="n">breakpoint</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">rand</span> <span class="o">&lt;</span> <span class="mf">0.25</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;I&#39;m going right!&quot;</span><span class="p">)</span>
+            <span class="n">x</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="n">rand</span> <span class="o">&lt;</span> <span class="mf">0.5</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;I&#39;m going left!&quot;</span><span class="p">)</span>
+            <span class="n">x</span> <span class="o">-=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="n">rand</span> <span class="o">&lt;</span> <span class="mf">0.75</span><span class="p">:</span>
+            <span class="n">y</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">y</span> <span class="o">-=</span> <span class="mi">1</span>
+        <span class="nb">print</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span>
+    <span class="k">return</span> <span class="nb">round</span><span class="p">((</span><span class="n">x</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">y</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">**</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="n">random_walker</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&gt; <span class=" -Color -Color-Green">&lt;ipython-input-13-005ed635a05e&gt;</span>(31)<span class=" -Color -Color-Cyan">random_walker</span><span class=" -Color -Color-Blue">()</span>
+<span class=" -Color -Color-Green">     29 </span><span class=" -Color -Color-Red">        </span>rand <span class=" -Color -Color-Blue">=</span> random<span class=" -Color -Color-Blue">()</span>
+<span class=" -Color -Color-Green">     30 </span><span class=" -Color -Color-Red">        </span>breakpoint<span class=" -Color -Color-Blue">()</span>
+<span class=" -Color -Color-Green">---&gt; 31 </span><span class=" -Color -Color-Red">        </span><span class=" -Color -Color-Green">if</span> rand <span class=" -Color -Color-Blue">&lt;</span> <span class=" -Color -Color-Cyan">0.25</span><span class=" -Color -Color-Blue">:</span>
+<span class=" -Color -Color-Green">     32 </span><span class=" -Color -Color-Red">            </span>print<span class=" -Color -Color-Blue">(&quot;I&#39;m going right!&quot;)</span>
+<span class=" -Color -Color-Green">     33 </span><span class=" -Color -Color-Red">            </span>x <span class=" -Color -Color-Blue">+=</span> <span class=" -Color -Color-Cyan">1</span>
+
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">StdinNotImplementedError</span><span class="g g-Whitespace">                  </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">13</span><span class="o">-</span><span class="mi">005</span><span class="n">ed635a05e</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">     </span><span class="mi">42</span>     <span class="k">return</span> <span class="nb">round</span><span class="p">((</span><span class="n">x</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">y</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">**</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">43</span> 
+<span class="ne">---&gt; </span><span class="mi">44</span> <span class="n">random_walker</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="nn">&lt;ipython-input-13-005ed635a05e&gt;</span> in <span class="ni">random_walker</span><span class="nt">(T)</span>
+<span class="g g-Whitespace">     </span><span class="mi">29</span>         <span class="n">rand</span> <span class="o">=</span> <span class="n">random</span><span class="p">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">30</span>         <span class="n">breakpoint</span><span class="p">()</span>
+<span class="ne">---&gt; </span><span class="mi">31</span>         <span class="k">if</span> <span class="n">rand</span> <span class="o">&lt;</span> <span class="mf">0.25</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">32</span>             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;I&#39;m going right!&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">33</span>             <span class="n">x</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="nn">&lt;ipython-input-13-005ed635a05e&gt;</span> in <span class="ni">random_walker</span><span class="nt">(T)</span>
+<span class="g g-Whitespace">     </span><span class="mi">29</span>         <span class="n">rand</span> <span class="o">=</span> <span class="n">random</span><span class="p">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">30</span>         <span class="n">breakpoint</span><span class="p">()</span>
+<span class="ne">---&gt; </span><span class="mi">31</span>         <span class="k">if</span> <span class="n">rand</span> <span class="o">&lt;</span> <span class="mf">0.25</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">32</span>             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;I&#39;m going right!&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">33</span>             <span class="n">x</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="nn">/opt/miniconda3/envs/mds511/lib/python3.7/bdb.py</span> in <span class="ni">trace_dispatch</span><span class="nt">(self, frame, event, arg)</span>
+<span class="g g-Whitespace">     </span><span class="mi">86</span>             <span class="k">return</span> <span class="c1"># None</span>
+<span class="g g-Whitespace">     </span><span class="mi">87</span>         <span class="k">if</span> <span class="n">event</span> <span class="o">==</span> <span class="s1">&#39;line&#39;</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">88</span>             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">dispatch_line</span><span class="p">(</span><span class="n">frame</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">89</span>         <span class="k">if</span> <span class="n">event</span> <span class="o">==</span> <span class="s1">&#39;call&#39;</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">90</span>             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">dispatch_call</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="n">arg</span><span class="p">)</span>
+
+<span class="nn">/opt/miniconda3/envs/mds511/lib/python3.7/bdb.py</span> in <span class="ni">dispatch_line</span><span class="nt">(self, frame)</span>
+<span class="g g-Whitespace">    </span><span class="mi">110</span>         <span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">111</span><span class="sd">         if self.stop_here(frame) or self.break_here(frame):</span>
+<span class="ne">--&gt; </span><span class="mi">112</span><span class="sd">             self.user_line(frame)</span>
+<span class="g g-Whitespace">    </span><span class="mi">113</span><span class="sd">             if self.quitting: raise BdbQuit</span>
+<span class="g g-Whitespace">    </span><span class="mi">114</span><span class="sd">         return self.trace_dispatch</span>
+
+<span class="nn">/opt/miniconda3/envs/mds511/lib/python3.7/pdb.py</span> in <span class="ni">user_line</span><span class="nt">(self, frame)</span>
+<span class="g g-Whitespace">    </span><span class="mi">257</span><span class="sd">             self._wait_for_mainpyfile = False</span>
+<span class="g g-Whitespace">    </span><span class="mi">258</span><span class="sd">         if self.bp_commands(frame):</span>
+<span class="ne">--&gt; </span><span class="mi">259</span><span class="sd">             self.interaction(frame, None)</span>
+<span class="g g-Whitespace">    </span><span class="mi">260</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">261</span><span class="sd">     def bp_commands(self, frame):</span>
+
+<span class="nn">/opt/miniconda3/envs/mds511/lib/python3.7/site-packages/IPython/core/debugger.py</span> in <span class="ni">interaction</span><span class="nt">(self, frame, traceback)</span>
+<span class="g g-Whitespace">    </span><span class="mi">310</span><span class="sd">     def interaction(self, frame, traceback):</span>
+<span class="g g-Whitespace">    </span><span class="mi">311</span><span class="sd">         try:</span>
+<span class="ne">--&gt; </span><span class="mi">312</span><span class="sd">             OldPdb.interaction(self, frame, traceback)</span>
+<span class="g g-Whitespace">    </span><span class="mi">313</span><span class="sd">         except KeyboardInterrupt:</span>
+<span class="g g-Whitespace">    </span><span class="mi">314</span><span class="sd">             self.stdout.write(&quot;\n&quot; + self.shell.get_exception_only())</span>
+
+<span class="nn">/opt/miniconda3/envs/mds511/lib/python3.7/pdb.py</span> in <span class="ni">interaction</span><span class="nt">(self, frame, traceback)</span>
+<span class="g g-Whitespace">    </span><span class="mi">348</span><span class="sd">             return</span>
+<span class="g g-Whitespace">    </span><span class="mi">349</span><span class="sd">         self.print_stack_entry(self.stack[self.curindex])</span>
+<span class="ne">--&gt; </span><span class="mi">350</span><span class="sd">         self._cmdloop()</span>
+<span class="g g-Whitespace">    </span><span class="mi">351</span><span class="sd">         self.forget()</span>
+<span class="g g-Whitespace">    </span><span class="mi">352</span><span class="sd"> </span>
+
+<span class="nn">/opt/miniconda3/envs/mds511/lib/python3.7/site-packages/IPython/core/debugger.py</span> in <span class="ni">_cmdloop</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">797</span><span class="sd">                 # the current command, so allow them during interactive input</span>
+<span class="g g-Whitespace">    </span><span class="mi">798</span><span class="sd">                 self.allow_kbdint = True</span>
+<span class="ne">--&gt; </span><span class="mi">799</span><span class="sd">                 self.cmdloop()</span>
+<span class="g g-Whitespace">    </span><span class="mi">800</span><span class="sd">                 self.allow_kbdint = False</span>
+<span class="g g-Whitespace">    </span><span class="mi">801</span><span class="sd">                 break</span>
+
+<span class="nn">/opt/miniconda3/envs/mds511/lib/python3.7/site-packages/IPython/core/debugger.py</span> in <span class="ni">cmdloop</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">783</span><span class="sd">         &quot;&quot;&quot;</span><span class="n">Wrap</span> <span class="n">cmdloop</span><span class="p">()</span> <span class="n">such</span> <span class="n">that</span> <span class="ne">KeyboardInterrupt</span> <span class="n">stops</span> <span class="n">the</span> <span class="n">debugger</span><span class="o">.</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">784</span><span class="s2">         try:</span>
+<span class="ne">--&gt; </span><span class="mi">785</span><span class="s2">             return OldPdb.cmdloop(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">786</span><span class="s2">         except KeyboardInterrupt:</span>
+<span class="g g-Whitespace">    </span><span class="mi">787</span><span class="s2">             self.stop_here = lambda frame: False</span>
+
+<span class="nn">/opt/miniconda3/envs/mds511/lib/python3.7/cmd.py</span> in <span class="ni">cmdloop</span><span class="nt">(self, intro)</span>
+<span class="g g-Whitespace">    </span><span class="mi">124</span><span class="s2">                     if self.use_rawinput:</span>
+<span class="g g-Whitespace">    </span><span class="mi">125</span><span class="s2">                         try:</span>
+<span class="ne">--&gt; </span><span class="mi">126</span><span class="s2">                             line = input(self.prompt)</span>
+<span class="g g-Whitespace">    </span><span class="mi">127</span><span class="s2">                         except EOFError:</span>
+<span class="g g-Whitespace">    </span><span class="mi">128</span><span class="s2">                             line = &#39;EOF&#39;</span>
+
+<span class="nn">/opt/miniconda3/envs/mds511/lib/python3.7/site-packages/ipykernel/kernelbase.py</span> in <span class="ni">raw_input</span><span class="nt">(self, prompt)</span>
+<span class="g g-Whitespace">    </span><span class="mi">856</span><span class="s2">         if not self._allow_stdin:</span>
+<span class="g g-Whitespace">    </span><span class="mi">857</span><span class="s2">             raise StdinNotImplementedError(</span>
+<span class="ne">--&gt; </span><span class="mi">858</span><span class="s2">                 &quot;raw_input was called, but this frontend does not support input requests.&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">859</span><span class="s2">             )</span>
+<span class="g g-Whitespace">    </span><span class="mi">860</span><span class="s2">         return self._input_request(str(prompt),</span>
+
+<span class="ne">StdinNotImplementedError</span>: raw_input was called, but this frontend does not support input requests.
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>So the correct code should be:</p></li>
+</ul>
+<div class="cell tag_ignore docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">random_walker</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Simulates T steps of a 2D random walk, and prints the result after each step.</span>
+<span class="sd">    Returns the squared distance from the origin.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    T : int</span>
+<span class="sd">        The number of steps to take.</span>
+<span class="sd">        </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float</span>
+<span class="sd">        The squared distance from the origin to the endpoint, rounded to 2 decimals.</span>
+<span class="sd">        </span>
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; random_walker(3)</span>
+<span class="sd">    (0, -1)</span>
+<span class="sd">    (0, 0)</span>
+<span class="sd">    (0, -1)</span>
+<span class="sd">    1.0</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
+        <span class="n">rand</span> <span class="o">=</span> <span class="n">random</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">rand</span> <span class="o">&lt;</span> <span class="mf">0.25</span><span class="p">:</span>
+            <span class="n">x</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">elif</span> <span class="n">rand</span> <span class="o">&lt;</span> <span class="mf">0.5</span><span class="p">:</span>
+            <span class="n">x</span> <span class="o">-=</span> <span class="mi">1</span>
+        <span class="k">elif</span> <span class="n">rand</span> <span class="o">&lt;</span> <span class="mf">0.75</span><span class="p">:</span>
+            <span class="n">y</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">y</span> <span class="o">-=</span> <span class="mi">1</span>
+        <span class="nb">print</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span>
+    <span class="k">return</span> <span class="nb">round</span><span class="p">((</span><span class="n">x</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">y</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">**</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="n">random_walker</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(-1, 0)
+(-1, -1)
+(-2, -1)
+(-2, 0)
+(-2, 1)
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.24
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>I wanted to show <code class="docutils literal notranslate"><span class="pre">pdb</span></code> because it’s the standard Python debugger.</p></li>
+<li><p>Most Python IDE’s also have their own debugging workflow, for example, here’s a tutorial on <a class="reference external" href="https://code.visualstudio.com/docs/python/python-tutorial#_configure-and-run-the-debugger">debugging in VSCode</a> (which I am admittedly terrible at)</p></li>
+<li><p>However, within Jupyter, there is some “<a class="reference external" href="https://ipython.readthedocs.io/en/stable/interactive/magics.html">magic</a>” commands that you can use which we won’t explore in detail here but will see throughout MDS</p></li>
+<li><p>The one we are interested in here is <code class="docutils literal notranslate"><span class="pre">%debug</span></code>. There are a few ways you can use it, but the easiest is if a cell raises an error, we can create a new cell underneath and just write <code class="docutils literal notranslate"><span class="pre">%debug</span></code> and run that cell to debug our previous error.</p></li>
+</ul>
+<div class="cell tag_raises-exception docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">x</span> <span class="o">+</span> <span class="s1">&#39;string&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">15</span><span class="o">-</span><span class="mi">496</span><span class="n">b359b128e</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">x</span> <span class="o">+</span> <span class="s1">&#39;string&#39;</span>
+
+<span class="ne">TypeError</span>: unsupported operand type(s) for +: &#39;int&#39; and &#39;str&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_raises-exception docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">debug</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&gt; <span class=" -Color -Color-Green">&lt;ipython-input-15-496b359b128e&gt;</span>(2)<span class=" -Color -Color-Cyan">&lt;module&gt;</span><span class=" -Color -Color-Blue">()</span>
+<span class=" -Color -Color-Green">      1 </span>x <span class=" -Color -Color-Blue">=</span> <span class=" -Color -Color-Cyan">1</span>
+<span class=" -Color -Color-Green">----&gt; 2 </span>x <span class=" -Color -Color-Blue">+</span> <span class=" -Color -Color-Blue">&#39;string&#39;</span>
+
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">StdinNotImplementedError</span><span class="g g-Whitespace">                  </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">16</span><span class="o">-</span><span class="n">bc99e4ec804d</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">get_ipython</span><span class="p">()</span><span class="o">.</span><span class="n">run_line_magic</span><span class="p">(</span><span class="s1">&#39;debug&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+
+<span class="nn">/opt/miniconda3/envs/mds511/lib/python3.7/site-packages/IPython/core/interactiveshell.py</span> in <span class="ni">run_line_magic</span><span class="nt">(self, magic_name, line, _stack_depth)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2324</span>                 <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;local_ns&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_local_scope</span><span class="p">(</span><span class="n">stack_depth</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2325</span>             <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">builtin_trap</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">2326</span>                 <span class="n">result</span> <span class="o">=</span> <span class="n">fn</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2327</span>             <span class="k">return</span> <span class="n">result</span>
+<span class="g g-Whitespace">   </span><span class="mi">2328</span> 
+
+<span class="nn">&lt;decorator-gen-57&gt;</span> in <span class="ni">debug</span><span class="nt">(self, line, cell)</span>
+
+<span class="nn">/opt/miniconda3/envs/mds511/lib/python3.7/site-packages/IPython/core/magic.py</span> in <span class="ni">&lt;lambda&gt;</span><span class="nt">(f, *a, **k)</span>
+<span class="g g-Whitespace">    </span><span class="mi">185</span>     <span class="c1"># but it&#39;s overkill for just that one bit of state.</span>
+<span class="g g-Whitespace">    </span><span class="mi">186</span>     <span class="k">def</span> <span class="nf">magic_deco</span><span class="p">(</span><span class="n">arg</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">187</span>         <span class="n">call</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">f</span><span class="p">,</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="o">**</span><span class="n">k</span><span class="p">:</span> <span class="n">f</span><span class="p">(</span><span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="o">**</span><span class="n">k</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">188</span> 
+<span class="g g-Whitespace">    </span><span class="mi">189</span>         <span class="k">if</span> <span class="n">callable</span><span class="p">(</span><span class="n">arg</span><span class="p">):</span>
+
+<span class="nn">/opt/miniconda3/envs/mds511/lib/python3.7/site-packages/IPython/core/magics/execution.py</span> in <span class="ni">debug</span><span class="nt">(self, line, cell)</span>
+<span class="g g-Whitespace">    </span><span class="mi">467</span> 
+<span class="g g-Whitespace">    </span><span class="mi">468</span>         <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">breakpoint</span> <span class="ow">or</span> <span class="n">args</span><span class="o">.</span><span class="n">statement</span> <span class="ow">or</span> <span class="n">cell</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">469</span>             <span class="bp">self</span><span class="o">.</span><span class="n">_debug_post_mortem</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">470</span>         <span class="k">elif</span> <span class="ow">not</span> <span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">breakpoint</span> <span class="ow">or</span> <span class="n">cell</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">471</span>             <span class="c1"># If there is no breakpoints, the line is just code to execute</span>
+
+<span class="nn">/opt/miniconda3/envs/mds511/lib/python3.7/site-packages/IPython/core/magics/execution.py</span> in <span class="ni">_debug_post_mortem</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">481</span> 
+<span class="g g-Whitespace">    </span><span class="mi">482</span>     <span class="k">def</span> <span class="nf">_debug_post_mortem</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">483</span>         <span class="bp">self</span><span class="o">.</span><span class="n">shell</span><span class="o">.</span><span class="n">debugger</span><span class="p">(</span><span class="n">force</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">484</span> 
+<span class="g g-Whitespace">    </span><span class="mi">485</span>     <span class="k">def</span> <span class="nf">_debug_exec</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">code</span><span class="p">,</span> <span class="n">breakpoint</span><span class="p">):</span>
+
+<span class="nn">/opt/miniconda3/envs/mds511/lib/python3.7/site-packages/IPython/core/interactiveshell.py</span> in <span class="ni">debugger</span><span class="nt">(self, force)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1189</span>             <span class="k">return</span>
+<span class="g g-Whitespace">   </span><span class="mi">1190</span> 
+<span class="ne">-&gt; </span><span class="mi">1191</span>         <span class="bp">self</span><span class="o">.</span><span class="n">InteractiveTB</span><span class="o">.</span><span class="n">debugger</span><span class="p">(</span><span class="n">force</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1192</span> 
+<span class="g g-Whitespace">   </span><span class="mi">1193</span>     <span class="c1">#-------------------------------------------------------------------------</span>
+
+<span class="nn">/opt/miniconda3/envs/mds511/lib/python3.7/site-packages/IPython/core/ultratb.py</span> in <span class="ni">debugger</span><span class="nt">(self, force)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1264</span>                     <span class="n">etb</span> <span class="o">=</span> <span class="n">etb</span><span class="o">.</span><span class="n">tb_next</span>
+<span class="g g-Whitespace">   </span><span class="mi">1265</span>                 <span class="bp">self</span><span class="o">.</span><span class="n">pdb</span><span class="o">.</span><span class="n">botframe</span> <span class="o">=</span> <span class="n">etb</span><span class="o">.</span><span class="n">tb_frame</span>
+<span class="ne">-&gt; </span><span class="mi">1266</span>                 <span class="bp">self</span><span class="o">.</span><span class="n">pdb</span><span class="o">.</span><span class="n">interaction</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">etb</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1267</span> 
+<span class="g g-Whitespace">   </span><span class="mi">1268</span>         <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;tb&#39;</span><span class="p">):</span>
+
+<span class="nn">/opt/miniconda3/envs/mds511/lib/python3.7/site-packages/IPython/core/debugger.py</span> in <span class="ni">interaction</span><span class="nt">(self, frame, traceback)</span>
+<span class="g g-Whitespace">    </span><span class="mi">310</span>     <span class="k">def</span> <span class="nf">interaction</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">frame</span><span class="p">,</span> <span class="n">traceback</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">311</span>         <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">312</span>             <span class="n">OldPdb</span><span class="o">.</span><span class="n">interaction</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">frame</span><span class="p">,</span> <span class="n">traceback</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">313</span>         <span class="k">except</span> <span class="ne">KeyboardInterrupt</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">314</span>             <span class="bp">self</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">shell</span><span class="o">.</span><span class="n">get_exception_only</span><span class="p">())</span>
+
+<span class="nn">/opt/miniconda3/envs/mds511/lib/python3.7/pdb.py</span> in <span class="ni">interaction</span><span class="nt">(self, frame, traceback)</span>
+<span class="g g-Whitespace">    </span><span class="mi">348</span>             <span class="k">return</span>
+<span class="g g-Whitespace">    </span><span class="mi">349</span>         <span class="bp">self</span><span class="o">.</span><span class="n">print_stack_entry</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">stack</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">curindex</span><span class="p">])</span>
+<span class="ne">--&gt; </span><span class="mi">350</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_cmdloop</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">351</span>         <span class="bp">self</span><span class="o">.</span><span class="n">forget</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">352</span> 
+
+<span class="nn">/opt/miniconda3/envs/mds511/lib/python3.7/pdb.py</span> in <span class="ni">_cmdloop</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">317</span>                 <span class="c1"># the current command, so allow them during interactive input</span>
+<span class="g g-Whitespace">    </span><span class="mi">318</span>                 <span class="bp">self</span><span class="o">.</span><span class="n">allow_kbdint</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="ne">--&gt; </span><span class="mi">319</span>                 <span class="bp">self</span><span class="o">.</span><span class="n">cmdloop</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">320</span>                 <span class="bp">self</span><span class="o">.</span><span class="n">allow_kbdint</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="g g-Whitespace">    </span><span class="mi">321</span>                 <span class="k">break</span>
+
+<span class="nn">/opt/miniconda3/envs/mds511/lib/python3.7/cmd.py</span> in <span class="ni">cmdloop</span><span class="nt">(self, intro)</span>
+<span class="g g-Whitespace">    </span><span class="mi">124</span>                     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">use_rawinput</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">125</span>                         <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">126</span>                             <span class="n">line</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">prompt</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">127</span>                         <span class="k">except</span> <span class="ne">EOFError</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">128</span>                             <span class="n">line</span> <span class="o">=</span> <span class="s1">&#39;EOF&#39;</span>
+
+<span class="nn">/opt/miniconda3/envs/mds511/lib/python3.7/site-packages/ipykernel/kernelbase.py</span> in <span class="ni">raw_input</span><span class="nt">(self, prompt)</span>
+<span class="g g-Whitespace">    </span><span class="mi">856</span>         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_allow_stdin</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">857</span>             <span class="k">raise</span> <span class="n">StdinNotImplementedError</span><span class="p">(</span>
+<span class="ne">--&gt; </span><span class="mi">858</span>                 <span class="s2">&quot;raw_input was called, but this frontend does not support input requests.&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">859</span>             <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">860</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_input_request</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">prompt</span><span class="p">),</span>
+
+<span class="ne">StdinNotImplementedError</span>: raw_input was called, but this frontend does not support input requests.
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>The JupyterLab <a class="reference external" href="https://github.com/lckr/jupyterlab-variableInspector">variable inspector extension</a> is another related helpful tool.</p></li>
+<li><p>There’s also a JupyterLab <a class="reference external" href="https://github.com/jupyterlab/debugger">visual debugger</a> that has recently come out and looks very useful - I haven’t used it much yet and there seems to be some issues with it so I might wait for a more stable release.</p></li>
+</ul>
+</div>
+<div class="section" id="python-classes">
+<h2>3. Python Classes<a class="headerlink" href="#python-classes" title="Permalink to this headline">¶</a></h2>
+<hr><ul class="simple">
+<li><p>We’ve seen data types like <code class="docutils literal notranslate"><span class="pre">dict</span></code> and <code class="docutils literal notranslate"><span class="pre">list</span></code> which are built into Python.</p></li>
+<li><p>Today we’ll see how to create our own data types.</p></li>
+<li><p>These are called <strong>classes</strong> and an instance is called an <strong>object</strong> (classes documentation <a class="reference external" href="https://docs.python.org/3/tutorial/classes.html">here</a>).</p></li>
+<li><p>For our purposes, a “<code class="docutils literal notranslate"><span class="pre">type</span></code>” and a <code class="docutils literal notranslate"><span class="pre">class</span></code> are the same thing (some discussion of the differences <a class="reference external" href="https://stackoverflow.com/questions/468145/what-is-the-difference-between-type-and-class">here</a>).</p></li>
+<li><p>The general approach to programming using classes and objects is called <a class="reference external" href="https://en.wikipedia.org/wiki/Object-oriented_programming">object-oriented programming</a></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here, <code class="docutils literal notranslate"><span class="pre">d</span></code> is an object, whereas <code class="docutils literal notranslate"><span class="pre">dict</span></code> is a type</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="nb">dict</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>type
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>We say <code class="docutils literal notranslate"><span class="pre">d</span></code> is an <strong>instance</strong> of the <strong>type</strong> <code class="docutils literal notranslate"><span class="pre">dict</span></code>. Hence:</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">isinstance</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="nb">dict</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="why-create-your-own-types-classes">
+<h3>Why create your own types/classes?<a class="headerlink" href="#why-create-your-own-types-classes" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>“Classes provide a means of bundling data and functionality together” (from the <a class="reference external" href="https://docs.python.org/3/tutorial/classes.html">Python docs</a>), in a way that’s easy to use, reuse and build upon</p></li>
+<li><p>It’s easiest to discover the utility of classes through an example so let’s get started!</p></li>
+</ul>
+<ul class="simple">
+<li><p>Say we want to start storing information about MDS students and instructors</p></li>
+<li><p>We’ll start with first name, last name, and email address in a dictionary:</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mds_1</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;first&#39;</span><span class="p">:</span> <span class="s1">&#39;Tom&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;last&#39;</span><span class="p">:</span> <span class="s1">&#39;Beuzen&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;email&#39;</span><span class="p">:</span> <span class="s1">&#39;tom.beuzen@mds.com&#39;</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>We also want to be able to extract a member’s full name from their first and last name, but don’t want to have to write out this information again</p></li>
+<li><p>A function could be good for this:</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">full_name</span><span class="p">(</span><span class="n">first</span><span class="p">,</span> <span class="n">last</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Concatenate first and last with a space.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">first</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">last</span><span class="si">}</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">full_name</span><span class="p">(</span><span class="n">mds_1</span><span class="p">[</span><span class="s1">&#39;first&#39;</span><span class="p">],</span> <span class="n">mds_1</span><span class="p">[</span><span class="s1">&#39;last&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Tom Beuzen&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>We can just copy-paste the same code to create new members:</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mds_2</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;first&#39;</span><span class="p">:</span> <span class="s1">&#39;Tiffany&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;last&#39;</span><span class="p">:</span> <span class="s1">&#39;Timbers&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;email&#39;</span><span class="p">:</span> <span class="s1">&#39;tiffany.timbers@mds.com&#39;</span><span class="p">}</span>
+<span class="n">full_name</span><span class="p">(</span><span class="n">mds_2</span><span class="p">[</span><span class="s1">&#39;first&#39;</span><span class="p">],</span> <span class="n">mds_2</span><span class="p">[</span><span class="s1">&#39;last&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Tiffany Timbers&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="creating-a-class">
+<h3>Creating a Class<a class="headerlink" href="#creating-a-class" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>The above was pretty inefficient.</p></li>
+<li><p>You can imagine that the more objects we want and the more complicated the objects get (more data, more functions) the worse this problem becomes!</p></li>
+<li><p>However, this is a perfect use case for a class!</p></li>
+<li><p>A class can be thought of as a <strong>blueprint</strong> for creating objects, in this case MDS members</p></li>
+<li><p><strong>Terminology alert</strong>:</p>
+<ul>
+<li><p>Class data = “Attributes”</p></li>
+<li><p>Class functions = “Methods”</p></li>
+</ul>
+</li>
+<li><p><strong>Syntax alert</strong>:</p>
+<ul>
+<li><p>We define a class with the <code class="docutils literal notranslate"><span class="pre">class</span></code> keyword, followed by a name and a colon (<code class="docutils literal notranslate"><span class="pre">:</span></code>):</p></li>
+</ul>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">mds_member</span><span class="p">:</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mds_1</span> <span class="o">=</span> <span class="n">mds_member</span><span class="p">()</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">mds_1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>__main__.mds_member
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>We can add an <code class="docutils literal notranslate"><span class="pre">__init__</span></code> method to our class which will be run every time we create a new instance, for example, to add data to the instance</p></li>
+<li><p>Let’s add an <code class="docutils literal notranslate"><span class="pre">__init__</span></code> method to our <code class="docutils literal notranslate"><span class="pre">mds_member</span></code> class</p></li>
+<li><p><strong>Note</strong> <code class="docutils literal notranslate"><span class="pre">self</span></code> refers to the instance of a class and should always be passed to class methods as the first argument</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">mds_member</span><span class="p">:</span>
+    
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">first</span><span class="p">,</span> <span class="n">last</span><span class="p">):</span>
+        <span class="c1"># the below are called &quot;attributes&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">first</span> <span class="o">=</span> <span class="n">first</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">last</span> <span class="o">=</span> <span class="n">last</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">email</span> <span class="o">=</span> <span class="n">first</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;.&quot;</span> <span class="o">+</span> <span class="n">last</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;@mds.com&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mds_1</span> <span class="o">=</span> <span class="n">mds_member</span><span class="p">(</span><span class="s1">&#39;Varada&#39;</span><span class="p">,</span> <span class="s1">&#39;Kolhatkar&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mds_1</span><span class="o">.</span><span class="n">first</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mds_1</span><span class="o">.</span><span class="n">last</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mds_1</span><span class="o">.</span><span class="n">email</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Varada
+Kolhatkar
+varada.kolhatkar@mds.com
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>To get the full name, we can use the function we defined earlier</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">full_name</span><span class="p">(</span><span class="n">mds_1</span><span class="o">.</span><span class="n">first</span><span class="p">,</span> <span class="n">mds_1</span><span class="o">.</span><span class="n">last</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Varada Kolhatkar&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>But a better way to do this is to integrate this function into our class as a <code class="docutils literal notranslate"><span class="pre">method</span></code></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">mds_member</span><span class="p">:</span>
+    
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">first</span><span class="p">,</span> <span class="n">last</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">first</span> <span class="o">=</span> <span class="n">first</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">last</span> <span class="o">=</span> <span class="n">last</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">email</span> <span class="o">=</span> <span class="n">first</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;.&quot;</span> <span class="o">+</span> <span class="n">last</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;@mds.com&quot;</span>
+        
+    <span class="k">def</span> <span class="nf">full_name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">first</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">last</span><span class="si">}</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mds_1</span> <span class="o">=</span> <span class="n">mds_member</span><span class="p">(</span><span class="s1">&#39;Varada&#39;</span><span class="p">,</span> <span class="s1">&#39;Kolhatkar&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mds_1</span><span class="o">.</span><span class="n">first</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mds_1</span><span class="o">.</span><span class="n">last</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mds_1</span><span class="o">.</span><span class="n">email</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mds_1</span><span class="o">.</span><span class="n">full_name</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Varada
+Kolhatkar
+varada.kolhatkar@mds.com
+Varada Kolhatkar
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p><strong>NOTE</strong>: Notice that we need the parentheses above because we are calling a <code class="docutils literal notranslate"><span class="pre">method</span></code> (think of it as a function), not an <code class="docutils literal notranslate"><span class="pre">attribute</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="instance-class-attributes">
+<h3>Instance &amp; Class Attributes<a class="headerlink" href="#instance-class-attributes" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Attributes like <code class="docutils literal notranslate"><span class="pre">mds_1.first</span></code> are sometimes called <code class="docutils literal notranslate"><span class="pre">instance</span> <span class="pre">attributes</span></code></p></li>
+<li><p>They are specific to the object we have created</p></li>
+<li><p>But we can also set <code class="docutils literal notranslate"><span class="pre">class</span> <span class="pre">attributes</span></code> which are the same amongst all instances of a class, they are defined outside of the <code class="docutils literal notranslate"><span class="pre">__init__</span></code> method</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">mds_member</span><span class="p">:</span>
+    
+    <span class="n">role</span> <span class="o">=</span> <span class="s2">&quot;MDS member&quot;</span> <span class="c1"># class attributes</span>
+    <span class="n">campus</span> <span class="o">=</span> <span class="s2">&quot;UBC&quot;</span>
+    
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">first</span><span class="p">,</span> <span class="n">last</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">first</span> <span class="o">=</span> <span class="n">first</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">last</span> <span class="o">=</span> <span class="n">last</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">email</span> <span class="o">=</span> <span class="n">first</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;.&quot;</span> <span class="o">+</span> <span class="n">last</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;@mds.com&quot;</span>
+        
+    <span class="k">def</span> <span class="nf">full_name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">first</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">last</span><span class="si">}</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>All instances of our class share the class attribute</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mds_1</span> <span class="o">=</span> <span class="n">mds_member</span><span class="p">(</span><span class="s1">&#39;Tom&#39;</span><span class="p">,</span> <span class="s1">&#39;Beuzen&#39;</span><span class="p">)</span>
+<span class="n">mds_2</span> <span class="o">=</span> <span class="n">mds_member</span><span class="p">(</span><span class="s1">&#39;Joel&#39;</span><span class="p">,</span> <span class="s1">&#39;Ostblom&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">mds_1</span><span class="o">.</span><span class="n">first</span><span class="si">}</span><span class="s2"> is at campus </span><span class="si">{</span><span class="n">mds_1</span><span class="o">.</span><span class="n">campus</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">mds_2</span><span class="o">.</span><span class="n">first</span><span class="si">}</span><span class="s2"> is at campus </span><span class="si">{</span><span class="n">mds_2</span><span class="o">.</span><span class="n">campus</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Tom is at campus UBC.
+Joel is at campus UBC.
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>We can even change the class attribute after our instances have been created</p></li>
+<li><p>This will affect all of our created instances</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mds_1</span> <span class="o">=</span> <span class="n">mds_member</span><span class="p">(</span><span class="s1">&#39;Tom&#39;</span><span class="p">,</span> <span class="s1">&#39;Beuzen&#39;</span><span class="p">)</span>
+<span class="n">mds_2</span> <span class="o">=</span> <span class="n">mds_member</span><span class="p">(</span><span class="s1">&#39;Mike&#39;</span><span class="p">,</span> <span class="s1">&#39;Gelbart&#39;</span><span class="p">)</span>
+<span class="n">mds_member</span><span class="o">.</span><span class="n">campus</span> <span class="o">=</span> <span class="s1">&#39;UBC Okanagan&#39;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">mds_1</span><span class="o">.</span><span class="n">first</span><span class="si">}</span><span class="s2"> is at campus </span><span class="si">{</span><span class="n">mds_1</span><span class="o">.</span><span class="n">campus</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">mds_2</span><span class="o">.</span><span class="n">first</span><span class="si">}</span><span class="s2"> is at campus </span><span class="si">{</span><span class="n">mds_2</span><span class="o">.</span><span class="n">campus</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Tom is at campus UBC Okanagan.
+Mike is at campus UBC Okanagan.
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>You can also change the class attribute for just a single instance</p></li>
+<li><p>But this is typically not recommended because if you want differing attributes for instances, you should probably use <code class="docutils literal notranslate"><span class="pre">instance</span> <span class="pre">attributes</span></code></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">mds_member</span><span class="p">:</span>
+    
+    <span class="n">role</span> <span class="o">=</span> <span class="s2">&quot;MDS member&quot;</span>
+    <span class="n">campus</span> <span class="o">=</span> <span class="s2">&quot;UBC&quot;</span>
+    
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">first</span><span class="p">,</span> <span class="n">last</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">first</span> <span class="o">=</span> <span class="n">first</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">last</span> <span class="o">=</span> <span class="n">last</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">email</span> <span class="o">=</span> <span class="n">first</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;.&quot;</span> <span class="o">+</span> <span class="n">last</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;@mds.com&quot;</span>
+        
+    <span class="k">def</span> <span class="nf">full_name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">first</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">last</span><span class="si">}</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mds_1</span> <span class="o">=</span> <span class="n">mds_member</span><span class="p">(</span><span class="s1">&#39;Tom&#39;</span><span class="p">,</span> <span class="s1">&#39;Beuzen&#39;</span><span class="p">)</span>
+<span class="n">mds_2</span> <span class="o">=</span> <span class="n">mds_member</span><span class="p">(</span><span class="s1">&#39;Mike&#39;</span><span class="p">,</span> <span class="s1">&#39;Gelbart&#39;</span><span class="p">)</span>
+<span class="n">mds_1</span><span class="o">.</span><span class="n">campus</span> <span class="o">=</span> <span class="s1">&#39;UBC Okanagan&#39;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">mds_1</span><span class="o">.</span><span class="n">first</span><span class="si">}</span><span class="s2"> is at campus </span><span class="si">{</span><span class="n">mds_1</span><span class="o">.</span><span class="n">campus</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">mds_2</span><span class="o">.</span><span class="n">first</span><span class="si">}</span><span class="s2"> is at campus </span><span class="si">{</span><span class="n">mds_2</span><span class="o">.</span><span class="n">campus</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Tom is at campus UBC Okanagan.
+Mike is at campus UBC.
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="methods-class-methods-static-methods">
+<h3>Methods, Class Methods &amp; Static Methods<a class="headerlink" href="#methods-class-methods-static-methods" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">methods</span></code> we’ve seen so far are sometimes calles “regular” <code class="docutils literal notranslate"><span class="pre">methods</span></code>, they act on an instance of the class (i.e., take <code class="docutils literal notranslate"><span class="pre">self</span></code> as an argument)</p></li>
+<li><p>We also have <code class="docutils literal notranslate"><span class="pre">class</span> <span class="pre">methods</span></code> that act on the actual class</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">class</span> <span class="pre">methods</span></code> are often used as “alternative constructors”</p></li>
+<li><p>As an example, let’s say that somebody commonly wants to use our class with comma-separated names like the following:</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Tom,Beuzen&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Unfortunately, those users can’t do this:</p></li>
+</ul>
+<div class="cell tag_raises-exception docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mds_member</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">38</span><span class="o">-</span><span class="n">aba2b627390d</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">mds_member</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+
+<span class="ne">TypeError</span>: __init__() missing 1 required positional argument: &#39;last&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>To use our class, they would need to parse this string into <code class="docutils literal notranslate"><span class="pre">first</span></code> and <code class="docutils literal notranslate"><span class="pre">last</span></code></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">first</span><span class="p">,</span> <span class="n">last</span> <span class="o">=</span> <span class="n">name</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">first</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">last</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Tom
+Beuzen
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Then they could make an instance of our class</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mds_1</span> <span class="o">=</span> <span class="n">mds_member</span><span class="p">(</span><span class="n">first</span><span class="p">,</span> <span class="n">last</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>If this is a common use case for the users of our code, we don’t want them to have to coerce the data every time before using our class</p></li>
+<li><p>Instead, we can facilitate their use-case with a <code class="docutils literal notranslate"><span class="pre">class</span> <span class="pre">method</span></code></p></li>
+<li><p>There are two things we need to do to use a <code class="docutils literal notranslate"><span class="pre">class</span> <span class="pre">method</span></code>:</p>
+<ul>
+<li><p>Identify our method as <code class="docutils literal notranslate"><span class="pre">class</span> <span class="pre">method</span></code> using the decorator <code class="docutils literal notranslate"><span class="pre">&#64;classmethod</span></code> (more on decorators in a bit)</p></li>
+<li><p>Pass <code class="docutils literal notranslate"><span class="pre">cls</span></code> instead of <code class="docutils literal notranslate"><span class="pre">self</span></code> as the first argument</p></li>
+</ul>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">mds_member</span><span class="p">:</span>
+
+    <span class="n">role</span> <span class="o">=</span> <span class="s2">&quot;MDS member&quot;</span>
+    <span class="n">campus</span> <span class="o">=</span> <span class="s2">&quot;UBC&quot;</span>
+    
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">first</span><span class="p">,</span> <span class="n">last</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">first</span> <span class="o">=</span> <span class="n">first</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">last</span> <span class="o">=</span> <span class="n">last</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">email</span> <span class="o">=</span> <span class="n">first</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;.&quot;</span> <span class="o">+</span> <span class="n">last</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;@mds.com&quot;</span>
+        
+    <span class="k">def</span> <span class="nf">full_name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">first</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">last</span><span class="si">}</span><span class="s2">&quot;</span>
+    
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">from_csv</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">csv_name</span><span class="p">):</span>
+        <span class="n">first</span><span class="p">,</span> <span class="n">last</span> <span class="o">=</span> <span class="n">csv_name</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">first</span><span class="p">,</span> <span class="n">last</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Now we can use our comma-separated values directly!</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mds_1</span> <span class="o">=</span> <span class="n">mds_member</span><span class="o">.</span><span class="n">from_csv</span><span class="p">(</span><span class="s1">&#39;Tom,Beuzen&#39;</span><span class="p">)</span>
+<span class="n">mds_1</span><span class="o">.</span><span class="n">full_name</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Tom Beuzen&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>There is a third kind of method called a <code class="docutils literal notranslate"><span class="pre">static</span> <span class="pre">method</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">static</span> <span class="pre">methods</span></code> do not operate on either the instance or the class, they are just simple functions</p></li>
+<li><p>But we might want to include them in our class because they are somehow related to our class</p></li>
+<li><p>They are defined using the <code class="docutils literal notranslate"><span class="pre">&#64;staticmethod</span></code> decorator</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">mds_member</span><span class="p">:</span>
+    
+    <span class="n">role</span> <span class="o">=</span> <span class="s2">&quot;MDS member&quot;</span>
+    <span class="n">campus</span> <span class="o">=</span> <span class="s2">&quot;UBC&quot;</span>
+    
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">first</span><span class="p">,</span> <span class="n">last</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">first</span> <span class="o">=</span> <span class="n">first</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">last</span> <span class="o">=</span> <span class="n">last</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">email</span> <span class="o">=</span> <span class="n">first</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;.&quot;</span> <span class="o">+</span> <span class="n">last</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;@mds.com&quot;</span>
+        
+    <span class="k">def</span> <span class="nf">full_name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">first</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">last</span><span class="si">}</span><span class="s2">&quot;</span>
+    
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">from_csv</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">csv_name</span><span class="p">):</span>
+        <span class="n">first</span><span class="p">,</span> <span class="n">last</span> <span class="o">=</span> <span class="n">csv_name</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">first</span><span class="p">,</span> <span class="n">last</span><span class="p">)</span>
+    
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">is_quizweek</span><span class="p">(</span><span class="n">week</span><span class="p">):</span>
+        <span class="k">return</span> <span class="kc">True</span> <span class="k">if</span> <span class="n">week</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span> <span class="k">else</span> <span class="kc">False</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Note that the method <code class="docutils literal notranslate"><span class="pre">is_quizweek()</span></code> does not accept or use the <code class="docutils literal notranslate"><span class="pre">self</span></code> argument</p></li>
+<li><p>But it is still MDS-related, so we might want to include it here</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mds_1</span> <span class="o">=</span> <span class="n">mds_member</span><span class="o">.</span><span class="n">from_csv</span><span class="p">(</span><span class="s1">&#39;Tom,Beuzen&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Is week 1 a quiz week? </span><span class="si">{</span><span class="n">mds_1</span><span class="o">.</span><span class="n">is_quizweek</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Is week 3 a quiz week? </span><span class="si">{</span><span class="n">mds_1</span><span class="o">.</span><span class="n">is_quizweek</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Is week 1 a quiz week? False
+Is week 3 a quiz week? True
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="optional-decorators">
+<h3>(OPTIONAL) Decorators<a class="headerlink" href="#optional-decorators" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Decorators can be quite a complex topic, you can read more about them <a class="reference external" href="https://realpython.com/primer-on-python-decorators/">here</a></p></li>
+<li><p>Briefly, they are what they sounds like, they “decorate” functions/methods with additional functionality</p></li>
+<li><p>You can think of a decorator as a function that takes another function and adds functionality (recall last lecture we discussed how functions are objects in Python and can be passed around into other functions!)</p></li>
+</ul>
+<ul class="simple">
+<li><p>Let’s create a decorator as an example</p></li>
+<li><p>Recall that functions are data types in Python, they can be passed to other functions</p></li>
+<li><p>So a decorator simply takes a function as an argument, adds some more functionality to it, and returns a “decorated function” that can be executed</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># some function we wish to decorate</span>
+<span class="k">def</span> <span class="nf">original_func</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;I&#39;m the original function!&quot;</span><span class="p">)</span>
+
+<span class="c1"># a decorator</span>
+<span class="k">def</span> <span class="nf">my_decorator</span><span class="p">(</span><span class="n">original_func</span><span class="p">):</span>  <span class="c1"># takes our original function as input</span>
+    
+    <span class="k">def</span> <span class="nf">wrapper</span><span class="p">():</span>  <span class="c1"># wraps our original function with some extra functionality</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;A decoration before </span><span class="si">{</span><span class="n">original_func</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">original_func</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;A decoration after </span><span class="si">{</span><span class="n">original_func</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">result</span>
+    
+    <span class="k">return</span> <span class="n">wrapper</span>  <span class="c1"># returns the unexecuted wrapper function which we can can excute later</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">my_decorator()</span></code> function will return to us a function which is the decorated version of our original function</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_decorator</span><span class="p">(</span><span class="n">original_func</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;function __main__.my_decorator.&lt;locals&gt;.wrapper()&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>As a function was returned to us, we can execute it by adding parentheses</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_decorator</span><span class="p">(</span><span class="n">original_func</span><span class="p">)()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A decoration before original_func.
+I&#39;m the original function!
+A decoration after original_func.
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>We can decorate any arbitrary function with our decorator</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">another_func</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;I&#39;m a different function!&quot;</span><span class="p">)</span>
+
+<span class="n">my_decorator</span><span class="p">(</span><span class="n">another_func</span><span class="p">)()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A decoration before another_func.
+I&#39;m a different function!
+A decoration after another_func.
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>The syntax of calling our decorator is not that readable</p></li>
+<li><p>Instead, we use the <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> symbol as “syntactic sugar” to improve readability and reuseability of decorators</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@my_decorator</span>
+<span class="k">def</span> <span class="nf">one_more_func</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;One more function...&quot;</span><span class="p">)</span>
+    
+<span class="n">one_more_func</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A decoration before one_more_func.
+One more function...
+A decoration after one_more_func.
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Okay, let’s make something a little more useful</p></li>
+<li><p>We will create a decorator that times the execution time of any arbitrary function</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>  <span class="c1"># import the time module, we&#39;ll learn about imports next lecture</span>
+
+<span class="k">def</span> <span class="nf">timer</span><span class="p">(</span><span class="n">my_function</span><span class="p">):</span>  <span class="c1"># the decorator</span>
+    
+    <span class="k">def</span> <span class="nf">wrapper</span><span class="p">():</span>  <span class="c1"># the added functionality</span>
+        <span class="n">t1</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">my_function</span><span class="p">()</span>  <span class="c1"># the original function</span>
+        <span class="n">t2</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">my_function</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2"> ran in </span><span class="si">{</span><span class="n">t2</span> <span class="o">-</span> <span class="n">t1</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> sec&quot;</span><span class="p">)</span>  <span class="c1"># print the execution time</span>
+        <span class="k">return</span> <span class="n">result</span>
+    <span class="k">return</span> <span class="n">wrapper</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@timer</span>
+<span class="k">def</span> <span class="nf">silly_function</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10_000_000</span><span class="p">):</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">%</span> <span class="mi">1_000_000</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> 
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">pass</span>
+        
+<span class="n">silly_function</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1000000
+2000000
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3000000
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4000000
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5000000
+6000000
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7000000
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8000000
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9000000
+silly_function ran in 0.581 sec
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Python’s built-in decorators like <code class="docutils literal notranslate"><span class="pre">classmethod</span></code> and <code class="docutils literal notranslate"><span class="pre">staticmethod</span></code> are coded in C so I’m not showing them here</p></li>
+<li><p>I don’t often create my own decorators, but I use the built-in decorators all the time</p></li>
+</ul>
+</div>
+<div class="section" id="inheritance-subclasses">
+<h3>Inheritance &amp; Subclasses<a class="headerlink" href="#inheritance-subclasses" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Just like it sounds, inheritance allows us to “inherit” methods and attributes from another class</p></li>
+<li><p>So far, we’ve been working with an <code class="docutils literal notranslate"><span class="pre">mds_member</span></code> class</p></li>
+<li><p>But let’s get more specific and create a <code class="docutils literal notranslate"><span class="pre">mds_student</span></code> and <code class="docutils literal notranslate"><span class="pre">mds_instructor</span></code> class</p></li>
+<li><p>Recall this was <code class="docutils literal notranslate"><span class="pre">mds_member</span></code>:</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">mds_member</span><span class="p">:</span>
+    
+    <span class="n">role</span> <span class="o">=</span> <span class="s2">&quot;MDS member&quot;</span>
+    <span class="n">campus</span> <span class="o">=</span> <span class="s2">&quot;UBC&quot;</span>
+    
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">first</span><span class="p">,</span> <span class="n">last</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">first</span> <span class="o">=</span> <span class="n">first</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">last</span> <span class="o">=</span> <span class="n">last</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">email</span> <span class="o">=</span> <span class="n">first</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;.&quot;</span> <span class="o">+</span> <span class="n">last</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;@mds.com&quot;</span>
+        
+    <span class="k">def</span> <span class="nf">full_name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">first</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">last</span><span class="si">}</span><span class="s2">&quot;</span>
+    
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">from_csv</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">csv</span><span class="p">):</span>
+        <span class="n">first</span><span class="p">,</span> <span class="n">last</span> <span class="o">=</span> <span class="n">csv_name</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">first</span><span class="p">,</span> <span class="n">last</span><span class="p">)</span>
+    
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">is_quizweek</span><span class="p">(</span><span class="n">week</span><span class="p">):</span>
+        <span class="k">return</span> <span class="kc">True</span> <span class="k">if</span> <span class="n">week</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span> <span class="k">else</span> <span class="kc">False</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>We can create an <code class="docutils literal notranslate"><span class="pre">mds_student</span></code> class that inherits all of the attributes and methods from our <code class="docutils literal notranslate"><span class="pre">mds_member</span></code> class by  by simply passing the <code class="docutils literal notranslate"><span class="pre">mds_member</span></code> class as an argument to an <code class="docutils literal notranslate"><span class="pre">mds_student</span></code> class definition:</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">mds_student</span><span class="p">(</span><span class="n">mds_member</span><span class="p">):</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">student_1</span> <span class="o">=</span> <span class="n">mds_student</span><span class="p">(</span><span class="s1">&#39;Craig&#39;</span><span class="p">,</span> <span class="s1">&#39;Smith&#39;</span><span class="p">)</span>
+<span class="n">student_2</span> <span class="o">=</span> <span class="n">mds_student</span><span class="p">(</span><span class="s1">&#39;Megan&#39;</span><span class="p">,</span> <span class="s1">&#39;Scott&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">student_1</span><span class="o">.</span><span class="n">full_name</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">student_2</span><span class="o">.</span><span class="n">full_name</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Craig Smith
+Megan Scott
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>What happened here is that our <code class="docutils literal notranslate"><span class="pre">mds_student</span></code> instance first looked in the <code class="docutils literal notranslate"><span class="pre">mds_student</span></code> class for an <code class="docutils literal notranslate"><span class="pre">__init__</span></code> method, which it didn’t find</p></li>
+<li><p>It then looked for the <code class="docutils literal notranslate"><span class="pre">__init__</span></code> method in the inherited <code class="docutils literal notranslate"><span class="pre">mds_member</span></code> class and found something to use!</p></li>
+<li><p>This order is called the “<a class="reference external" href="https://www.python.org/download/releases/2.3/mro/">method resolution order</a>”</p></li>
+<li><p>We can inspect it directly using the <code class="docutils literal notranslate"><span class="pre">help()</span></code> function</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">mds_student</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on class mds_student in module __main__:
+
+class mds_student(mds_member)
+ |  mds_student(first, last)
+ |  
+ |  Method resolution order:
+ |      mds_student
+ |      mds_member
+ |      builtins.object
+ |  
+ |  Methods inherited from mds_member:
+ |  
+ |  __init__(self, first, last)
+ |      Initialize self.  See help(type(self)) for accurate signature.
+ |  
+ |  full_name(self)
+ |  
+ |  ----------------------------------------------------------------------
+ |  Class methods inherited from mds_member:
+ |  
+ |  from_csv(csv) from builtins.type
+ |  
+ |  ----------------------------------------------------------------------
+ |  Static methods inherited from mds_member:
+ |  
+ |  is_quizweek(week)
+ |  
+ |  ----------------------------------------------------------------------
+ |  Data descriptors inherited from mds_member:
+ |  
+ |  __dict__
+ |      dictionary for instance variables (if defined)
+ |  
+ |  __weakref__
+ |      list of weak references to the object (if defined)
+ |  
+ |  ----------------------------------------------------------------------
+ |  Data and other attributes inherited from mds_member:
+ |  
+ |  campus = &#39;UBC&#39;
+ |  
+ |  role = &#39;MDS member&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Okay, let’s fine-tune our <code class="docutils literal notranslate"><span class="pre">mds_student</span></code> class</p></li>
+<li><p>The first thing we might want to do is change the role of the student instances to “MDS Student”</p></li>
+<li><p>We can do that by simply adding a <code class="docutils literal notranslate"><span class="pre">class</span> <span class="pre">attribute</span></code> to our <code class="docutils literal notranslate"><span class="pre">mds_student</span></code> class</p></li>
+<li><p>Any attributes or methods not “over-ridden” in the <code class="docutils literal notranslate"><span class="pre">mds_student</span></code> class will just be inherited from the <code class="docutils literal notranslate"><span class="pre">mds_member</span></code> class</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">mds_student</span><span class="p">(</span><span class="n">mds_member</span><span class="p">):</span>
+    <span class="n">role</span> <span class="o">=</span> <span class="s2">&quot;MDS student&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">student_1</span> <span class="o">=</span> <span class="n">mds_student</span><span class="p">(</span><span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="s1">&#39;Smith&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">student_1</span><span class="o">.</span><span class="n">role</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">student_1</span><span class="o">.</span><span class="n">campus</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">student_1</span><span class="o">.</span><span class="n">full_name</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MDS student
+UBC
+John Smith
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Now let’s add an <code class="docutils literal notranslate"><span class="pre">instance</span> <span class="pre">attribute</span></code> to our class called <code class="docutils literal notranslate"><span class="pre">grade</span></code></p></li>
+<li><p>You might be tempted to do something like this:</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">mds_student</span><span class="p">(</span><span class="n">mds_member</span><span class="p">):</span>
+    <span class="n">role</span> <span class="o">=</span> <span class="s2">&quot;MDS student&quot;</span>
+    
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">first</span><span class="p">,</span> <span class="n">last</span><span class="p">,</span> <span class="n">grade</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">first</span> <span class="o">=</span> <span class="n">first</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">last</span> <span class="o">=</span> <span class="n">last</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">email</span> <span class="o">=</span> <span class="n">first</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;.&quot;</span> <span class="o">+</span> <span class="n">last</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;@mds.com&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">grade</span> <span class="o">=</span> <span class="n">grade</span>
+        
+<span class="n">student_1</span> <span class="o">=</span> <span class="n">mds_student</span><span class="p">(</span><span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="s1">&#39;Smith&#39;</span><span class="p">,</span> <span class="s1">&#39;B+&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">student_1</span><span class="o">.</span><span class="n">email</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">student_1</span><span class="o">.</span><span class="n">grade</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>john.smith@mds.com
+B+
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>But this is not DRY code, remember that we’ve already typed most of this in our <code class="docutils literal notranslate"><span class="pre">mds_member</span></code> class</p></li>
+<li><p>So what we can do is let the <code class="docutils literal notranslate"><span class="pre">mds_member</span></code> class handle our <code class="docutils literal notranslate"><span class="pre">first</span></code> and <code class="docutils literal notranslate"><span class="pre">last</span></code> argument and we’ll just worry about <code class="docutils literal notranslate"><span class="pre">grade</span></code></p></li>
+<li><p>We can do this easily with the <code class="docutils literal notranslate"><span class="pre">super()</span></code> function</p></li>
+<li><p>(things can get pretty complicated with <code class="docutils literal notranslate"><span class="pre">super()</span></code>, read more <a class="reference external" href="https://realpython.com/python-super/#an-overview-of-pythons-super-function">here</a>)</p></li>
+<li><p>(all you really need to know is that <code class="docutils literal notranslate"><span class="pre">super()</span></code> allows you to inherit attributes/methods from other classes)</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">mds_student</span><span class="p">(</span><span class="n">mds_member</span><span class="p">):</span>
+    <span class="n">role</span> <span class="o">=</span> <span class="s2">&quot;MDS student&quot;</span>
+    
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">first</span><span class="p">,</span> <span class="n">last</span><span class="p">,</span> <span class="n">grade</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">first</span><span class="p">,</span> <span class="n">last</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">grade</span> <span class="o">=</span> <span class="n">grade</span>
+        
+<span class="n">student_1</span> <span class="o">=</span> <span class="n">mds_student</span><span class="p">(</span><span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="s1">&#39;Smith&#39;</span><span class="p">,</span> <span class="s1">&#39;B+&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">student_1</span><span class="o">.</span><span class="n">email</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">student_1</span><span class="o">.</span><span class="n">grade</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>john.smith@mds.com
+B+
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Amazing! Hopefully you can start to see how powerful inheritance can be</p></li>
+<li><p>Let’s create another subclass called <code class="docutils literal notranslate"><span class="pre">mds_instructor</span></code>, which has two new methods <code class="docutils literal notranslate"><span class="pre">add_course()</span></code> and <code class="docutils literal notranslate"><span class="pre">remove_course()</span></code></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">mds_instructor</span><span class="p">(</span><span class="n">mds_member</span><span class="p">):</span>
+    <span class="n">role</span> <span class="o">=</span> <span class="s2">&quot;MDS instructor&quot;</span>
+    
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">first</span><span class="p">,</span> <span class="n">last</span><span class="p">,</span> <span class="n">courses</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">first</span><span class="p">,</span> <span class="n">last</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">courses</span> <span class="o">=</span> <span class="p">([]</span> <span class="k">if</span> <span class="n">courses</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">courses</span><span class="p">)</span>
+        
+    <span class="k">def</span> <span class="nf">add_course</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">course</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">courses</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">course</span><span class="p">)</span>
+        
+    <span class="k">def</span> <span class="nf">remove_course</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">course</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">courses</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">course</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">instructor_1</span> <span class="o">=</span> <span class="n">mds_instructor</span><span class="p">(</span><span class="s1">&#39;Tom&#39;</span><span class="p">,</span> <span class="s1">&#39;Beuzen&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;511&#39;</span><span class="p">,</span> <span class="s1">&#39;561&#39;</span><span class="p">,</span> <span class="s1">&#39;513&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">instructor_1</span><span class="o">.</span><span class="n">full_name</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">instructor_1</span><span class="o">.</span><span class="n">courses</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Tom Beuzen
+[&#39;511&#39;, &#39;561&#39;, &#39;513&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">instructor_1</span><span class="o">.</span><span class="n">add_course</span><span class="p">(</span><span class="s1">&#39;591&#39;</span><span class="p">)</span>
+<span class="n">instructor_1</span><span class="o">.</span><span class="n">remove_course</span><span class="p">(</span><span class="s1">&#39;513&#39;</span><span class="p">)</span>
+<span class="n">instructor_1</span><span class="o">.</span><span class="n">courses</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;511&#39;, &#39;561&#39;, &#39;591&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="getters-setters-deleters">
+<h3>Getters/Setters/Deleters<a class="headerlink" href="#getters-setters-deleters" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>There’s one more import topic to talk about with Python classes and that is getters/setters/deleters</p></li>
+<li><p>(You might be familiar with these terms coming from other OOP languages)</p></li>
+<li><p>The necessity for these actions is best illustrated by example</p></li>
+<li><p>Here’s a stripped down version of the <code class="docutils literal notranslate"><span class="pre">mds_member</span></code> class from earlier</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">mds_member</span><span class="p">:</span>
+    
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">first</span><span class="p">,</span> <span class="n">last</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">first</span> <span class="o">=</span> <span class="n">first</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">last</span> <span class="o">=</span> <span class="n">last</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">email</span> <span class="o">=</span> <span class="n">first</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;.&quot;</span> <span class="o">+</span> <span class="n">last</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;@mds.com&quot;</span>
+        
+    <span class="k">def</span> <span class="nf">full_name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">first</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">last</span><span class="si">}</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mds_1</span> <span class="o">=</span> <span class="n">mds_member</span><span class="p">(</span><span class="s1">&#39;Tom&#39;</span><span class="p">,</span> <span class="s1">&#39;Beuzen&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mds_1</span><span class="o">.</span><span class="n">first</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mds_1</span><span class="o">.</span><span class="n">last</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mds_1</span><span class="o">.</span><span class="n">email</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mds_1</span><span class="o">.</span><span class="n">full_name</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Tom
+Beuzen
+tom.beuzen@mds.com
+Tom Beuzen
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Imagine that I mis-spelled the name of this class instance and wanted to correct it</p></li>
+<li><p>Watch what happens…</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mds_1</span><span class="o">.</span><span class="n">first</span> <span class="o">=</span> <span class="s1">&#39;Tomas&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mds_1</span><span class="o">.</span><span class="n">first</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mds_1</span><span class="o">.</span><span class="n">last</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mds_1</span><span class="o">.</span><span class="n">email</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mds_1</span><span class="o">.</span><span class="n">full_name</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Tomas
+Beuzen
+tom.beuzen@mds.com
+Tomas Beuzen
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Uh oh… the email didn’t update with the new first name!</p></li>
+<li><p>We didn’t have this problem with the <code class="docutils literal notranslate"><span class="pre">full_name()</span></code> method because it just calls the current <code class="docutils literal notranslate"><span class="pre">first</span></code> and <code class="docutils literal notranslate"><span class="pre">last</span></code> name</p></li>
+<li><p>You might think that the best thing to do here is to create a method for <code class="docutils literal notranslate"><span class="pre">email()</span></code> like we have for <code class="docutils literal notranslate"><span class="pre">full_name()</span></code></p></li>
+<li><p>But this is bad coding for a variety of reasons, for example it means that users of your code will have to change every call to the <code class="docutils literal notranslate"><span class="pre">email</span></code> attribute to a call to the <code class="docutils literal notranslate"><span class="pre">email()</span></code> method. We’d call that a breaking change to our software and we want to avoid that where possible.</p></li>
+<li><p>What we can do instead, is define our <code class="docutils literal notranslate"><span class="pre">email</span></code> like a method, but keep it as an attribute using the <code class="docutils literal notranslate"><span class="pre">&#64;property</span></code> decorator</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">mds_member</span><span class="p">:</span>
+    
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">first</span><span class="p">,</span> <span class="n">last</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">first</span> <span class="o">=</span> <span class="n">first</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">last</span> <span class="o">=</span> <span class="n">last</span>
+        
+    <span class="k">def</span> <span class="nf">full_name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">first</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">last</span><span class="si">}</span><span class="s2">&quot;</span>
+    
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">email</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">first</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;.&quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">last</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;@mds.com&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mds_1</span> <span class="o">=</span> <span class="n">mds_member</span><span class="p">(</span><span class="s1">&#39;Tom&#39;</span><span class="p">,</span> <span class="s1">&#39;Beuzen&#39;</span><span class="p">)</span>
+<span class="n">mds_1</span><span class="o">.</span><span class="n">first</span> <span class="o">=</span> <span class="s1">&#39;Tomas&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mds_1</span><span class="o">.</span><span class="n">first</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mds_1</span><span class="o">.</span><span class="n">last</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mds_1</span><span class="o">.</span><span class="n">email</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mds_1</span><span class="o">.</span><span class="n">full_name</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Tomas
+Beuzen
+tomas.beuzen@mds.com
+Tomas Beuzen
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>We could do the same with the <code class="docutils literal notranslate"><span class="pre">full_name()</span></code> method if we wanted too…</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">mds_member</span><span class="p">:</span>
+    
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">first</span><span class="p">,</span> <span class="n">last</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">first</span> <span class="o">=</span> <span class="n">first</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">last</span> <span class="o">=</span> <span class="n">last</span>
+    
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">full_name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">first</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">last</span><span class="si">}</span><span class="s2">&quot;</span>
+    
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">email</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">first</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;.&quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">last</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;@mds.com&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mds_1</span> <span class="o">=</span> <span class="n">mds_member</span><span class="p">(</span><span class="s1">&#39;Tom&#39;</span><span class="p">,</span> <span class="s1">&#39;Beuzen&#39;</span><span class="p">)</span>
+<span class="n">mds_1</span><span class="o">.</span><span class="n">full_name</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Tom Beuzen&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>But what happens if we instead want to make a change to the full name now?</p></li>
+</ul>
+<div class="cell tag_raises-exception docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mds_1</span><span class="o">.</span><span class="n">full_name</span> <span class="o">=</span> <span class="s1">&#39;Thomas Beuzen&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">70</span><span class="o">-</span><span class="mf">74e4</span><span class="n">ce79e805</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">mds_1</span><span class="o">.</span><span class="n">full_name</span> <span class="o">=</span> <span class="s1">&#39;Thomas Beuzen&#39;</span>
+
+<span class="ne">AttributeError</span>: can&#39;t set attribute
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>We get an error…</p></li>
+<li><p>Our class instance doesn’t know what to do with the value it was passed</p></li>
+<li><p>Ideally, we’d like our class instance to use this full name information to update <code class="docutils literal notranslate"><span class="pre">self.first</span></code> and <code class="docutils literal notranslate"><span class="pre">self.last</span></code></p></li>
+<li><p>To handle this action, we need a <code class="docutils literal notranslate"><span class="pre">setter</span></code>, defined using the decorator <code class="docutils literal notranslate"><span class="pre">&#64;&lt;attribute&gt;.setter</span></code></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">mds_member</span><span class="p">:</span>
+    
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">first</span><span class="p">,</span> <span class="n">last</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">first</span> <span class="o">=</span> <span class="n">first</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">last</span> <span class="o">=</span> <span class="n">last</span>
+    
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">full_name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">first</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">last</span><span class="si">}</span><span class="s2">&quot;</span>
+    
+    <span class="nd">@full_name</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">full_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="n">first</span><span class="p">,</span> <span class="n">last</span> <span class="o">=</span> <span class="n">name</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">first</span> <span class="o">=</span> <span class="n">first</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">last</span> <span class="o">=</span> <span class="n">last</span>
+    
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">email</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">first</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;.&quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">last</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;@mds.com&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mds_1</span> <span class="o">=</span> <span class="n">mds_member</span><span class="p">(</span><span class="s1">&#39;Tom&#39;</span><span class="p">,</span> <span class="s1">&#39;Beuzen&#39;</span><span class="p">)</span>
+<span class="n">mds_1</span><span class="o">.</span><span class="n">full_name</span> <span class="o">=</span> <span class="s1">&#39;Thomas Beuzen&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mds_1</span><span class="o">.</span><span class="n">first</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mds_1</span><span class="o">.</span><span class="n">last</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mds_1</span><span class="o">.</span><span class="n">email</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mds_1</span><span class="o">.</span><span class="n">full_name</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Thomas
+Beuzen
+thomas.beuzen@mds.com
+Thomas Beuzen
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Almost there! We’ve talked about getting information and setting information, but what about deletting information?</p></li>
+<li><p>This is typically used to do some clean up and is defined with the <code class="docutils literal notranslate"><span class="pre">&#64;&lt;attribute&gt;.deleter</span></code> decorator</p></li>
+<li><p>I rarely use this method but I want you to see it</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">mds_member</span><span class="p">:</span>
+    
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">first</span><span class="p">,</span> <span class="n">last</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">first</span> <span class="o">=</span> <span class="n">first</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">last</span> <span class="o">=</span> <span class="n">last</span>
+    
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">full_name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">first</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">last</span><span class="si">}</span><span class="s2">&quot;</span>
+    
+    <span class="nd">@full_name</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">full_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="n">first</span><span class="p">,</span> <span class="n">last</span> <span class="o">=</span> <span class="n">name</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">first</span> <span class="o">=</span> <span class="n">first</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">last</span> <span class="o">=</span> <span class="n">last</span>
+        
+    <span class="nd">@full_name</span><span class="o">.</span><span class="n">deleter</span>
+    <span class="k">def</span> <span class="nf">full_name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Name deleted!&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">first</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">last</span> <span class="o">=</span> <span class="kc">None</span>
+    
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">email</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">first</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;.&quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">last</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;@mds.com&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mds_1</span> <span class="o">=</span> <span class="n">mds_member</span><span class="p">(</span><span class="s1">&#39;Tom&#39;</span><span class="p">,</span> <span class="s1">&#39;Beuzen&#39;</span><span class="p">)</span>
+<span class="nb">delattr</span><span class="p">(</span><span class="n">mds_1</span><span class="p">,</span> <span class="s2">&quot;full_name&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mds_1</span><span class="o">.</span><span class="n">first</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mds_1</span><span class="o">.</span><span class="n">last</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Name deleted!
+None
+None
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Congrats for making it to the end, that was a lot of content and some tough topics to get through, so well done!!</p></li>
+</ul>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./lectures"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="lecture2-loops-functions.html" title="previous page">Lecture 2: Loops &amp; Functions</a>
+    <a class='right-next' id="next-link" href="lecture4-style-scripts-imports.html" title="next page">Lecture 4: Style Guides, Scripts, Imports</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Tomas Beuzen<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+  </body>
+</html>
