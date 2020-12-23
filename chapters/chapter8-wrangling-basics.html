@@ -1,43 +1,23 @@
 
+
 <!DOCTYPE html>
 
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Chapter 8: Basic Data Wrangling With Pandas &#8212; Python Programming for Data Science</title>
-    
-  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
-
-    
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
-
-    
-      
-  <link rel="stylesheet"
-    href="../_static/vendor/open-sans_all/1.44.1/index.css">
-  <link rel="stylesheet"
-    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
-
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../_static/style.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
-  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
-
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-dropdown.css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
@@ -45,9 +25,9 @@
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
@@ -56,15 +36,25 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="canonical" href="https://www.tomasbeuzen.com/python-programming-for-data-science/chapters/chapter8-wrangling-basics.html" />
     <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Chapter 9: Advanced Data Wrangling With Pandas" href="chapter9-wrangling-advanced.html" />
     <link rel="prev" title="Chapter 7: Introduction to Pandas" href="chapter7-pandas.html" />
 
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
 
+
+<!-- Opengraph tags -->
+<meta property="og:url"         content="https://www.tomasbeuzen.com/python-programming-for-data-science/chapters/chapter8-wrangling-basics.html" />
+<meta property="og:type"        content="article" />
+<meta property="og:title"       content="Chapter 8: Basic Data Wrangling With Pandas" />
+<meta property="og:description" content="Chapter 8: Basic Data Wrangling With Pandas  &lt;h2&gt;Chapter Outline&lt;span class=&#34;tocSkip&#34;&gt;&lt;/span&gt;&lt;/h2&gt; &lt;hr&gt; &lt;div class=&#34;toc&#34;&gt;&lt;ul class=&#34;toc-item&#34;&gt;&lt;li&gt;&lt;span&gt;&lt;a href=" />
+<meta property="og:image"       content="https://www.tomasbeuzen.com/python-programming-for-data-science/_static/logo.png" />
+
+<meta name="twitter:card" content="summary" />
 
 
   </head>
@@ -85,19 +75,22 @@
   <h1 class="site-logo" id="site-title">Python Programming for Data Science</h1>
   
 </a>
-</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form>
+
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-    <ul class="nav sidenav_l1">
+  <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../README.html">
    Python Programming for Data Science
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption">
  <span class="caption-text">
   Chapters
  </span>
@@ -149,7 +142,7 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption">
  <span class="caption-text">
   Practice Exercises
  </span>
@@ -197,7 +190,9 @@
  </li>
 </ul>
 
-</nav> <!-- To handle the deprecated key -->
+</nav>
+
+ <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
   Tomas Beuzen <br>Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
@@ -226,11 +221,11 @@
             <i class="fas fa-arrow-up"></i>
         </button>
         
-        
-<div class="dropdown-buttons-trigger">
+        <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
             class="fas fa-download"></i></button>
 
+    
     <div class="dropdown-buttons">
         <!-- ipynb file if we had a myst markdown file -->
         
@@ -242,8 +237,8 @@
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
+    
 </div>
-
         <!-- Source interaction buttons -->
 
 <div class="dropdown-buttons-trigger">
@@ -267,8 +262,7 @@
 
         <!-- Full screen (wrap in <a> to have style consistency -->
         <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-                title="Fullscreen mode"><i
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
                     class="fas fa-expand"></i></button></a>
 
         <!-- Launch buttons -->
@@ -286,6 +280,11 @@
         
         
         
+        <a class="colab-button" href="https://colab.research.google.com/github/TomasBeuzen/python-programming-for-data-science/blob/master/chapters/chapter8-wrangling-basics.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
         
     </div>
 </div>
@@ -294,7 +293,6 @@
 
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
-        
         <div class="tocsection onthispage pt-5 pb-3">
             <i class="fas fa-list"></i> Contents
         </div>
@@ -423,7 +421,6 @@
 </ul>
 
         </nav>
-        
     </div>
 </div>
     <div id="main-content" class="row">
@@ -940,12 +937,12 @@ memory usage: 1.7+ KB
     </tr>
     <tr>
       <th>top</th>
-      <td>20 Sep 2019, 01:02:05</td>
+      <td>17 Sep 2019, 00:15:47</td>
       <td>Afternoon Ride</td>
       <td>Ride</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>Rested after the weekend!</td>
+      <td>Feeling good</td>
     </tr>
     <tr>
       <th>freq</th>
@@ -1058,23 +1055,23 @@ memory usage: 1.7+ KB
   <tbody>
     <tr>
       <th>0</th>
-      <td>0.643224</td>
+      <td>0.150874</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>0.617756</td>
+      <td>0.799918</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>0.650490</td>
+      <td>0.387415</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>0.289595</td>
+      <td>0.508148</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>0.469394</td>
+      <td>0.965465</td>
     </tr>
     <tr>
       <th>...</th>
@@ -1082,23 +1079,23 @@ memory usage: 1.7+ KB
     </tr>
     <tr>
       <th>95</th>
-      <td>0.549403</td>
+      <td>0.411632</td>
     </tr>
     <tr>
       <th>96</th>
-      <td>0.187836</td>
+      <td>0.325456</td>
     </tr>
     <tr>
       <th>97</th>
-      <td>0.016904</td>
+      <td>0.874201</td>
     </tr>
     <tr>
       <th>98</th>
-      <td>0.733392</td>
+      <td>0.617720</td>
     </tr>
     <tr>
       <th>99</th>
-      <td>0.875343</td>
+      <td>0.084849</td>
     </tr>
   </tbody>
 </table>
@@ -1594,97 +1591,91 @@ memory usage: 1.7+ KB
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html"><style  type="text/css" >
-#T_d358424a_454c_11eb_9e92_acde48001122row0_col0{
-            background-color:  #8004a8;
-            color:  #f1f1f1;
-        }#T_d358424a_454c_11eb_9e92_acde48001122row0_col1{
-            background-color:  #5002a2;
-            color:  #f1f1f1;
-        }#T_d358424a_454c_11eb_9e92_acde48001122row0_col2,#T_d358424a_454c_11eb_9e92_acde48001122row1_col0,#T_d358424a_454c_11eb_9e92_acde48001122row3_col1,#T_d358424a_454c_11eb_9e92_acde48001122row3_col4,#T_d358424a_454c_11eb_9e92_acde48001122row4_col3{
+#T_f6a7d996_4569_11eb_aac3_acde48001122row0_col0,#T_f6a7d996_4569_11eb_aac3_acde48001122row2_col2,#T_f6a7d996_4569_11eb_aac3_acde48001122row3_col1,#T_f6a7d996_4569_11eb_aac3_acde48001122row4_col3,#T_f6a7d996_4569_11eb_aac3_acde48001122row4_col4{
             background-color:  #0d0887;
             color:  #f1f1f1;
-        }#T_d358424a_454c_11eb_9e92_acde48001122row0_col3,#T_d358424a_454c_11eb_9e92_acde48001122row1_col2,#T_d358424a_454c_11eb_9e92_acde48001122row2_col0,#T_d358424a_454c_11eb_9e92_acde48001122row4_col1,#T_d358424a_454c_11eb_9e92_acde48001122row4_col4{
-            background-color:  #f0f921;
-            color:  #000000;
-        }#T_d358424a_454c_11eb_9e92_acde48001122row0_col4{
-            background-color:  #9d189d;
+        }#T_f6a7d996_4569_11eb_aac3_acde48001122row0_col1,#T_f6a7d996_4569_11eb_aac3_acde48001122row1_col2{
+            background-color:  #100788;
             color:  #f1f1f1;
-        }#T_d358424a_454c_11eb_9e92_acde48001122row1_col1{
-            background-color:  #feb72d;
-            color:  #000000;
-        }#T_d358424a_454c_11eb_9e92_acde48001122row1_col3{
-            background-color:  #2f0596;
-            color:  #f1f1f1;
-        }#T_d358424a_454c_11eb_9e92_acde48001122row1_col4{
-            background-color:  #febe2a;
-            color:  #000000;
-        }#T_d358424a_454c_11eb_9e92_acde48001122row2_col1{
-            background-color:  #f58b47;
-            color:  #000000;
-        }#T_d358424a_454c_11eb_9e92_acde48001122row2_col2{
-            background-color:  #a51f99;
-            color:  #f1f1f1;
-        }#T_d358424a_454c_11eb_9e92_acde48001122row2_col3{
-            background-color:  #ed7953;
-            color:  #000000;
-        }#T_d358424a_454c_11eb_9e92_acde48001122row2_col4{
-            background-color:  #ea7457;
-            color:  #000000;
-        }#T_d358424a_454c_11eb_9e92_acde48001122row3_col0{
-            background-color:  #fad824;
-            color:  #000000;
-        }#T_d358424a_454c_11eb_9e92_acde48001122row3_col2{
-            background-color:  #fa9c3c;
-            color:  #000000;
-        }#T_d358424a_454c_11eb_9e92_acde48001122row3_col3{
+        }#T_f6a7d996_4569_11eb_aac3_acde48001122row0_col2,#T_f6a7d996_4569_11eb_aac3_acde48001122row4_col2{
             background-color:  #5e01a6;
             color:  #f1f1f1;
-        }#T_d358424a_454c_11eb_9e92_acde48001122row4_col0{
-            background-color:  #d04d73;
+        }#T_f6a7d996_4569_11eb_aac3_acde48001122row0_col3{
+            background-color:  #e56a5d;
             color:  #000000;
-        }#T_d358424a_454c_11eb_9e92_acde48001122row4_col2{
-            background-color:  #f1814d;
+        }#T_f6a7d996_4569_11eb_aac3_acde48001122row0_col4,#T_f6a7d996_4569_11eb_aac3_acde48001122row1_col0,#T_f6a7d996_4569_11eb_aac3_acde48001122row2_col3,#T_f6a7d996_4569_11eb_aac3_acde48001122row3_col2,#T_f6a7d996_4569_11eb_aac3_acde48001122row4_col1{
+            background-color:  #f0f921;
             color:  #000000;
-        }</style><table id="T_d358424a_454c_11eb_9e92_acde48001122" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >feature_0</th>        <th class="col_heading level0 col1" >feature_1</th>        <th class="col_heading level0 col2" >feature_2</th>        <th class="col_heading level0 col3" >feature_3</th>        <th class="col_heading level0 col4" >feature_4</th>    </tr></thead><tbody>
+        }#T_f6a7d996_4569_11eb_aac3_acde48001122row1_col1{
+            background-color:  #8e0ca4;
+            color:  #f1f1f1;
+        }#T_f6a7d996_4569_11eb_aac3_acde48001122row1_col3{
+            background-color:  #fdaf31;
+            color:  #000000;
+        }#T_f6a7d996_4569_11eb_aac3_acde48001122row1_col4{
+            background-color:  #c6417d;
+            color:  #f1f1f1;
+        }#T_f6a7d996_4569_11eb_aac3_acde48001122row2_col0{
+            background-color:  #9410a2;
+            color:  #f1f1f1;
+        }#T_f6a7d996_4569_11eb_aac3_acde48001122row2_col1{
+            background-color:  #8606a6;
+            color:  #f1f1f1;
+        }#T_f6a7d996_4569_11eb_aac3_acde48001122row2_col4{
+            background-color:  #ba3388;
+            color:  #f1f1f1;
+        }#T_f6a7d996_4569_11eb_aac3_acde48001122row3_col0{
+            background-color:  #6f00a8;
+            color:  #f1f1f1;
+        }#T_f6a7d996_4569_11eb_aac3_acde48001122row3_col3{
+            background-color:  #f79143;
+            color:  #000000;
+        }#T_f6a7d996_4569_11eb_aac3_acde48001122row3_col4{
+            background-color:  #f0f724;
+            color:  #000000;
+        }#T_f6a7d996_4569_11eb_aac3_acde48001122row4_col0{
+            background-color:  #aa2395;
+            color:  #f1f1f1;
+        }</style><table id="T_f6a7d996_4569_11eb_aac3_acde48001122" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >feature_0</th>        <th class="col_heading level0 col1" >feature_1</th>        <th class="col_heading level0 col2" >feature_2</th>        <th class="col_heading level0 col3" >feature_3</th>        <th class="col_heading level0 col4" >feature_4</th>    </tr></thead><tbody>
                 <tr>
-                        <th id="T_d358424a_454c_11eb_9e92_acde48001122level0_row0" class="row_heading level0 row0" >row_0</th>
-                        <td id="T_d358424a_454c_11eb_9e92_acde48001122row0_col0" class="data row0 col0" >-0.519284</td>
-                        <td id="T_d358424a_454c_11eb_9e92_acde48001122row0_col1" class="data row0 col1" >-0.553179</td>
-                        <td id="T_d358424a_454c_11eb_9e92_acde48001122row0_col2" class="data row0 col2" >-1.768810</td>
-                        <td id="T_d358424a_454c_11eb_9e92_acde48001122row0_col3" class="data row0 col3" >1.023342</td>
-                        <td id="T_d358424a_454c_11eb_9e92_acde48001122row0_col4" class="data row0 col4" >-0.668625</td>
+                        <th id="T_f6a7d996_4569_11eb_aac3_acde48001122level0_row0" class="row_heading level0 row0" >row_0</th>
+                        <td id="T_f6a7d996_4569_11eb_aac3_acde48001122row0_col0" class="data row0 col0" >-0.908801</td>
+                        <td id="T_f6a7d996_4569_11eb_aac3_acde48001122row0_col1" class="data row0 col1" >-1.349283</td>
+                        <td id="T_f6a7d996_4569_11eb_aac3_acde48001122row0_col2" class="data row0 col2" >0.587406</td>
+                        <td id="T_f6a7d996_4569_11eb_aac3_acde48001122row0_col3" class="data row0 col3" >0.086509</td>
+                        <td id="T_f6a7d996_4569_11eb_aac3_acde48001122row0_col4" class="data row0 col4" >0.479789</td>
             </tr>
             <tr>
-                        <th id="T_d358424a_454c_11eb_9e92_acde48001122level0_row1" class="row_heading level0 row1" >row_1</th>
-                        <td id="T_d358424a_454c_11eb_9e92_acde48001122row1_col0" class="data row1 col0" >-1.064582</td>
-                        <td id="T_d358424a_454c_11eb_9e92_acde48001122row1_col1" class="data row1 col1" >0.205538</td>
-                        <td id="T_d358424a_454c_11eb_9e92_acde48001122row1_col2" class="data row1 col2" >0.350555</td>
-                        <td id="T_d358424a_454c_11eb_9e92_acde48001122row1_col3" class="data row1 col3" >-1.942761</td>
-                        <td id="T_d358424a_454c_11eb_9e92_acde48001122row1_col4" class="data row1 col4" >1.594635</td>
+                        <th id="T_f6a7d996_4569_11eb_aac3_acde48001122level0_row1" class="row_heading level0 row1" >row_1</th>
+                        <td id="T_f6a7d996_4569_11eb_aac3_acde48001122row1_col0" class="data row1 col0" >2.119295</td>
+                        <td id="T_f6a7d996_4569_11eb_aac3_acde48001122row1_col1" class="data row1 col1" >-0.372110</td>
+                        <td id="T_f6a7d996_4569_11eb_aac3_acde48001122row1_col2" class="data row1 col2" >0.443444</td>
+                        <td id="T_f6a7d996_4569_11eb_aac3_acde48001122row1_col3" class="data row1 col3" >0.551942</td>
+                        <td id="T_f6a7d996_4569_11eb_aac3_acde48001122row1_col4" class="data row1 col4" >-0.511610</td>
             </tr>
             <tr>
-                        <th id="T_d358424a_454c_11eb_9e92_acde48001122level0_row2" class="row_heading level0 row2" >row_2</th>
-                        <td id="T_d358424a_454c_11eb_9e92_acde48001122row2_col0" class="data row2 col0" >1.057886</td>
-                        <td id="T_d358424a_454c_11eb_9e92_acde48001122row2_col1" class="data row2 col1" >0.074919</td>
-                        <td id="T_d358424a_454c_11eb_9e92_acde48001122row2_col2" class="data row2 col2" >-0.998969</td>
-                        <td id="T_d358424a_454c_11eb_9e92_acde48001122row2_col3" class="data row2 col3" >-0.030725</td>
-                        <td id="T_d358424a_454c_11eb_9e92_acde48001122row2_col4" class="data row2 col4" >0.677628</td>
+                        <th id="T_f6a7d996_4569_11eb_aac3_acde48001122level0_row2" class="row_heading level0 row2" >row_2</th>
+                        <td id="T_f6a7d996_4569_11eb_aac3_acde48001122row2_col0" class="data row2 col0" >0.030793</td>
+                        <td id="T_f6a7d996_4569_11eb_aac3_acde48001122row2_col1" class="data row2 col1" >-0.454157</td>
+                        <td id="T_f6a7d996_4569_11eb_aac3_acde48001122row2_col2" class="data row2 col2" >0.439636</td>
+                        <td id="T_f6a7d996_4569_11eb_aac3_acde48001122row2_col3" class="data row2 col3" >0.948702</td>
+                        <td id="T_f6a7d996_4569_11eb_aac3_acde48001122row2_col4" class="data row2 col4" >-0.604266</td>
             </tr>
             <tr>
-                        <th id="T_d358424a_454c_11eb_9e92_acde48001122level0_row3" class="row_heading level0 row3" >row_3</th>
-                        <td id="T_d358424a_454c_11eb_9e92_acde48001122row3_col0" class="data row3 col0" >0.898228</td>
-                        <td id="T_d358424a_454c_11eb_9e92_acde48001122row3_col1" class="data row3 col1" >-0.697138</td>
-                        <td id="T_d358424a_454c_11eb_9e92_acde48001122row3_col2" class="data row3 col2" >-0.134935</td>
-                        <td id="T_d358424a_454c_11eb_9e92_acde48001122row3_col3" class="data row3 col3" >-1.592920</td>
-                        <td id="T_d358424a_454c_11eb_9e92_acde48001122row3_col4" class="data row3 col4" >-2.127225</td>
+                        <th id="T_f6a7d996_4569_11eb_aac3_acde48001122level0_row3" class="row_heading level0 row3" >row_3</th>
+                        <td id="T_f6a7d996_4569_11eb_aac3_acde48001122row3_col0" class="data row3 col0" >-0.264686</td>
+                        <td id="T_f6a7d996_4569_11eb_aac3_acde48001122row3_col1" class="data row3 col1" >-1.371427</td>
+                        <td id="T_f6a7d996_4569_11eb_aac3_acde48001122row3_col2" class="data row3 col2" >1.311990</td>
+                        <td id="T_f6a7d996_4569_11eb_aac3_acde48001122row3_col3" class="data row3 col3" >0.365076</td>
+                        <td id="T_f6a7d996_4569_11eb_aac3_acde48001122row3_col4" class="data row3 col4" >0.466767</td>
             </tr>
             <tr>
-                        <th id="T_d358424a_454c_11eb_9e92_acde48001122level0_row4" class="row_heading level0 row4" >row_4</th>
-                        <td id="T_d358424a_454c_11eb_9e92_acde48001122row4_col0" class="data row4 col0" >0.039582</td>
-                        <td id="T_d358424a_454c_11eb_9e92_acde48001122row4_col1" class="data row4 col1" >0.372877</td>
-                        <td id="T_d358424a_454c_11eb_9e92_acde48001122row4_col2" class="data row4 col2" >-0.299539</td>
-                        <td id="T_d358424a_454c_11eb_9e92_acde48001122row4_col3" class="data row4 col3" >-2.132972</td>
-                        <td id="T_d358424a_454c_11eb_9e92_acde48001122row4_col4" class="data row4 col4" >2.194797</td>
+                        <th id="T_f6a7d996_4569_11eb_aac3_acde48001122level0_row4" class="row_heading level0 row4" >row_4</th>
+                        <td id="T_f6a7d996_4569_11eb_aac3_acde48001122row4_col0" class="data row4 col0" >0.231278</td>
+                        <td id="T_f6a7d996_4569_11eb_aac3_acde48001122row4_col1" class="data row4 col1" >2.009801</td>
+                        <td id="T_f6a7d996_4569_11eb_aac3_acde48001122row4_col2" class="data row4 col2" >0.586166</td>
+                        <td id="T_f6a7d996_4569_11eb_aac3_acde48001122row4_col3" class="data row4 col3" >-1.307132</td>
+                        <td id="T_f6a7d996_4569_11eb_aac3_acde48001122row4_col4" class="data row4 col4" >-1.425747</td>
             </tr>
     </tbody></table></div></div>
 </div>
@@ -1748,7 +1739,7 @@ memory usage: 1.7+ KB
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/miniconda3/lib/python3.7/site-packages/ipykernel_launcher.py:1: SettingWithCopyWarning: 
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/miniconda3/envs/mds511/lib/python3.7/site-packages/ipykernel_launcher.py:1: SettingWithCopyWarning: 
 A value is trying to be set on a copy of a slice from a DataFrame.
 Try using .loc[row_indexer,col_indexer] = value instead
 
@@ -1815,8 +1806,8 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The id of the original dataframe is: 5762156560
- The id of the indexed dataframe is: 5781171152
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The id of the original dataframe is: 4588085840
+ The id of the indexed dataframe is: 4612421712
 </pre></div>
 </div>
 </div>
@@ -4541,42 +4532,42 @@ The Pandas team recommends <strong>Method 2 (re-assign)</strong>, for a <a class
 <span class="g g-Whitespace">      </span><span class="mi">2</span>          <span class="n">columns</span><span class="o">=</span><span class="s2">&quot;Year&quot;</span><span class="p">,</span>
 <span class="ne">----&gt; </span><span class="mi">3</span>          <span class="n">values</span><span class="o">=</span><span class="s2">&quot;Courses&quot;</span><span class="p">)</span>
 
-<span class="nn">/opt/miniconda3/lib/python3.7/site-packages/pandas/core/frame.py</span> in <span class="ni">pivot</span><span class="nt">(self, index, columns, values)</span>
-<span class="g g-Whitespace">   </span><span class="mi">6669</span>         <span class="kn">from</span> <span class="nn">pandas.core.reshape.pivot</span> <span class="kn">import</span> <span class="n">pivot</span>
-<span class="g g-Whitespace">   </span><span class="mi">6670</span> 
-<span class="ne">-&gt; </span><span class="mi">6671</span>         <span class="k">return</span> <span class="n">pivot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">index</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">columns</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="n">values</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">6672</span> 
-<span class="g g-Whitespace">   </span><span class="mi">6673</span>     <span class="n">_shared_docs</span><span class="p">[</span>
+<span class="nn">/opt/miniconda3/envs/mds511/lib/python3.7/site-packages/pandas/core/frame.py</span> in <span class="ni">pivot</span><span class="nt">(self, index, columns, values)</span>
+<span class="g g-Whitespace">   </span><span class="mi">6665</span>         <span class="kn">from</span> <span class="nn">pandas.core.reshape.pivot</span> <span class="kn">import</span> <span class="n">pivot</span>
+<span class="g g-Whitespace">   </span><span class="mi">6666</span> 
+<span class="ne">-&gt; </span><span class="mi">6667</span>         <span class="k">return</span> <span class="n">pivot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">index</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">columns</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="n">values</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">6668</span> 
+<span class="g g-Whitespace">   </span><span class="mi">6669</span>     <span class="n">_shared_docs</span><span class="p">[</span>
 
-<span class="nn">/opt/miniconda3/lib/python3.7/site-packages/pandas/core/reshape/pivot.py</span> in <span class="ni">pivot</span><span class="nt">(data, index, columns, values)</span>
+<span class="nn">/opt/miniconda3/envs/mds511/lib/python3.7/site-packages/pandas/core/reshape/pivot.py</span> in <span class="ni">pivot</span><span class="nt">(data, index, columns, values)</span>
 <span class="g g-Whitespace">    </span><span class="mi">475</span>         <span class="k">else</span><span class="p">:</span>
 <span class="g g-Whitespace">    </span><span class="mi">476</span>             <span class="n">indexed</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">_constructor_sliced</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">values</span><span class="p">]</span><span class="o">.</span><span class="n">_values</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">index</span><span class="p">)</span>
 <span class="ne">--&gt; </span><span class="mi">477</span>     <span class="k">return</span> <span class="n">indexed</span><span class="o">.</span><span class="n">unstack</span><span class="p">(</span><span class="n">columns</span><span class="p">)</span>
 <span class="g g-Whitespace">    </span><span class="mi">478</span> 
 <span class="g g-Whitespace">    </span><span class="mi">479</span> 
 
-<span class="nn">/opt/miniconda3/lib/python3.7/site-packages/pandas/core/series.py</span> in <span class="ni">unstack</span><span class="nt">(self, level, fill_value)</span>
+<span class="nn">/opt/miniconda3/envs/mds511/lib/python3.7/site-packages/pandas/core/series.py</span> in <span class="ni">unstack</span><span class="nt">(self, level, fill_value)</span>
 <span class="g g-Whitespace">   </span><span class="mi">3888</span>         <span class="kn">from</span> <span class="nn">pandas.core.reshape.reshape</span> <span class="kn">import</span> <span class="n">unstack</span>
 <span class="g g-Whitespace">   </span><span class="mi">3889</span> 
 <span class="ne">-&gt; </span><span class="mi">3890</span>         <span class="k">return</span> <span class="n">unstack</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">level</span><span class="p">,</span> <span class="n">fill_value</span><span class="p">)</span>
 <span class="g g-Whitespace">   </span><span class="mi">3891</span> 
 <span class="g g-Whitespace">   </span><span class="mi">3892</span>     <span class="c1"># ----------------------------------------------------------------------</span>
 
-<span class="nn">/opt/miniconda3/lib/python3.7/site-packages/pandas/core/reshape/reshape.py</span> in <span class="ni">unstack</span><span class="nt">(obj, level, fill_value)</span>
+<span class="nn">/opt/miniconda3/envs/mds511/lib/python3.7/site-packages/pandas/core/reshape/reshape.py</span> in <span class="ni">unstack</span><span class="nt">(obj, level, fill_value)</span>
 <span class="g g-Whitespace">    </span><span class="mi">423</span>             <span class="k">return</span> <span class="n">_unstack_extension_series</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">level</span><span class="p">,</span> <span class="n">fill_value</span><span class="p">)</span>
 <span class="g g-Whitespace">    </span><span class="mi">424</span>         <span class="n">unstacker</span> <span class="o">=</span> <span class="n">_Unstacker</span><span class="p">(</span>
 <span class="ne">--&gt; </span><span class="mi">425</span>             <span class="n">obj</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="n">level</span><span class="p">,</span> <span class="n">constructor</span><span class="o">=</span><span class="n">obj</span><span class="o">.</span><span class="n">_constructor_expanddim</span><span class="p">,</span>
 <span class="g g-Whitespace">    </span><span class="mi">426</span>         <span class="p">)</span>
 <span class="g g-Whitespace">    </span><span class="mi">427</span>         <span class="k">return</span> <span class="n">unstacker</span><span class="o">.</span><span class="n">get_result</span><span class="p">(</span>
 
-<span class="nn">/opt/miniconda3/lib/python3.7/site-packages/pandas/core/reshape/reshape.py</span> in <span class="ni">__init__</span><span class="nt">(self, index, level, constructor)</span>
+<span class="nn">/opt/miniconda3/envs/mds511/lib/python3.7/site-packages/pandas/core/reshape/reshape.py</span> in <span class="ni">__init__</span><span class="nt">(self, index, level, constructor)</span>
 <span class="g g-Whitespace">    </span><span class="mi">118</span>             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Unstacked DataFrame is too big, causing int32 overflow&quot;</span><span class="p">)</span>
 <span class="g g-Whitespace">    </span><span class="mi">119</span> 
 <span class="ne">--&gt; </span><span class="mi">120</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_make_selectors</span><span class="p">()</span>
 <span class="g g-Whitespace">    </span><span class="mi">121</span> 
 <span class="g g-Whitespace">    </span><span class="mi">122</span>     <span class="nd">@cache_readonly</span>
 
-<span class="nn">/opt/miniconda3/lib/python3.7/site-packages/pandas/core/reshape/reshape.py</span> in <span class="ni">_make_selectors</span><span class="nt">(self)</span>
+<span class="nn">/opt/miniconda3/envs/mds511/lib/python3.7/site-packages/pandas/core/reshape/reshape.py</span> in <span class="ni">_make_selectors</span><span class="nt">(self)</span>
 <span class="g g-Whitespace">    </span><span class="mi">167</span> 
 <span class="g g-Whitespace">    </span><span class="mi">168</span>         <span class="k">if</span> <span class="n">mask</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">index</span><span class="p">):</span>
 <span class="ne">--&gt; </span><span class="mi">169</span>             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Index contains duplicate entries, cannot reshape&quot;</span><span class="p">)</span>
@@ -6102,7 +6093,7 @@ The Pandas team recommends <strong>Method 2 (re-assign)</strong>, for a <a class
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;astype&#39; is 1.98 faster than &#39;applymap&#39;!
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;astype&#39; is 1.99 faster than &#39;applymap&#39;!
 </pre></div>
 </div>
 </div>
@@ -6259,7 +6250,7 @@ The Pandas team recommends <strong>Method 2 (re-assign)</strong>, for a <a class
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;pandas.core.groupby.generic.DataFrameGroupBy object at 0x1577bb150&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;pandas.core.groupby.generic.DataFrameGroupBy object at 0x112491050&gt;
 </pre></div>
 </div>
 </div>
@@ -7588,10 +7579,7 @@ memory usage: 1.7+ KB
       </div>
     </div>
 
-    
-  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
-
-
+    <script src="../_static/js/index.js"></script>
     
   </body>
 </html>
