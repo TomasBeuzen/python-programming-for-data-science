@@ -1,0 +1,859 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Unit Tests &amp; Classes &#8212; Python Programming for Data Science</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/style.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Style Guides, Scripts, Imports" href="chapter4-style-scripts-imports-practice.html" />
+    <link rel="prev" title="Loops &amp; Functions" href="chapter2-loops-functions-practice.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Python Programming for Data Science</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../README.html">
+   Python Programming for Data Science
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Chapters
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapters/chapter1-basics.html">
+   Chapter 1: Python Basics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapters/chapter2-loops-functions.html">
+   Chapter 2: Loops &amp; Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapters/chapter3-tests-classes.html">
+   Chapter 3: Unit Tests &amp; Classes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapters/chapter4-style-scripts-imports.html">
+   Chapter 4: Style Guides, Scripts, Imports
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapters/chapter5-numpy.html">
+   Chapter 5: Introduction to NumPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapters/chapter6-numpy-addendum.html">
+   Chapter 6: NumPy Implementation Details
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapters/chapter7-pandas.html">
+   Chapter 7: Introduction to Pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapters/chapter8-wrangling-basics.html">
+   Chapter 8: Basic Data Wrangling With Pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapters/chapter9-wrangling-advanced.html">
+   Chapter 9: Advanced Data Wrangling With Pandas
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Practice Exercises
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter1-basics-practice.html">
+   Python Basics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter2-loops-functions-practice.html">
+   Loops &amp; Functions
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Unit Tests &amp; Classes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter4-style-scripts-imports-practice.html">
+   Style Guides, Scripts, Imports
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter5-numpy-practice.html">
+   NumPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter7-pandas-practice.html">
+   Pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter8-wrangling-basics-practice.html">
+   Basic Wrangling With Pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter9-wrangling-advanced-practice.html">
+   Advanced Wrangling With Pandas
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Tomas Beuzen <br>Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/practice-exercises/chapter3-tests-classes-practice.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/TomasBeuzen/python-programming-for-data-science"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/TomasBeuzen/python-programming-for-data-science/issues/new?title=Issue%20on%20page%20%2Fpractice-exercises/chapter3-tests-classes-practice.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/TomasBeuzen/python-programming-for-data-science/edit/master/practice-exercises/chapter3-tests-classes-practice.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/TomasBeuzen/python-programming-for-data-science/master?urlpath=tree/practice-exercises/chapter3-tests-classes-practice.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercises">
+   Exercises
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     1.
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     2.
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     3.
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     4.
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     5.
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     6.
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#solutions">
+   Solutions
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id7">
+     1.
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id8">
+     2.
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id9">
+     3.
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id10">
+     4.
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id11">
+     5.
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id12">
+     6.
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <p><img alt="" src="../_images/banner1.png" /></p>
+<div class="section" id="unit-tests-classes">
+<h1>Unit Tests &amp; Classes<a class="headerlink" href="#unit-tests-classes" title="Permalink to this headline">¶</a></h1>
+<p><strong>Tomas Beuzen, September 2020</strong></p>
+<p>These exercises complement <a class="reference internal" href="../chapters/chapter3-tests-classes.html"><span class="doc std std-doc">Chapter 3</span></a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3>1.<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>The function <code class="docutils literal notranslate"><span class="pre">area()</span></code> accepts the argument <code class="docutils literal notranslate"><span class="pre">radius</span></code> and calculates the area of a circle. Write three tests using <code class="docutils literal notranslate"><span class="pre">assert</span></code> statements for the following conditions:</p>
+<ol class="simple">
+<li><p>Assert that <code class="docutils literal notranslate"><span class="pre">area(1)</span></code> returns a <code class="docutils literal notranslate"><span class="pre">float</span></code>;</p></li>
+<li><p>Assert that <code class="docutils literal notranslate"><span class="pre">area(0)</span></code> returns a value of 0;</p></li>
+<li><p>Assert that <code class="docutils literal notranslate"><span class="pre">area(5)</span></code> is approximately equal to 78.5 (hint: <code class="docutils literal notranslate"><span class="pre">math.isclose(...,</span> <span class="pre">abs_tol=0.1)</span></code>)</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">area</span><span class="p">(</span><span class="n">radius</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Calculate the area of a circle based on the given radius.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">radius</span> <span class="o">**</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your answer here.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id2">
+<h3>2.<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>In the spirit of the EAFP (easier to ask for forgiveness than permission) philosophy. Modify the code of the function <code class="docutils literal notranslate"><span class="pre">area()</span></code> and add a <code class="docutils literal notranslate"><span class="pre">try</span></code>/<code class="docutils literal notranslate"><span class="pre">except</span></code> statement to catch the type error raised by passing a string to <code class="docutils literal notranslate"><span class="pre">area()</span></code> as shown below:</p>
+<div class="cell tag_raises-exception docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">area</span><span class="p">(</span><span class="s1">&#39;10&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">4</span><span class="o">-</span><span class="mf">28e1</span><span class="n">bc493b84</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">area</span><span class="p">(</span><span class="s1">&#39;10&#39;</span><span class="p">)</span>
+
+<span class="nn">&lt;ipython-input-2-13e66cca8177&gt;</span> in <span class="ni">area</span><span class="nt">(radius)</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="k">def</span> <span class="nf">area</span><span class="p">(</span><span class="n">radius</span><span class="p">):</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="sd">&quot;&quot;&quot;Calculate the area of a circle based on the given radius.&quot;&quot;&quot;</span>
+<span class="ne">----&gt; </span><span class="mi">3</span>     <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">radius</span> <span class="o">**</span> <span class="mi">2</span>
+
+<span class="ne">TypeError</span>: unsupported operand type(s) for ** or pow(): &#39;str&#39; and &#39;int&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">area</span><span class="p">(</span><span class="n">radius</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Calculate the area of a circle based on the given radius.&quot;&quot;&quot;</span>
+    <span class="k">pass</span> <span class="c1"># Remove this line and add your answer here.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id3">
+<h3>3.<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>In the spirit of the LBYL (look before you leap) philosophy. Modify the code of the function <code class="docutils literal notranslate"><span class="pre">area()</span></code> and add a conditional <code class="docutils literal notranslate"><span class="pre">if</span></code>/<code class="docutils literal notranslate"><span class="pre">else</span></code> statement to make sure that a user has passed a number (<code class="docutils literal notranslate"><span class="pre">int</span></code> or <code class="docutils literal notranslate"><span class="pre">float</span></code>) to the <code class="docutils literal notranslate"><span class="pre">area()</span></code> function. If they pass something else, raise a <code class="docutils literal notranslate"><span class="pre">TypeError</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">area</span><span class="p">(</span><span class="n">radius</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Calculate the area of a circle based on the given radius.&quot;&quot;&quot;</span>
+    <span class="k">pass</span> <span class="c1"># Remove this line and add your answer here.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id4">
+<h3>4.<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>For this exercise I want you to create a class called <code class="docutils literal notranslate"><span class="pre">Circle</span></code>. It should have the following characteristics:</p>
+<ol class="simple">
+<li><p>It should be initiated with the argument <code class="docutils literal notranslate"><span class="pre">radius</span></code> and store this as an instance attribute.</p></li>
+<li><p>Have a method <code class="docutils literal notranslate"><span class="pre">area()</span></code> which calculates the area of the circle.</p></li>
+<li><p>Have a method <code class="docutils literal notranslate"><span class="pre">circumference()</span></code> which calculates the circumference of the circle.</p></li>
+<li><p>Have the method <code class="docutils literal notranslate"><span class="pre">__str__()</span></code> which is a special method in Python and controls what is output to the screen when you <code class="docutils literal notranslate"><span class="pre">print()</span></code> an instance of your class (learn more <a class="reference external" href="https://realpython.com/lessons/how-and-when-use-__str__/">here</a>). The <code class="docutils literal notranslate"><span class="pre">print()</span></code> statement should print the string <code class="docutils literal notranslate"><span class="pre">f&quot;A</span> <span class="pre">Circle</span> <span class="pre">with</span> <span class="pre">radius</span> <span class="pre">{self.radius}&quot;</span></code>.</p></li>
+</ol>
+<p>I’ve provided some tests for you to check your class.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Circle</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;A circle with a radius r.&quot;&quot;&quot;</span>
+
+    <span class="k">pass</span> <span class="c1"># Remove this line and add your answer here.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_raises-exception docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">Circle</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">radius</span> <span class="o">==</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;Test 1 failed.&quot;</span>
+<span class="k">assert</span> <span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">Circle</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">area</span><span class="p">(),</span> <span class="mf">28.3</span><span class="p">,</span> <span class="n">abs_tol</span><span class="o">=</span><span class="mf">0.1</span><span class="p">),</span> <span class="s2">&quot;Test 2 failed.&quot;</span>
+<span class="k">assert</span> <span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">Circle</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">circumference</span><span class="p">(),</span> <span class="mf">18.8</span><span class="p">,</span> <span class="n">abs_tol</span><span class="o">=</span><span class="mf">0.1</span><span class="p">),</span> <span class="s2">&quot;Test 3 failed.&quot;</span>
+<span class="k">assert</span> <span class="n">Circle</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="fm">__str__</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;A Circle with radius 3&quot;</span><span class="p">,</span> <span class="s2">&quot;Test 4 failed.&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">8</span><span class="o">-</span><span class="mi">5</span><span class="n">dbdbcaa4346</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="k">assert</span> <span class="n">Circle</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">radius</span> <span class="o">==</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;Test 1 failed.&quot;</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="k">assert</span> <span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">Circle</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">area</span><span class="p">(),</span> <span class="mf">28.3</span><span class="p">,</span> <span class="n">abs_tol</span><span class="o">=</span><span class="mf">0.1</span><span class="p">),</span> <span class="s2">&quot;Test 2 failed.&quot;</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="k">assert</span> <span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">Circle</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">circumference</span><span class="p">(),</span> <span class="mf">18.8</span><span class="p">,</span> <span class="n">abs_tol</span><span class="o">=</span><span class="mf">0.1</span><span class="p">),</span> <span class="s2">&quot;Test 3 failed.&quot;</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="k">assert</span> <span class="n">Circle</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="fm">__str__</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;A Circle with radius 3&quot;</span><span class="p">,</span> <span class="s2">&quot;Test 4 failed.&quot;</span>
+
+<span class="ne">TypeError</span>: Circle() takes no arguments
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id5">
+<h3>5.<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>Now, let’s create a new class <code class="docutils literal notranslate"><span class="pre">sphere</span></code> that inherits from the <code class="docutils literal notranslate"><span class="pre">circle</span></code> class we created above. It should have the following characteristics:</p>
+<ol class="simple">
+<li><p>It should be initiated exactly the same as <code class="docutils literal notranslate"><span class="pre">Circle</span></code> was, with the single argument <code class="docutils literal notranslate"><span class="pre">radius</span></code> which is stored as an instance attribute.</p></li>
+<li><p>Have a method <code class="docutils literal notranslate"><span class="pre">volume()</span></code> which calculates the volume of the sphere (<span class="math notranslate nohighlight">\(\frac{4}{3}{\pi}{r^3}\)</span>).</p></li>
+<li><p>Outputs the string <code class="docutils literal notranslate"><span class="pre">f&quot;A</span> <span class="pre">Sphere</span> <span class="pre">with</span> <span class="pre">volume</span> <span class="pre">4.19&quot;</span></code> when you call <code class="docutils literal notranslate"><span class="pre">print(Sphere(1))</span></code> (hint: recall the <code class="docutils literal notranslate"><span class="pre">__str__()</span></code> method from the previous question).</p></li>
+</ol>
+<p>I’ve provided some tests for you to check your class.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your answer here.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_raises-exception docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">Sphere</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">radius</span> <span class="o">==</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;Test 1 failed.&quot;</span>
+<span class="k">assert</span> <span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">Sphere</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">area</span><span class="p">(),</span> <span class="mf">28.3</span><span class="p">,</span> <span class="n">abs_tol</span><span class="o">=</span><span class="mf">0.1</span><span class="p">),</span> <span class="s2">&quot;Test 2 failed.&quot;</span>
+<span class="k">assert</span> <span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">Sphere</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">circumference</span><span class="p">(),</span> <span class="mf">18.8</span><span class="p">,</span> <span class="n">abs_tol</span><span class="o">=</span><span class="mf">0.1</span><span class="p">),</span> <span class="s2">&quot;Test 3 failed.&quot;</span>
+<span class="k">assert</span> <span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">Sphere</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">volume</span><span class="p">(),</span> <span class="mf">113.1</span><span class="p">,</span> <span class="n">abs_tol</span><span class="o">=</span><span class="mf">0.1</span><span class="p">),</span> <span class="s2">&quot;Test 3 failed.&quot;</span>
+<span class="k">assert</span> <span class="n">Sphere</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="fm">__str__</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;A Sphere with volume 4.19&quot;</span><span class="p">,</span> <span class="s2">&quot;Test 4 failed.&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">605</span><span class="n">d8a1c6bb6</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="k">assert</span> <span class="n">Sphere</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">radius</span> <span class="o">==</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;Test 1 failed.&quot;</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="k">assert</span> <span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">Sphere</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">area</span><span class="p">(),</span> <span class="mf">28.3</span><span class="p">,</span> <span class="n">abs_tol</span><span class="o">=</span><span class="mf">0.1</span><span class="p">),</span> <span class="s2">&quot;Test 2 failed.&quot;</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="k">assert</span> <span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">Sphere</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">circumference</span><span class="p">(),</span> <span class="mf">18.8</span><span class="p">,</span> <span class="n">abs_tol</span><span class="o">=</span><span class="mf">0.1</span><span class="p">),</span> <span class="s2">&quot;Test 3 failed.&quot;</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="k">assert</span> <span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">Sphere</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">volume</span><span class="p">(),</span> <span class="mf">113.1</span><span class="p">,</span> <span class="n">abs_tol</span><span class="o">=</span><span class="mf">0.1</span><span class="p">),</span> <span class="s2">&quot;Test 3 failed.&quot;</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="k">assert</span> <span class="n">Sphere</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="fm">__str__</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;A Sphere with volume 4.19&quot;</span><span class="p">,</span> <span class="s2">&quot;Test 4 failed.&quot;</span>
+
+<span class="ne">NameError</span>: name &#39;Sphere&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id6">
+<h3>6.<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p>Imagine that users of our <code class="docutils literal notranslate"><span class="pre">Sphere</span></code> class often want to instantiate our class with a <code class="docutils literal notranslate"><span class="pre">circumference</span></code> instead of a <code class="docutils literal notranslate"><span class="pre">radius</span></code>. Add a <a class="reference external" href="https://pages.github.ubc.ca/MDS-2020-21/DSCI_511_py-prog_students/lectures/lecture3-tests-classes.html#methods-class-methods-static-methods">class method</a> called <code class="docutils literal notranslate"><span class="pre">from_circ()</span></code> to the <code class="docutils literal notranslate"><span class="pre">Sphere</span></code> class that allows users to do this. The method should calculate the <code class="docutils literal notranslate"><span class="pre">radius</span></code> from the passed <code class="docutils literal notranslate"><span class="pre">circumference</span></code>, and then use that <code class="docutils literal notranslate"><span class="pre">radius</span></code> to make an instance of <code class="docutils literal notranslate"><span class="pre">Sphere</span></code>.</p>
+<p>I’ve provided some tests for you to check your modified class.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your answer here.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_raises-exception docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">Sphere</span><span class="o">.</span><span class="n">from_circ</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">radius</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Test 1 failed.&quot;</span>
+<span class="k">assert</span> <span class="n">Sphere</span><span class="o">.</span><span class="n">from_circ</span><span class="p">(</span><span class="mi">3</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span><span class="o">.</span><span class="n">radius</span> <span class="o">==</span> <span class="mf">1.5</span><span class="p">,</span> <span class="s2">&quot;Test 2 failed.&quot;</span> 
+<span class="k">assert</span> <span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">Sphere</span><span class="o">.</span><span class="n">from_circ</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="o">.</span><span class="n">radius</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">,</span> <span class="n">abs_tol</span><span class="o">=</span><span class="mf">0.1</span><span class="p">),</span> <span class="s2">&quot;Test 3 failed.&quot;</span>
+<span class="k">assert</span> <span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">Sphere</span><span class="o">.</span><span class="n">from_circ</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="o">.</span><span class="n">volume</span><span class="p">(),</span> <span class="mf">3.65</span><span class="p">,</span> <span class="n">abs_tol</span><span class="o">=</span><span class="mf">0.1</span><span class="p">),</span> <span class="s2">&quot;Test 4 failed.&quot;</span>
+<span class="k">assert</span> <span class="n">Sphere</span><span class="o">.</span><span class="n">from_circ</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="o">.</span><span class="fm">__str__</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;A Sphere with volume 3.65&quot;</span><span class="p">,</span> <span class="s2">&quot;Test 5 failed.&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="n">c64f2af0ae75</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="k">assert</span> <span class="n">Sphere</span><span class="o">.</span><span class="n">from_circ</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">radius</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Test 1 failed.&quot;</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="k">assert</span> <span class="n">Sphere</span><span class="o">.</span><span class="n">from_circ</span><span class="p">(</span><span class="mi">3</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span><span class="o">.</span><span class="n">radius</span> <span class="o">==</span> <span class="mf">1.5</span><span class="p">,</span> <span class="s2">&quot;Test 2 failed.&quot;</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="k">assert</span> <span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">Sphere</span><span class="o">.</span><span class="n">from_circ</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="o">.</span><span class="n">radius</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">,</span> <span class="n">abs_tol</span><span class="o">=</span><span class="mf">0.1</span><span class="p">),</span> <span class="s2">&quot;Test 3 failed.&quot;</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="k">assert</span> <span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">Sphere</span><span class="o">.</span><span class="n">from_circ</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="o">.</span><span class="n">volume</span><span class="p">(),</span> <span class="mf">3.65</span><span class="p">,</span> <span class="n">abs_tol</span><span class="o">=</span><span class="mf">0.1</span><span class="p">),</span> <span class="s2">&quot;Test 4 failed.&quot;</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="k">assert</span> <span class="n">Sphere</span><span class="o">.</span><span class="n">from_circ</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="o">.</span><span class="fm">__str__</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;A Sphere with volume 3.65&quot;</span><span class="p">,</span> <span class="s2">&quot;Test 5 failed.&quot;</span>
+
+<span class="ne">NameError</span>: name &#39;Sphere&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<hr>
+<hr>
+<hr></div>
+</div>
+<div class="section" id="solutions">
+<h2>Solutions<a class="headerlink" href="#solutions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id7">
+<h3>1.<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p>The function <code class="docutils literal notranslate"><span class="pre">area()</span></code> accepts the argument <code class="docutils literal notranslate"><span class="pre">radius</span></code> and calculates the area of a circle. Write three tests using <code class="docutils literal notranslate"><span class="pre">assert</span></code> statements for the following conditions:</p>
+<ol class="simple">
+<li><p>Assert that <code class="docutils literal notranslate"><span class="pre">area(1)</span></code> returns a <code class="docutils literal notranslate"><span class="pre">float</span></code>;</p></li>
+<li><p>Assert that <code class="docutils literal notranslate"><span class="pre">area(0)</span></code> returns a value of 0;</p></li>
+<li><p>Assert that <code class="docutils literal notranslate"><span class="pre">area(5)</span></code> is approximately equal to 78.5 (hint: <code class="docutils literal notranslate"><span class="pre">math.isclose(...,</span> <span class="pre">abs_tol=0.1)</span></code>)</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">area</span><span class="p">(</span><span class="n">radius</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Calculate the area of a circle based on the given radius.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">radius</span> <span class="o">**</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">area</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="nb">float</span><span class="p">),</span> <span class="s1">&#39;Test 1 failed!&#39;</span>
+<span class="k">assert</span> <span class="n">area</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Test 2 failed!&#39;</span>
+<span class="k">assert</span> <span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">area</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span> <span class="mf">78.5</span><span class="p">,</span> <span class="n">abs_tol</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id8">
+<h3>2.<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<p>In the spirit of the EAFP (easier to ask for forgiveness than permission) philosophy. Modify the code of the function <code class="docutils literal notranslate"><span class="pre">area()</span></code> and add a <code class="docutils literal notranslate"><span class="pre">try</span></code>/<code class="docutils literal notranslate"><span class="pre">except</span></code> statement to catch the type error raised by passing a string to <code class="docutils literal notranslate"><span class="pre">area()</span></code> as shown below:</p>
+<div class="cell tag_raises-exception docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">area</span><span class="p">(</span><span class="s1">&#39;10&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">15</span><span class="o">-</span><span class="mf">28e1</span><span class="n">bc493b84</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">area</span><span class="p">(</span><span class="s1">&#39;10&#39;</span><span class="p">)</span>
+
+<span class="nn">&lt;ipython-input-13-13e66cca8177&gt;</span> in <span class="ni">area</span><span class="nt">(radius)</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="k">def</span> <span class="nf">area</span><span class="p">(</span><span class="n">radius</span><span class="p">):</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="sd">&quot;&quot;&quot;Calculate the area of a circle based on the given radius.&quot;&quot;&quot;</span>
+<span class="ne">----&gt; </span><span class="mi">3</span>     <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">radius</span> <span class="o">**</span> <span class="mi">2</span>
+
+<span class="ne">TypeError</span>: unsupported operand type(s) for ** or pow(): &#39;str&#39; and &#39;int&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">area</span><span class="p">(</span><span class="n">radius</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Calculate the area of a circle based on the given radius.&quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">radius</span> <span class="o">**</span> <span class="mi">2</span>
+    <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;radius should be a number but you entered a </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">radius</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Some other error occurred!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id9">
+<h3>3.<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<p>In the spirit of the LBYL (look before you leap) philosophy. Modify the code of the function <code class="docutils literal notranslate"><span class="pre">area()</span></code> and add a conditional <code class="docutils literal notranslate"><span class="pre">if</span></code>/<code class="docutils literal notranslate"><span class="pre">else</span></code> statement to make sure that a user has passed a number (<code class="docutils literal notranslate"><span class="pre">int</span></code> or <code class="docutils literal notranslate"><span class="pre">float</span></code>) to the <code class="docutils literal notranslate"><span class="pre">area()</span></code> function. If they pass something else, raise a <code class="docutils literal notranslate"><span class="pre">TypeError</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">area</span><span class="p">(</span><span class="n">radius</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Calculate the area of a circle based on the given radius.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">radius</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">)):</span>
+        <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">radius</span> <span class="o">**</span> <span class="mi">2</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;radius should be a number but you entered a </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">radius</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id10">
+<h3>4.<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<p>For this exercise I want you to create a class called <code class="docutils literal notranslate"><span class="pre">circle</span></code>. It should have the following characteristics:</p>
+<ol class="simple">
+<li><p>It should be initiated with the argument <code class="docutils literal notranslate"><span class="pre">radius</span></code> and store this as an instance attribute.</p></li>
+<li><p>Have a method <code class="docutils literal notranslate"><span class="pre">area()</span></code> which calculates the area of the circle.</p></li>
+<li><p>Have a method <code class="docutils literal notranslate"><span class="pre">circumference()</span></code> which calculates the circumference of the circle.</p></li>
+<li><p>Have the method <code class="docutils literal notranslate"><span class="pre">__str__()</span></code> which is a special method in Python and controls what is output to the screen when you <code class="docutils literal notranslate"><span class="pre">print()</span></code> an instance of your class (learn more <a class="reference external" href="https://realpython.com/lessons/how-and-when-use-__str__/">here</a>). The <code class="docutils literal notranslate"><span class="pre">print()</span></code> statement should print the string <code class="docutils literal notranslate"><span class="pre">f&quot;A</span> <span class="pre">Circle</span> <span class="pre">with</span> <span class="pre">radius</span> <span class="pre">{self.radius}&quot;</span></code>.</p></li>
+</ol>
+<p>I’ve provided some tests for you to check your class.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Circle</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;A circle with a radius r.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">radius</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">radius</span> <span class="o">=</span> <span class="n">radius</span>
+
+    <span class="k">def</span> <span class="nf">area</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Calculate the area of the circle.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">radius</span> <span class="o">**</span> <span class="mi">2</span>
+
+    <span class="k">def</span> <span class="nf">circumference</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Calculate the circumference of the circle.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">radius</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;A Circle with radius </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">radius</span><span class="si">}</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">Circle</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">radius</span> <span class="o">==</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;Test 1 failed.&quot;</span>
+<span class="k">assert</span> <span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">Circle</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">area</span><span class="p">(),</span> <span class="mf">28.3</span><span class="p">,</span> <span class="n">abs_tol</span><span class="o">=</span><span class="mf">0.1</span><span class="p">),</span> <span class="s2">&quot;Test 2 failed.&quot;</span>
+<span class="k">assert</span> <span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">Circle</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">circumference</span><span class="p">(),</span> <span class="mf">18.8</span><span class="p">,</span> <span class="n">abs_tol</span><span class="o">=</span><span class="mf">0.1</span><span class="p">),</span> <span class="s2">&quot;Test 3 failed.&quot;</span>
+<span class="k">assert</span> <span class="n">Circle</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="fm">__str__</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;A Circle with radius 3&quot;</span><span class="p">,</span> <span class="s2">&quot;Test 4 failed.&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id11">
+<h3>5.<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<p>Now, let’s create a new class <code class="docutils literal notranslate"><span class="pre">sphere</span></code> that inherits from the <code class="docutils literal notranslate"><span class="pre">circle</span></code> class we created above. It should have the following characteristics:</p>
+<ol class="simple">
+<li><p>It should be initiated exactly the same as <code class="docutils literal notranslate"><span class="pre">Circle</span></code> was, with the single argument <code class="docutils literal notranslate"><span class="pre">radius</span></code> which is stored as an instance attribute.</p></li>
+<li><p>Have a method <code class="docutils literal notranslate"><span class="pre">volume()</span></code> which calculates the volume of the sphere (<span class="math notranslate nohighlight">\(\frac{4}{3}{\pi}{r^3}\)</span>).</p></li>
+<li><p>Outputs the string <code class="docutils literal notranslate"><span class="pre">f&quot;A</span> <span class="pre">Sphere</span> <span class="pre">with</span> <span class="pre">volume</span> <span class="pre">4.19&quot;</span></code> when you call <code class="docutils literal notranslate"><span class="pre">print(Sphere(1))</span></code> (hint: recall the <code class="docutils literal notranslate"><span class="pre">__str__()</span></code> method from the previous question).</p></li>
+</ol>
+<p>I’ve provided some tests for you to check your class.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Sphere</span><span class="p">(</span><span class="n">Circle</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;A sphere with a radius r.&quot;&quot;&quot;</span>
+    
+    <span class="k">def</span> <span class="nf">volume</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Calculate the volume of the sphere.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="mi">4</span> <span class="o">/</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">radius</span> <span class="o">**</span> <span class="mi">3</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;A Sphere with volume </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">volume</span><span class="p">()</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">Sphere</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">radius</span> <span class="o">==</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;Test 1 failed.&quot;</span>
+<span class="k">assert</span> <span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">Sphere</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">area</span><span class="p">(),</span> <span class="mf">28.3</span><span class="p">,</span> <span class="n">abs_tol</span><span class="o">=</span><span class="mf">0.1</span><span class="p">),</span> <span class="s2">&quot;Test 2 failed.&quot;</span>
+<span class="k">assert</span> <span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">Sphere</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">circumference</span><span class="p">(),</span> <span class="mf">18.8</span><span class="p">,</span> <span class="n">abs_tol</span><span class="o">=</span><span class="mf">0.1</span><span class="p">),</span> <span class="s2">&quot;Test 3 failed.&quot;</span>
+<span class="k">assert</span> <span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">Sphere</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">volume</span><span class="p">(),</span> <span class="mf">113.1</span><span class="p">,</span> <span class="n">abs_tol</span><span class="o">=</span><span class="mf">0.1</span><span class="p">),</span> <span class="s2">&quot;Test 3 failed.&quot;</span>
+<span class="k">assert</span> <span class="n">Sphere</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="fm">__str__</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;A Sphere with volume 4.19&quot;</span><span class="p">,</span> <span class="s2">&quot;Test 4 failed.&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id12">
+<h3>6.<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<p>Imagine that users of our <code class="docutils literal notranslate"><span class="pre">Sphere</span></code> class often want to instantiate our class with a <code class="docutils literal notranslate"><span class="pre">circumference</span></code> instead of a <code class="docutils literal notranslate"><span class="pre">radius</span></code>. Add a <a class="reference external" href="https://pages.github.ubc.ca/MDS-2020-21/DSCI_511_py-prog_students/lectures/lecture3-tests-classes.html#methods-class-methods-static-methods">class method</a> called <code class="docutils literal notranslate"><span class="pre">from_circ()</span></code> to the <code class="docutils literal notranslate"><span class="pre">Sphere</span></code> class that allows users to do this. The method should calculate the <code class="docutils literal notranslate"><span class="pre">radius</span></code> from the passed <code class="docutils literal notranslate"><span class="pre">circumference</span></code>, and then use that <code class="docutils literal notranslate"><span class="pre">radius</span></code> to make an instance of <code class="docutils literal notranslate"><span class="pre">Sphere</span></code>.</p>
+<p>I’ve provided some tests for you to check your modified class.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Sphere</span><span class="p">(</span><span class="n">Circle</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;A sphere with a radius r.&quot;&quot;&quot;</span>
+    
+    <span class="k">def</span> <span class="nf">volume</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Calculate the volume of the sphere.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="mi">4</span> <span class="o">/</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">radius</span> <span class="o">**</span> <span class="mi">3</span>
+    
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">from_circ</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">circumference</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Make an instance of Sphere from a circumference.&quot;&quot;&quot;</span>
+        <span class="n">radius</span> <span class="o">=</span> <span class="n">circumference</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">radius</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;A Sphere with volume </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">volume</span><span class="p">()</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">Sphere</span><span class="o">.</span><span class="n">from_circ</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">radius</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Test 1 failed.&quot;</span>
+<span class="k">assert</span> <span class="n">Sphere</span><span class="o">.</span><span class="n">from_circ</span><span class="p">(</span><span class="mi">3</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span><span class="o">.</span><span class="n">radius</span> <span class="o">==</span> <span class="mf">1.5</span><span class="p">,</span> <span class="s2">&quot;Test 2 failed.&quot;</span> 
+<span class="k">assert</span> <span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">Sphere</span><span class="o">.</span><span class="n">from_circ</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="o">.</span><span class="n">radius</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">,</span> <span class="n">abs_tol</span><span class="o">=</span><span class="mf">0.1</span><span class="p">),</span> <span class="s2">&quot;Test 3 failed.&quot;</span>
+<span class="k">assert</span> <span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">Sphere</span><span class="o">.</span><span class="n">from_circ</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="o">.</span><span class="n">volume</span><span class="p">(),</span> <span class="mf">3.65</span><span class="p">,</span> <span class="n">abs_tol</span><span class="o">=</span><span class="mf">0.1</span><span class="p">),</span> <span class="s2">&quot;Test 4 failed.&quot;</span>
+<span class="k">assert</span> <span class="n">Sphere</span><span class="o">.</span><span class="n">from_circ</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="o">.</span><span class="fm">__str__</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;A Sphere with volume 3.65&quot;</span><span class="p">,</span> <span class="s2">&quot;Test 5 failed.&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./practice-exercises"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="chapter2-loops-functions-practice.html" title="previous page">Loops &amp; Functions</a>
+    <a class='right-next' id="next-link" href="chapter4-style-scripts-imports-practice.html" title="next page">Style Guides, Scripts, Imports</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Tomas Beuzen<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

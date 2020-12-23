@@ -1,0 +1,1294 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chapter 4: Style Guides, Scripts, Imports &#8212; Python Programming for Data Science</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/style.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Chapter 5: Introduction to NumPy" href="chapter5-numpy.html" />
+    <link rel="prev" title="Chapter 3: Unit Tests &amp; Classes" href="chapter3-tests-classes.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Python Programming for Data Science</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../README.html">
+   Python Programming for Data Science
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Chapters
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter1-basics.html">
+   Chapter 1: Python Basics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter2-loops-functions.html">
+   Chapter 2: Loops &amp; Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter3-tests-classes.html">
+   Chapter 3: Unit Tests &amp; Classes
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Chapter 4: Style Guides, Scripts, Imports
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter5-numpy.html">
+   Chapter 5: Introduction to NumPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter6-numpy-addendum.html">
+   Chapter 6: NumPy Implementation Details
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter7-pandas.html">
+   Chapter 7: Introduction to Pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter8-wrangling-basics.html">
+   Chapter 8: Basic Data Wrangling With Pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter9-wrangling-advanced.html">
+   Chapter 9: Advanced Data Wrangling With Pandas
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Practice Exercises
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../practice-exercises/chapter1-basics-practice.html">
+   Python Basics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../practice-exercises/chapter2-loops-functions-practice.html">
+   Loops &amp; Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../practice-exercises/chapter3-tests-classes-practice.html">
+   Unit Tests &amp; Classes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../practice-exercises/chapter4-style-scripts-imports-practice.html">
+   Style Guides, Scripts, Imports
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../practice-exercises/chapter5-numpy-practice.html">
+   NumPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../practice-exercises/chapter7-pandas-practice.html">
+   Pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../practice-exercises/chapter8-wrangling-basics-practice.html">
+   Basic Wrangling With Pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../practice-exercises/chapter9-wrangling-advanced-practice.html">
+   Advanced Wrangling With Pandas
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Tomas Beuzen <br>Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/chapters/chapter4-style-scripts-imports.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/TomasBeuzen/python-programming-for-data-science"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/TomasBeuzen/python-programming-for-data-science/issues/new?title=Issue%20on%20page%20%2Fchapters/chapter4-style-scripts-imports.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/TomasBeuzen/python-programming-for-data-science/edit/master/chapters/chapter4-style-scripts-imports.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/TomasBeuzen/python-programming-for-data-science/master?urlpath=tree/chapters/chapter4-style-scripts-imports.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#chapter-learning-objectives">
+   Chapter Learning Objectives
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#style-guide">
+   1. Style Guide
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#linters">
+     Linters
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#formatters">
+     Formatters
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#comments">
+     Comments
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#python-scripts">
+   2. Python Scripts
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ides">
+     IDEs
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#importing">
+   3. Importing
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ways-of-importing-things">
+     Ways of Importing Things
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#importing-functions-from-outside-your-working-directory">
+       Importing Functions from Outside your Working Directory
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#packages">
+     Packages
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#importing-installed-packages">
+       Importing Installed Packages
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#intriguing-behaviour-in-python">
+   4. Intriguing Behaviour in Python
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#references">
+     References
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#additional-weirdness">
+     Additional Weirdness
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#copy-and-deepcopy">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       copy
+      </span>
+     </code>
+     and
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       deepcopy
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <p><img alt="" src="../_images/banner.png" /></p>
+<div class="section" id="chapter-4-style-guides-scripts-imports">
+<h1>Chapter 4: Style Guides, Scripts, Imports<a class="headerlink" href="#chapter-4-style-guides-scripts-imports" title="Permalink to this headline">¶</a></h1>
+<h2>Chapter Outline<span class="tocSkip"></span></h2>
+<hr>
+<div class="toc"><ul class="toc-item"><li><span><a href="#style-guide" data-toc-modified-id="1.-Style-Guide-1">1. Style Guide</a></span></li><li><span><a href="#python-scripts" data-toc-modified-id="2.-Python-Scripts-2">2. Python Scripts</a></span></li><li><span><a href="#importing" data-toc-modified-id="3.-Importing-3">3. Importing</a></span></li><li><span><a href="#intriguing-behaviour-in-python" data-toc-modified-id="4.-Intriguing-Behaviour-in-Python-4">4. Intriguing Behaviour in Python</a></span></li></ul></div><div class="section" id="chapter-learning-objectives">
+<h2>Chapter Learning Objectives<a class="headerlink" href="#chapter-learning-objectives" title="Permalink to this headline">¶</a></h2>
+<hr><ul class="simple">
+<li><p>Describe why code style is important.</p></li>
+<li><p>Differentiate between the role of a linter like <code class="docutils literal notranslate"><span class="pre">flake8</span></code> and an autoformatter like <code class="docutils literal notranslate"><span class="pre">black</span></code>.</p></li>
+<li><p>Implement linting and formatting from the command line or within Jupyter or another IDE.</p></li>
+<li><p>Write a Python module (<code class="docutils literal notranslate"><span class="pre">.py</span></code> file) in VSCode or other IDE of your choice.</p></li>
+<li><p>Import installed or custom packages using the <code class="docutils literal notranslate"><span class="pre">import</span></code> syntax.</p></li>
+<li><p>Explain the notion of a reference in Python.</p></li>
+<li><p>Explain the notion of scoping in Python.</p></li>
+<li><p>Anticipate whether changing one variable will change another in Python.</p></li>
+<li><p>Anticipate whether a function changes the caller’s version of an argument variable in Python.</p></li>
+<li><p>Select the appropriate choice between <code class="docutils literal notranslate"><span class="pre">==</span></code> and <code class="docutils literal notranslate"><span class="pre">is</span></code> in Python.</p></li>
+</ul>
+</div>
+<div class="section" id="style-guide">
+<h2>1. Style Guide<a class="headerlink" href="#style-guide" title="Permalink to this headline">¶</a></h2>
+<hr><p><img alt="" src="../_images/xkcd.png" /></p>
+<p>Source: <a class="reference external" href="https://imgs.xkcd.com/comics/code_quality.png">xkcd.com</a>.</p>
+<p>It is incorrect to think that if your code works then you are done. Code has two “users” - the computer (which turns it into machine instructions) and humans, who will likely read and/or modify the code in the future. This section is about how to make your code suitable to that second audience, humans.</p>
+<p>Styling is particularly important for sharing your code to other users (including your future self!). Remember: “Code is read much more often than it is written”. <a class="reference external" href="https://www.python.org/dev/peps/pep-0008/">PEP8</a> is the Python Style Guide. It is worth skimming through PEP 8, but here are some highlights:</p>
+<ul class="simple">
+<li><p>Indent using 4 spaces</p></li>
+<li><p>Have whitespace around operators, e.g. <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">1</span></code> not <code class="docutils literal notranslate"><span class="pre">x=1</span></code></p></li>
+<li><p>But avoid extra whitespace, e.g. <code class="docutils literal notranslate"><span class="pre">f(1)</span></code> not <code class="docutils literal notranslate"><span class="pre">f</span> <span class="pre">(1)</span></code></p></li>
+<li><p>Single and double quotes both fine for strings, but use <code class="docutils literal notranslate"><span class="pre">&quot;&quot;&quot;</span></code>triple double quotes<code class="docutils literal notranslate"><span class="pre">&quot;&quot;&quot;</span></code> for docstrings, not <code class="docutils literal notranslate"><span class="pre">'''</span></code>triple single quotes<code class="docutils literal notranslate"><span class="pre">'''</span></code></p></li>
+<li><p>Variable and function names use <code class="docutils literal notranslate"><span class="pre">underscores_between_words</span></code></p></li>
+<li><p>And much more…</p></li>
+</ul>
+<p>There’s lots to remember but luckily <strong>linters</strong> &amp; <strong>formatters</strong> can help you adhere to uniform styling!</p>
+<div class="section" id="linters">
+<h3>Linters<a class="headerlink" href="#linters" title="Permalink to this headline">¶</a></h3>
+<p>Linting refers to highlighting programmatic and stylistic problems in your Python source code. Think of it like “spell check” in word processing software. Common linters include <code class="docutils literal notranslate"><span class="pre">pycodestyle</span></code>, <code class="docutils literal notranslate"><span class="pre">pylint</span></code>, <code class="docutils literal notranslate"><span class="pre">pyflakes</span></code>, <code class="docutils literal notranslate"><span class="pre">flake8</span></code>, etc. We’ll use <a class="reference external" href="https://flake8.pycqa.org/en/latest/">flake8</a> in this chapter, which, if you don’t have it, you can install with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">anaconda</span> <span class="n">flake8</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">flake8</span></code> can be used from the command line to check files:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">flake8</span> <span class="n">path</span><span class="o">/</span><span class="n">file_to_check</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+<p>You can execute shell commands in Jupyter by prepending a command with an exclamation mark <code class="docutils literal notranslate"><span class="pre">!</span></code>. I’ve included an example script called <a class="reference external" href="https://github.com/TomasBeuzen/python-programming-for-data-science/blob/main/chapters/data/bad_style.py"><code class="docutils literal notranslate"><span class="pre">bad_style.py</span></code></a> in the data sub-directory of this directory, let’s use <code class="docutils literal notranslate"><span class="pre">flake8</span></code> on that now:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>flake8 data/bad_style.py
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>data/bad_style.py:1:6: E201 whitespace after &#39;{&#39;
+data/bad_style.py:1:11: E231 missing whitespace after &#39;:&#39;
+data/bad_style.py:1:14: E231 missing whitespace after &#39;,&#39;
+data/bad_style.py:1:18: E231 missing whitespace after &#39;:&#39;
+data/bad_style.py:2:1: E128 continuation line under-indented for visual indent
+data/bad_style.py:2:4: E231 missing whitespace after &#39;:&#39;
+data/bad_style.py:4:25: E128 continuation line under-indented for visual indent
+data/bad_style.py:5:5: E225 missing whitespace around operator
+data/bad_style.py:7:80: E501 line too long (119 &gt; 79 characters)
+data/bad_style.py:8:2: E111 indentation is not a multiple of four
+data/bad_style.py:10:2: E111 indentation is not a multiple of four
+data/bad_style.py:11:2: E111 indentation is not a multiple of four
+data/bad_style.py:12:2: E111 indentation is not a multiple of four
+data/bad_style.py:13:10: E701 multiple statements on one line (colon)
+data/bad_style.py:13:31: E261 at least two spaces before inline comment
+data/bad_style.py:13:31: E262 inline comment should start with &#39;# &#39;
+data/bad_style.py:14:1: E302 expected 2 blank lines, found 0
+data/bad_style.py:14:13: E201 whitespace after &#39;(&#39;
+data/bad_style.py:14:25: E202 whitespace before &#39;)&#39;
+data/bad_style.py:15:3: E111 indentation is not a multiple of four
+data/bad_style.py:15:8: E211 whitespace before &#39;(&#39;
+data/bad_style.py:15:19: E202 whitespace before &#39;)&#39;
+data/bad_style.py:16:11: E271 multiple spaces after keyword
+data/bad_style.py:17:3: E301 expected 1 blank line, found 0
+data/bad_style.py:17:3: E111 indentation is not a multiple of four
+data/bad_style.py:17:16: E231 missing whitespace after &#39;,&#39;
+data/bad_style.py:18:7: E111 indentation is not a multiple of four
+data/bad_style.py:20:1: E305 expected 2 blank lines after class or function definition, found 0
+data/bad_style.py:28:2: W292 no newline at end of file
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="formatters">
+<h3>Formatters<a class="headerlink" href="#formatters" title="Permalink to this headline">¶</a></h3>
+<p>Formatting refers to restructuring how code appears by applying specific rules for line spacing, indents, line length, etc. Common formatters include <code class="docutils literal notranslate"><span class="pre">autopep8</span></code>, <code class="docutils literal notranslate"><span class="pre">black</span></code>, <code class="docutils literal notranslate"><span class="pre">yapf</span></code>, etc. We’ll use <a class="reference external" href="https://black.readthedocs.io/en/stable/?badge=stable">black</a> in this chapter, which, if you don’t have it, you can install with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">black</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">black</span></code> can also be used from the command line to format your files:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">black</span> <span class="n">path</span><span class="o">/</span><span class="n">file_to_check</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="n">check</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">--check</span></code> argument just checks if your code conforms to black style but doesn’t reformat it in place, if you want your file reformatted, remove the argument.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>black data/bad_style.py --check
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">would reformat data/bad_style.py</span>
+<span class=" -Color -Color-Bold">Oh no! 💥 💔 💥</span>
+<span class=" -Color -Color-Bold">1 file would be reformatted</span>.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here’s the file content before formatting:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">{</span>  <span class="s1">&#39;a&#39;</span><span class="p">:</span><span class="mi">37</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">:</span><span class="mi">42</span><span class="p">,</span>
+<span class="s1">&#39;c&#39;</span><span class="p">:</span><span class="mi">927</span><span class="p">}</span>
+<span class="n">very_long_variable_name</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;field&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                        <span class="s1">&#39;is_debug&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">}</span>
+<span class="n">this</span><span class="o">=</span><span class="kc">True</span>
+
+<span class="k">if</span> <span class="n">very_long_variable_name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">very_long_variable_name</span><span class="p">[</span><span class="s2">&quot;field&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">very_long_variable_name</span><span class="p">[</span><span class="s1">&#39;is_debug&#39;</span><span class="p">]:</span>
+ <span class="n">z</span> <span class="o">=</span> <span class="s1">&#39;hello &#39;</span><span class="o">+</span><span class="s1">&#39;world&#39;</span>
+<span class="k">else</span><span class="p">:</span>
+ <span class="n">world</span> <span class="o">=</span> <span class="s1">&#39;world&#39;</span>
+ <span class="n">a</span> <span class="o">=</span> <span class="s1">&#39;hello </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">world</span><span class="p">)</span>
+ <span class="n">f</span> <span class="o">=</span> <span class="sa">rf</span><span class="s1">&#39;hello </span><span class="si">{</span><span class="n">world</span><span class="si">}</span><span class="s1">&#39;</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">this</span><span class="p">):</span> <span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;hello &#39;&#39;world&#39;</span><span class="c1">#FIXME: https://github.com/python/black/issues/26</span>
+<span class="k">class</span> <span class="nc">Foo</span>  <span class="p">(</span>     <span class="nb">object</span>  <span class="p">):</span>
+  <span class="k">def</span> <span class="nf">f</span>    <span class="p">(</span><span class="bp">self</span>   <span class="p">):</span>
+    <span class="k">return</span>       <span class="mi">37</span><span class="o">*-</span><span class="mi">2</span>
+  <span class="k">def</span> <span class="nf">g</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="mi">42</span><span class="p">):</span>
+      <span class="k">return</span> <span class="n">y</span>
+<span class="c1"># fmt: off</span>
+<span class="n">custom_formatting</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="mi">0</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>
+    <span class="mi">3</span><span class="p">,</span>  <span class="mi">4</span><span class="p">,</span>  <span class="mi">5</span>
+<span class="p">]</span>
+<span class="c1"># fmt: on</span>
+<span class="n">regular_formatting</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="mi">0</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>
+    <span class="mi">3</span><span class="p">,</span>  <span class="mi">4</span><span class="p">,</span>  <span class="mi">5</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>ANd here it is after formatting (note how you can toggle formatting on or off in your code using the <code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">fmt:</span> <span class="pre">off</span></code>/<code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">fmt:</span> <span class="pre">on</span></code> tags):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="mi">37</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">42</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">:</span> <span class="mi">927</span><span class="p">}</span>
+<span class="n">very_long_variable_name</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;field&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;is_debug&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">}</span>
+<span class="n">this</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="k">if</span> <span class="p">(</span>
+    <span class="n">very_long_variable_name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+    <span class="ow">and</span> <span class="n">very_long_variable_name</span><span class="p">[</span><span class="s2">&quot;field&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span>
+    <span class="ow">or</span> <span class="n">very_long_variable_name</span><span class="p">[</span><span class="s2">&quot;is_debug&quot;</span><span class="p">]</span>
+<span class="p">):</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="s2">&quot;hello &quot;</span> <span class="o">+</span> <span class="s2">&quot;world&quot;</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">world</span> <span class="o">=</span> <span class="s2">&quot;world&quot;</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="s2">&quot;hello </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">world</span><span class="p">)</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="sa">rf</span><span class="s2">&quot;hello </span><span class="si">{</span><span class="n">world</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="k">if</span> <span class="n">this</span><span class="p">:</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;hello &quot;</span> <span class="s2">&quot;world&quot;</span>  <span class="c1"># FIXME: https://github.com/python/black/issues/26</span>
+
+
+<span class="k">class</span> <span class="nc">Foo</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="mi">37</span> <span class="o">*</span> <span class="o">-</span><span class="mi">2</span>
+
+    <span class="k">def</span> <span class="nf">g</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">42</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">y</span>
+
+
+<span class="c1"># fmt: off</span>
+<span class="n">custom_formatting</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="mi">0</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>
+    <span class="mi">3</span><span class="p">,</span>  <span class="mi">4</span><span class="p">,</span>  <span class="mi">5</span>
+<span class="p">]</span>
+<span class="c1"># fmt: on</span>
+<span class="n">regular_formatting</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="comments">
+<h3>Comments<a class="headerlink" href="#comments" title="Permalink to this headline">¶</a></h3>
+<p>Comments are important for understanding your code. While docstrings cover what a function <em>does</em>, your comments will help document <em>how</em> your code achieves its goal. There are PEP 8 guidelines on the length, spacing, etc of comments.</p>
+<ul class="simple">
+<li><p><strong>Comments</strong>: should start with a <code class="docutils literal notranslate"><span class="pre">#</span></code> followed by a single space and be preceded by at least two spaces.</p></li>
+<li><p><strong>Block Comments</strong>: each line of a block comment should start with a <code class="docutils literal notranslate"><span class="pre">#</span></code> followed by a single space and should be indented to the same level as the code it precedes.</p></li>
+<li><p>Generally, comments should not be unnecessarily verbose or just state the obvious, as this can be distracting and can actually make your code more difficult to read!</p></li>
+</ul>
+<p>Here is an example of a reasonable comment:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">random_walker</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">T</span><span class="p">):</span> 
+        
+        <span class="c1"># Generate a random number between 0 and 1.</span>
+        <span class="c1"># Then, go right, left, up or down if the number</span>
+        <span class="c1"># is in the interval [0,0.25), [0.25,0.5),</span>
+        <span class="c1"># [0.5,0.75) or [0.75,1) respectively.</span>
+        
+        <span class="n">r</span> <span class="o">=</span> <span class="n">random</span><span class="p">()</span> 
+        <span class="k">if</span> <span class="n">r</span> <span class="o">&lt;</span> <span class="mf">0.25</span><span class="p">:</span>
+            <span class="n">x</span> <span class="o">+=</span> <span class="mi">1</span>      <span class="c1"># Go right</span>
+        <span class="k">elif</span> <span class="n">r</span> <span class="o">&lt;</span> <span class="mf">0.5</span><span class="p">:</span>
+            <span class="n">x</span> <span class="o">-=</span> <span class="mi">1</span>      <span class="c1"># Go left</span>
+        <span class="k">elif</span> <span class="n">r</span> <span class="o">&lt;</span> <span class="mf">0.75</span><span class="p">:</span>
+            <span class="n">y</span> <span class="o">+=</span> <span class="mi">1</span>      <span class="c1"># Go up</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">y</span> <span class="o">-=</span> <span class="mi">1</span>      <span class="c1"># Go down</span>
+
+        <span class="nb">print</span><span class="p">((</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">y</span><span class="o">**</span><span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here are some <strong>bad examples</strong> of comments, because they are unnecessary or poorly formatted:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">random_walker</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
+    <span class="c1"># intalize coords</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">T</span><span class="p">):</span><span class="c1"># loop T times</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">random</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">r</span> <span class="o">&lt;</span> <span class="mf">0.25</span><span class="p">:</span>
+            <span class="n">x</span> <span class="o">+=</span> <span class="mi">1</span>  <span class="c1"># go right</span>
+        <span class="k">elif</span> <span class="n">r</span> <span class="o">&lt;</span> <span class="mf">0.5</span><span class="p">:</span>
+            <span class="n">x</span> <span class="o">-=</span> <span class="mi">1</span>  <span class="c1"># go left</span>
+        <span class="k">elif</span> <span class="n">r</span> <span class="o">&lt;</span> <span class="mf">0.75</span><span class="p">:</span>
+            <span class="n">y</span> <span class="o">+=</span> <span class="mi">1</span>       <span class="c1"># go up</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">y</span> <span class="o">-=</span> <span class="mi">1</span>
+
+        <span class="c1"># Print the location</span>
+        <span class="nb">print</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span>
+
+    <span class="c1"># In Python, the ** operator means exponentiation.</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">y</span> <span class="o">**</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="python-scripts">
+<h2>2. Python Scripts<a class="headerlink" href="#python-scripts" title="Permalink to this headline">¶</a></h2>
+<hr><p>Jupyter is a fantastic data science tool which allows you to code and create visualisations alongside text and images to create narratives. However, as your project grows, eventually you’re going to need to create python scripts, <code class="docutils literal notranslate"><span class="pre">.py</span></code> files <code class="docutils literal notranslate"><span class="pre">.py</span></code> files are also called “modules” in Python and may contain functions, classes, variables, and/or runnable code. I typically start my projects in Jupyter, and then begin to offload my functions, classes, scripts, etc to <code class="docutils literal notranslate"><span class="pre">.py</span></code> files as I formalise, structure and streamline my code.</p>
+<div class="section" id="ides">
+<h3>IDEs<a class="headerlink" href="#ides" title="Permalink to this headline">¶</a></h3>
+<p>You don’t need any special software to write Python modules, you can write your code using any text editor and just save your file with a <code class="docutils literal notranslate"><span class="pre">.py</span></code> extension. But software exists to make your life much easier!</p>
+<p>IDE stands for “integrated development environment” and refers to software that provides comprehensive functionality for code development (e.g., compiling, debugging, formatting, testing, linting, etc). In my experience the most popular out-of-the-box Python IDEs are <a class="reference external" href="https://www.jetbrains.com/pycharm/">PyCharm</a> and <a class="reference external" href="https://www.spyder-ide.org/">Spyder</a>. There are also many editors available that can be customized with extensions to act as Python IDEs, e.g., <a class="reference external" href="https://code.visualstudio.com/">VSCode</a>, <a class="reference external" href="https://atom.io/">Atom</a>, <a class="reference external" href="https://www.sublimetext.com/">Sublime Text</a>. The benefit of these customisable editors is that they are light-weight and you can choose only the extensions you really need (as opposed to downloading a big, full-blown IDE like PyCharm).</p>
+<p>VSCode is my favourite editor at the moment and they have a <a class="reference external" href="https://code.visualstudio.com/docs/languages/python">great Python tutorial online</a> which I’d highly recommend if you’re interested! We’ll do some importing of custom <code class="docutils literal notranslate"><span class="pre">.py</span></code> files in these chapters but won’t do any work in an IDE.</p>
+</div>
+</div>
+<div class="section" id="importing">
+<h2>3. Importing<a class="headerlink" href="#importing" title="Permalink to this headline">¶</a></h2>
+<hr><p>Python can access code in another module by importing it. This is done using the <code class="docutils literal notranslate"><span class="pre">import</span></code> statement, which you’ve probably seen a few times already. We’ll discuss importing more in DSCI 524 and you can read all about it in the <a class="reference external" href="https://docs.python.org/3/reference/import.html">Python documentation</a> but for now, it’s easiest to see it in action.</p>
+<div class="section" id="ways-of-importing-things">
+<h3>Ways of Importing Things<a class="headerlink" href="#ways-of-importing-things" title="Permalink to this headline">¶</a></h3>
+<p>I’ve written a <code class="docutils literal notranslate"><span class="pre">.py</span></code> file called <code class="docutils literal notranslate"><span class="pre">wallet.py</span></code> that contains a class <code class="docutils literal notranslate"><span class="pre">Wallet</span></code> that can be used to store, spend, and earn cash. I recommend taking a look at that file on GitHub before moving on.</p>
+<p>Let’s <code class="docutils literal notranslate"><span class="pre">import</span></code> the code from <code class="docutils literal notranslate"><span class="pre">wallet.py</span></code> . We can import our <code class="docutils literal notranslate"><span class="pre">.py</span></code> file (our module) simply by:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">wallet</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can take a look at all the useable parts of that module by typing <code class="docutils literal notranslate"><span class="pre">dir(wallet)</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">dir</span><span class="p">(</span><span class="n">wallet</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;InsufficientCashError&#39;,
+ &#39;Wallet&#39;,
+ &#39;__builtins__&#39;,
+ &#39;__cached__&#39;,
+ &#39;__doc__&#39;,
+ &#39;__file__&#39;,
+ &#39;__loader__&#39;,
+ &#39;__name__&#39;,
+ &#39;__package__&#39;,
+ &#39;__spec__&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can import a package using an alias with the <code class="docutils literal notranslate"><span class="pre">as</span></code> keyword:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">wallet</span> <span class="k">as</span> <span class="nn">w</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">w</span><span class="o">.</span><span class="n">Wallet</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;wallet.Wallet at 0x1068846d0&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">w</span><span class="o">.</span><span class="n">InsufficientCashError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>wallet.InsufficientCashError()
+</pre></div>
+</div>
+</div>
+</div>
+<p>And we can import just a specific function/class/variable from our module:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">wallet</span> <span class="kn">import</span> <span class="n">Wallet</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Wallet</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="c1"># now I can refer to it without the module name prefix</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;wallet.Wallet at 0x106884df0&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can even mix up all these methods:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">wallet</span> <span class="kn">import</span> <span class="n">Wallet</span> <span class="k">as</span> <span class="n">w</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">w</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;wallet.Wallet at 0x1068844c0&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>It’s also possible to import everything in a module, though this is generally not recommended:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">wallet</span> <span class="kn">import</span> <span class="o">*</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Wallet</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;wallet.Wallet at 0x1068845e0&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">InsufficientCashError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>wallet.InsufficientCashError()
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="importing-functions-from-outside-your-working-directory">
+<h4>Importing Functions from Outside your Working Directory<a class="headerlink" href="#importing-functions-from-outside-your-working-directory" title="Permalink to this headline">¶</a></h4>
+<p>I could do <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">wallet</span></code> above because <code class="docutils literal notranslate"><span class="pre">wallet.py</span></code> is in my current working directory. But there are a few extra steps needed if it is in a different location. I’ve included a script called <code class="docutils literal notranslate"><span class="pre">hello.py</span></code> in a <code class="docutils literal notranslate"><span class="pre">data/</span></code> sub-directory of the directory housing this notebook. All it has in it is:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">PLANET</span> <span class="o">=</span> <span class="s2">&quot;Earth&quot;</span>
+
+
+<span class="k">def</span> <span class="nf">hello_world</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Hello </span><span class="si">{</span><span class="n">PLANET</span><span class="si">}</span><span class="s2">!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Unfortunately I can’t do this:</p>
+<div class="cell tag_raises-exception docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">hello</span> <span class="kn">import</span> <span class="n">hello_world</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">19</span><span class="o">-</span><span class="mi">20</span><span class="n">bbd0c111a6</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">hello</span> <span class="kn">import</span> <span class="n">hello_world</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;hello&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>What I need to do is add this directory location to the paths that Python searches through when looking to import something. I usually do this using the <code class="docutils literal notranslate"><span class="pre">sys</span></code> module:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;data/&#39;</span><span class="p">)</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span> <span class="c1"># display the current paths Python is looking through</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;/Users/tbeuzen/GitHub/online-courses/python-programming-for-data-science/chapters&#39;,
+ &#39;/opt/miniconda3/envs/py4ds/lib/python38.zip&#39;,
+ &#39;/opt/miniconda3/envs/py4ds/lib/python3.8&#39;,
+ &#39;/opt/miniconda3/envs/py4ds/lib/python3.8/lib-dynload&#39;,
+ &#39;&#39;,
+ &#39;/opt/miniconda3/envs/py4ds/lib/python3.8/site-packages&#39;,
+ &#39;/opt/miniconda3/envs/py4ds/lib/python3.8/site-packages/IPython/extensions&#39;,
+ &#39;/Users/tbeuzen/.ipython&#39;,
+ &#39;data/&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>See that <code class="docutils literal notranslate"><span class="pre">data/</span></code> is now a valid path. So now I can import from <code class="docutils literal notranslate"><span class="pre">hello.py</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">hello</span> <span class="kn">import</span> <span class="n">hello_world</span><span class="p">,</span> <span class="n">PLANET</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">PLANET</span>  <span class="c1"># note that I can import variable defined in a .py file!</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Earth&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hello_world</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello Earth!
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="packages">
+<h3>Packages<a class="headerlink" href="#packages" title="Permalink to this headline">¶</a></h3>
+<p>As your code gets more complex, grows in modules, and you wish to share it, you’ll want to turn it into a Python package. Packages are logical collections of modules that can be easily imported. If you’re interested in creating your own packages, take a look at the <a class="reference external" href="https://ubc-mds.github.io/py-pkgs/">py-pkgs book</a>. For now, we’ll be using other people’s popular data science packages, specifically, next chapter we’ll look at <code class="docutils literal notranslate"><span class="pre">numpy</span></code>: “the fundamental package for scientific computing with Python”.</p>
+<div class="section" id="importing-installed-packages">
+<h4>Importing Installed Packages<a class="headerlink" href="#importing-installed-packages" title="Permalink to this headline">¶</a></h4>
+<p>In the next few chapters we’ll be using the <code class="docutils literal notranslate"><span class="pre">numpy</span></code> and <code class="docutils literal notranslate"><span class="pre">pandas</span></code> packages, which are probably the most popular for data science. When you install those packages, they are put in a location on your computer that Python already knows about, so we can simply import them at will.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 2, 3])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([3, 9, 7])
+</pre></div>
+</div>
+</div>
+</div>
+<p>There are plenty of packages that come with the <a class="reference external" href="https://docs.python.org/3/library/">Python Standard Library</a> - these do not require installation with <code class="docutils literal notranslate"><span class="pre">conda</span></code> and you’ll come across them throughout your data science journey, I’ll show one example, <code class="docutils literal notranslate"><span class="pre">random</span></code>, below. But for more advanced stuff you’ll to install and use packages like <code class="docutils literal notranslate"><span class="pre">numpy</span></code>, <code class="docutils literal notranslate"><span class="pre">pandas</span></code> and others. If you need some specific functionality, make sure you check if there’s a package for it (there often is!). For example, one functionality I often want is a progress bar when looping over a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop. This is available in the <a class="reference external" href="https://github.com/tqdm/tqdm">tqdm package</a>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="mf">10e5</span><span class="p">))):</span>
+    <span class="n">i</span> <span class="o">**</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0%|          | 0/1000000 [00:00&lt;?, ?it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 21%|██        | 207211/1000000 [00:00&lt;00:00, 2072107.04it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 42%|████▏     | 420255/1000000 [00:00&lt;00:00, 2089264.93it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 66%|██████▌   | 657347/1000000 [00:00&lt;00:00, 2166474.45it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 90%|████████▉ | 895911/1000000 [00:00&lt;00:00, 2227869.20it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 1000000/1000000 [00:00&lt;00:00, 2274442.52it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="intriguing-behaviour-in-python">
+<h2>4. Intriguing Behaviour in Python<a class="headerlink" href="#intriguing-behaviour-in-python" title="Permalink to this headline">¶</a></h2>
+<hr><div class="section" id="references">
+<h3>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h3>
+<p>What do you think the code below will print?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">x</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">y</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+</pre></div>
+</div>
+</div>
+</div>
+<p>And how about the next one?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">x</span>
+<span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">y</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2]
+</pre></div>
+</div>
+</div>
+</div>
+<p>In Python, the list <code class="docutils literal notranslate"><span class="pre">x</span></code> is a <strong>reference</strong> to an object in the computer’s memory. When you set <code class="docutils literal notranslate"><span class="pre">y</span> <span class="pre">=</span> <span class="pre">x</span></code> these two variables now refer to the same object in memory - the one that <code class="docutils literal notranslate"><span class="pre">x</span></code> referred to. Setting <code class="docutils literal notranslate"><span class="pre">x[0]</span> <span class="pre">=</span> <span class="pre">2</span></code> modifies the object in memory. So <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> are both modified (it makes no different if you set <code class="docutils literal notranslate"><span class="pre">x[0]</span> <span class="pre">=</span> <span class="pre">2</span></code> or <code class="docutils literal notranslate"><span class="pre">y[0]</span> <span class="pre">=</span> <span class="pre">2</span></code>, both modify the same memory).</p>
+<p>Here’s an analogy that might help understand what’s going on:</p>
+<ul class="simple">
+<li><p>I share a Dropbox folder (or git repo) with you, and you modify it – I sent you <em>the location of the stuff</em> (this is like the list case)</p></li>
+<li><p>I send you an email with a file attached, you download it and modify the file – I sent you <em>the stuff itself</em> (this is like the integer case)</p></li>
+</ul>
+<p>Okay, what do you think will happen here:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">x</span>
+<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="c1"># before we had x[0] = 2</span>
+<span class="n">y</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here we are not modifying the contents of <code class="docutils literal notranslate"><span class="pre">x</span></code>, we are setting <code class="docutils literal notranslate"><span class="pre">x</span></code> to refer to a new list <code class="docutils literal notranslate"><span class="pre">[2]</span></code>.</p>
+</div>
+<div class="section" id="additional-weirdness">
+<h3>Additional Weirdness<a class="headerlink" href="#additional-weirdness" title="Permalink to this headline">¶</a></h3>
+<p>We can use <code class="docutils literal notranslate"><span class="pre">id()</span></code> to return the unique id of an object in memory.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>  <span class="c1"># this is a numpy array which we&#39;ll learn more about next chapter</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">x</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">5</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;x has the value: </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">, id: </span><span class="si">{</span><span class="nb">id</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;y has the value: </span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2">, id: </span><span class="si">{</span><span class="nb">id</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x has the value: [ 6  7  8  9 10], id: 5042109936
+y has the value: [1 2 3 4 5], id: 5713686976
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">x</span>
+<span class="n">x</span> <span class="o">+=</span> <span class="mi">5</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;x has the value: </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">, id: </span><span class="si">{</span><span class="nb">id</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;y has the value: </span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2">, id: </span><span class="si">{</span><span class="nb">id</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x has the value: [ 6  7  8  9 10], id: 5042109696
+y has the value: [ 6  7  8  9 10], id: 5042109696
+</pre></div>
+</div>
+</div>
+</div>
+<p>So, it turns out <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">+=</span> <span class="pre">5</span></code> is not identical <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">x</span> <span class="pre">+</span> <span class="pre">5</span></code>. The former modifies the contents of <code class="docutils literal notranslate"><span class="pre">x</span></code>. The latter first evaluates <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">+</span> <span class="pre">5</span></code> to a new array of the same size, and then overwrites the name <code class="docutils literal notranslate"><span class="pre">x</span></code> with a reference to this new array.</p>
+<p>But there’s good news - we don’t need to memorize special rules for calling functions. Copying happens with <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">float</span></code>, <code class="docutils literal notranslate"><span class="pre">bool</span></code>, (maybe some other ones I’m forgetting?), the rest is “by reference”. Now you see why we care if objects are mutable or immutable… passing around a reference can be dangerous! General rule - if you do <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">...</span></code> then you’re not modifying the original, but if you do <code class="docutils literal notranslate"><span class="pre">x.SOMETHING</span> <span class="pre">=</span> <span class="pre">y</span></code> or <code class="docutils literal notranslate"><span class="pre">x[SOMETHING]</span> <span class="pre">=</span> <span class="pre">y</span></code> or <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">*=</span> <span class="pre">y</span></code> then you probably are.</p>
+</div>
+<div class="section" id="copy-and-deepcopy">
+<h3><code class="docutils literal notranslate"><span class="pre">copy</span></code> and <code class="docutils literal notranslate"><span class="pre">deepcopy</span></code><a class="headerlink" href="#copy-and-deepcopy" title="Permalink to this headline">¶</a></h3>
+<p>We can force the certain copying behaviour using the <code class="docutils literal notranslate"><span class="pre">copy</span></code> library if we want to:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">copy</span>  <span class="c1"># part of the standard library</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">x</span>
+<span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">y</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># We &quot;copied&quot; x and saved that new object as y</span>
+<span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">y</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ok, so what do you think will happen here?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">99</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;hi&quot;</span><span class="p">]]</span>  <span class="c1"># a list of lists</span>
+
+<span class="n">y</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;After copy.copy():&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+
+<span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;pikachu&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;After modifying x:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>After copy.copy():
+[[1], [2, 99], [3, &#39;hi&#39;]]
+[[1], [2, 99], [3, &#39;hi&#39;]]
+
+After modifying x:
+[[&#39;pikachu&#39;], [2, 99], [3, &#39;hi&#39;]]
+[[&#39;pikachu&#39;], [2, 99], [3, &#39;hi&#39;]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>But wait.. we used <code class="docutils literal notranslate"><span class="pre">copy</span></code>, why are <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> both changed in the latter example? <code class="docutils literal notranslate"><span class="pre">copy</span></code> makes the <em>containers</em> different, i.e., only the outer list. But the outer lists contain references to objects which were not copied! This is what happens after <code class="docutils literal notranslate"><span class="pre">y</span> <span class="pre">=</span> <span class="pre">copy.copy(x)</span></code>:</p>
+<p><img alt="" src="../_images/copy.png" /></p>
+<p>We can use <code class="docutils literal notranslate"><span class="pre">is</span></code> to tell apart these scenarios (as opposed to <code class="docutils literal notranslate"><span class="pre">==</span></code>). <code class="docutils literal notranslate"><span class="pre">is</span></code> tells us if two objects are referring to the same object in memory, while <code class="docutils literal notranslate"><span class="pre">==</span></code> tells us if their contents are the same:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">==</span> <span class="n">y</span> <span class="c1"># they are both lists containing the same lists</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="ow">is</span> <span class="n">y</span> <span class="c1"># but they are not the *same* lists of lists</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+<p>So, by that logic we should be able to append to <code class="docutils literal notranslate"><span class="pre">y</span></code> without affecting <code class="docutils literal notranslate"><span class="pre">x</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[&#39;pikachu&#39;], [2, 99], [3, &#39;hi&#39;]]
+[[&#39;pikachu&#39;], [2, 99], [3, &#39;hi&#39;], 5]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">==</span> <span class="n">y</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+<p>That makes sense, as weird as it seems:</p>
+<p><img alt="" src="../_images/copy-append.png" /></p>
+<p>In short, <code class="docutils literal notranslate"><span class="pre">copy</span></code> only copies one level down. What if we want to copy everything? i.e., even the inner lists in our outer list… Enter our friend <code class="docutils literal notranslate"><span class="pre">deepcopy</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">99</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;hi&quot;</span><span class="p">]]</span>
+
+<span class="n">y</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;pikachu&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[&#39;pikachu&#39;], [2, 99], [3, &#39;hi&#39;]]
+[[1], [2, 99], [3, &#39;hi&#39;]]
+</pre></div>
+</div>
+</div>
+</div>
+<p><img alt="" src="../_images/deep-copy.png" /></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If you’re interested, you can find a whole compilation of more intriguing behaviour in Python <a class="reference external" href="https://github.com/satwikkansal/wtfpython/blob/master/README.md">here</a>!</p>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./chapters"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="chapter3-tests-classes.html" title="previous page">Chapter 3: Unit Tests &amp; Classes</a>
+    <a class='right-next' id="next-link" href="chapter5-numpy.html" title="next page">Chapter 5: Introduction to NumPy</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Tomas Beuzen<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>
