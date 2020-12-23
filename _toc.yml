@@ -1,22 +1,25 @@
 - file: README
   numbered: false
 
-- part: Introduction
-  chapters:
-  - file: README
-
 - part: Chapters
   chapters:
   - file: chapters/chapter1-basics
   - file: chapters/chapter2-loops-functions
-  # - file: chapters/chapter3-tests-classes
-  # - file: chapters/chapter4-style-scripts-imports
-  # - file: chapters/chapter5-numpy
-  # - file: chapters/chapter5-numpy-addendum
-  # - file: chapters/chapter6-pandas
-  # - file: chapters/chapter7-wrangling-basics
-  # - file: chapters/chapter8-wrangling-advanced
+  - file: chapters/chapter3-tests-classes
+  - file: chapters/chapter4-style-scripts-imports
+  - file: chapters/chapter5-numpy
+  - file: chapters/chapter6-numpy-addendum
+  - file: chapters/chapter7-pandas
+  - file: chapters/chapter8-wrangling-basics
+  - file: chapters/chapter9-wrangling-advanced
 
 - part: Practice Exercises
   chapters:
-  - file: practice-exercises/chapter1.ipynb
+  - file: practice-exercises/chapter1-basics-practice.ipynb
+  - file: practice-exercises/chapter2-loops-functions-practice.ipynb
+  - file: practice-exercises/chapter3-tests-classes-practice.ipynb
+  - file: practice-exercises/chapter4-style-scripts-imports-practice.ipynb
+  - file: practice-exercises/chapter5-numpy-practice.ipynb
+  - file: practice-exercises/chapter7-pandas-practice.ipynb
+  - file: practice-exercises/chapter8-wrangling-basics-practice.ipynb
+  - file: practice-exercises/chapter9-wrangling-advanced-practice.ipynb

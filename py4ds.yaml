@@ -1,0 +1,15 @@
+# install with `conda env create -fpy4ds.yaml`
+
+name: py4ds
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.8
+  - matplotlib
+  - pandas
+  - numpy
+  - memory_profiler
+  - tqdm
+  - flake8
+  - black

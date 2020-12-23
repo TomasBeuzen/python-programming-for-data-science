@@ -32,7 +32,7 @@ I've rendered all of this material into website to make it easily accessible.
 However, if you wish to run code on your local machine as you read through the notes, you should open up a terminal and do the following:
 
 1. Clone the GitHub repostiory: `$ git clone https://github.com/TomasBeuzen/python-programming-for-data-science.git`
-2. Install the conda environment: `$ conda install -f py4ds.yaml`
+2. Install the conda environment: `$ conda env create -fpy4ds.yaml`
 3. Open the course in JupyterLab: `$ jupyterlab`
 
 ```{tip}
