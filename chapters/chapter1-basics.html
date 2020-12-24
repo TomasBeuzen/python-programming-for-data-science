@@ -446,7 +446,7 @@
 <h1>Chapter 1: Python Basics<a class="headerlink" href="#chapter-1-python-basics" title="Permalink to this headline">¶</a></h1>
 <h2>Chapter Outline<span class="tocSkip"></span></h2>
 <hr>
-<div class="toc"><ul class="toc-item"><li><span><a href="#introduction" data-toc-modified-id="1.-Introduction-1">1. Introduction</a></span></li><li><span><a href="#basic-datatypes" data-toc-modified-id="2.-Basic-datatypes-2">2. Basic datatypes</a></span></li><li><span><a href="#lists-and-tuples" data-toc-modified-id="3.-Lists-and-Tuples-3">3. Lists and Tuples</a></span></li><li><span><a href="#string-methods" data-toc-modified-id="4.-String-Methods-4">4. String Methods</a></span></li><li><span><a href="#dictionaries" data-toc-modified-id="5.-Dictionaries-5">5. Dictionaries</a></span></li><li><span><a href="#empties" data-toc-modified-id="6.-Empties-6">6. Empties</a></span></li><li><span><a href="#conditionals" data-toc-modified-id="7.-Conditionals-7">7. Conditionals</a></span></li></ul></div><div class="section" id="chapter-learning-objectives">
+<div class="toc"><ul class="toc-item"><li><span><a href="#introduction" data-toc-modified-id="1.-Introduction-1">1. Introduction</a></span></li><li><span><a href="#basic-python-data-types" data-toc-modified-id="2.-Basic-Python-Data-Types-2">2. Basic Python Data Types</a></span></li><li><span><a href="#lists-and-tuples" data-toc-modified-id="3.-Lists-and-Tuples-3">3. Lists and Tuples</a></span></li><li><span><a href="#string-methods" data-toc-modified-id="4.-String-Methods-4">4. String Methods</a></span></li><li><span><a href="#dictionaries" data-toc-modified-id="5.-Dictionaries-5">5. Dictionaries</a></span></li><li><span><a href="#empties" data-toc-modified-id="6.-Empties-6">6. Empties</a></span></li><li><span><a href="#conditionals" data-toc-modified-id="7.-Conditionals-7">7. Conditionals</a></span></li></ul></div><div class="section" id="chapter-learning-objectives">
 <h2>Chapter Learning Objectives<a class="headerlink" href="#chapter-learning-objectives" title="Permalink to this headline">¶</a></h2>
 <hr><ul class="simple">
 <li><p>Create, describe and differentiate standard Python datatypes such as <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">float</span></code>, <code class="docutils literal notranslate"><span class="pre">string</span></code>, <code class="docutils literal notranslate"><span class="pre">list</span></code>, <code class="docutils literal notranslate"><span class="pre">dict</span></code>, <code class="docutils literal notranslate"><span class="pre">tuple</span></code>, etc.</p></li>
@@ -470,7 +470,8 @@
 </div>
 <div class="section" id="basic-python-data-types">
 <h2>2. Basic Python Data Types<a class="headerlink" href="#basic-python-data-types" title="Permalink to this headline">¶</a></h2>
-<hr><p>A <strong>value</strong> is a piece of data that a computer program works with such as a number or text. There are different <strong>types</strong> of values: <code class="docutils literal notranslate"><span class="pre">42</span></code> is an integer and <code class="docutils literal notranslate"><span class="pre">&quot;Hello!&quot;</span></code> is a string. A <strong>variable</strong> is a name that refers to a value. In mathematics and statistics, we usually use variables names like <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span>. In Python, we can use any word as a variable name (as long as it starts with a letter and is not a <a class="reference external" href="https://docs.python.org/3.3/reference/lexical_analysis.html#keywords">reserved word</a> in Python such as <code class="docutils literal notranslate"><span class="pre">for</span></code>, <code class="docutils literal notranslate"><span class="pre">while</span></code>, <code class="docutils literal notranslate"><span class="pre">class</span></code>, <code class="docutils literal notranslate"><span class="pre">lambda</span></code>, etc.). It can be helpful to think of a variable as a box that holds some information (a single number, a vector, a string, etc). We use the <strong>assignment operator</strong> <code class="docutils literal notranslate"><span class="pre">=</span></code> to assign a value to a variable.</p>
+<hr><p>A <strong>value</strong> is a piece of data that a computer program works with such as a number or text. There are different <strong>types</strong> of values: <code class="docutils literal notranslate"><span class="pre">42</span></code> is an integer and <code class="docutils literal notranslate"><span class="pre">&quot;Hello!&quot;</span></code> is a string. A <strong>variable</strong> is a name that refers to a value. In mathematics and statistics, we usually use variable names like <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span>. In Python, we can use any word as a variable name as long as it starts with a letter or an underscore. However, it should not be a <a class="reference external" href="https://docs.python.org/3.3/reference/lexical_analysis.html#keywords">reserved word</a> in Python such as <code class="docutils literal notranslate"><span class="pre">for</span></code>, <code class="docutils literal notranslate"><span class="pre">while</span></code>, <code class="docutils literal notranslate"><span class="pre">class</span></code>, <code class="docutils literal notranslate"><span class="pre">lambda</span></code>, etc. as these words encode special functionality in Python that we don’t want to overwrite!</p>
+<p>It can be helpful to think of a variable as a box that holds some information (a single number, a vector, a string, etc). We use the <strong>assignment operator</strong> <code class="docutils literal notranslate"><span class="pre">=</span></code> to assign a value to a variable.</p>
 <p><img alt="" src="../_images/box.png" /></p>
 <p>Image modified from: <a class="reference external" href="https://www.google.com/url?sa=i&amp;url=https%3A%2F%2Fmedium.com%2F%40stevenpcurtis.sc%2Fwhat-is-a-variable-3447ac1331b9&amp;psig=AOvVaw3YbYfgb7XFOJ_sHP5eliob&amp;ust=1595365663851000&amp;source=images&amp;cd=vfe&amp;ved=0CA0QjhxqFwoTCMi8nrfe3OoCFQAAAAAdAAAAABAZ">medium.com</a></p>
 <div class="admonition tip">
@@ -577,7 +578,7 @@
 <p>In Jupyter/IPython (an interactive version of Python), the last line of a cell will automatically be printed to screen so we don’t actually need to explicitly call <code class="docutils literal notranslate"><span class="pre">print()</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span>  <span class="c1"># This is a comment, it will not be run</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span>  <span class="c1"># Anything after the pound/hash symbol is a comment and will not be run</span>
 </pre></div>
 </div>
 </div>
@@ -1101,12 +1102,6 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;&gt;:1: SyntaxWarning: &quot;is&quot; with a literal. Did you mean &quot;==&quot;?
-&lt;&gt;:1: SyntaxWarning: &quot;is&quot; with a literal. Did you mean &quot;==&quot;?
-&lt;ipython-input-42-8e1e1a168e96&gt;:1: SyntaxWarning: &quot;is&quot; with a literal. Did you mean &quot;==&quot;?
-  2 is 2
-</pre></div>
-</div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
 </pre></div>
 </div>
