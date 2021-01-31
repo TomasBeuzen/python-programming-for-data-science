@@ -4,7 +4,9 @@
 
 Welcome to Python Programming for Data Science! With this website I aim to provide an introduction to everything you need to know to start using Python for data science. We'll cover topics such as data structures, basic programming, code testing and documentation, and using libraries like NumPy and Pandas for data exploration and analysis.
 
-![](docs/logo.png)
+<p align="center">
+  <img src="docs/logo.png" width="260">
+</p>
 
 ```{admonition} Attribution
 The content of this site is adapted from material I used to teach the 2020/2021 offering of the course "DSCI 511 Python Programming for Data Science" for the University of British Columbia's Master of Data Science Program. That material has built upon previous course material developed by [Patrick Walls](https://www.math.ubc.ca/~pwalls/) and [Mike Gelbart](https://www.mikegelbart.com/).
