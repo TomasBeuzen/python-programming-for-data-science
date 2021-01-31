@@ -2,7 +2,7 @@
 
 **By [Tomas Beuzen](https://www.tomasbeuzen.com/) 🚀**
 
-Welcome to Python Programming for Data Science! With this website I aim to provide an introduction to everything you need to know to start using Python for data science. We'll cover topics such as data structures, basic programming, code testing and documentation, and using libraries like NumPy and Pandas for data exploration and analysis.
+Welcome to Python Programming for Data Science! With this [website](https://www.tomasbeuzen.com/python-programming-for-data-science/) I aim to provide an introduction to everything you need to know to start using Python for data science. We'll cover topics such as data structures, basic programming, code testing and documentation, and using libraries like NumPy and Pandas for data exploration and analysis.
 
 <p align="center">
   <img src="docs/logo.png" width="260">
