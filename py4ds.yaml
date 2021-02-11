@@ -6,6 +6,7 @@ channels:
   - defaults
 dependencies:
   - python=3.8
+  - jupyterlab
   - matplotlib
   - pandas
   - numpy
