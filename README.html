@@ -1,426 +1,376 @@
+
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Python Programming for Data Science &#8212; Python Programming for Data Science</title>
+    
+  <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
-<head>
-  <meta charset="utf-8" />
-  <title>Python Programming for Data Science &#8212; Python Programming for Data Science</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
-    integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
-  <link href="_static/css/index.css" rel="stylesheet">
-  <link rel="stylesheet" href="_static/sphinx-book-theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-  <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-  <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
-  <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-  <link rel="stylesheet" type="text/css" href="_static/style.css" />
-  <link rel="stylesheet" type="text/css" href="_static/sphinx-dropdown.css" />
-  <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-  <script src="_static/sphinx-book-theme.js"></script>
-  <script src="_static/jquery.js"></script>
-  <script src="_static/underscore.js"></script>
-  <script src="_static/doctools.js"></script>
-  <script src="_static/language_data.js"></script>
-  <script src="_static/togglebutton.js"></script>
-  <script src="_static/clipboard.min.js"></script>
-  <script src="_static/copybutton.js"></script>
-  <script src="_static/sphinx-book-theme.js"></script>
-  <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-  <script async="async"
-    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-  <script
-    type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
-  <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-  <script>
-    const thebe_selector = ".thebe"
-    const thebe_selector_input = "pre"
-    const thebe_selector_output = ".output"
-  </script>
-  <script async="async" src="_static/sphinx-thebe.js"></script>
-  <link rel="canonical" href="https://www.tomasbeuzen.com/python-programming-for-data-science/README.html" />
-  <link rel="shortcut icon" href="_static/favicon.png" />
-  <link rel="index" title="Index" href="genindex.html" />
-  <link rel="search" title="Search" href="search.html" />
-  <link rel="next" title="Chapter 1: Python Basics" href="chapters/chapter1-basics.html" />
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="docsearch:language" content="en">
+    
+      
+  <link rel="stylesheet"
+    href="_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
 
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/style.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.d3f166471bb80abb5163.js">
 
-  <!-- Opengraph tags -->
-  <meta property="og:url" content="https://www.tomasbeuzen.com/python-programming-for-data-science/README.html" />
-  <meta property="og:type" content="article" />
-  <meta property="og:title" content="Python Programming for Data Science" />
-  <meta property="og:description" content="An introduction to using Python, NumPy and Pandas for data science." />
-  <meta property="og:image"
-    content="https://www.tomasbeuzen.com/python-programming-for-data-science/_static/logo.png" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="canonical" href="https://www.tomasbeuzen.com/python-programming-for-data-science/README.html" />
+    <link rel="shortcut icon" href="_static/favicon.png"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Chapter 1: Python Basics" href="chapters/chapter1-basics.html" />
 
-  <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Python For Data Science" />
-  <meta name="twitter:site" content="@TBeuzen" />
-  <meta name="twitter:description" content="An introduction to using Python, NumPy and Pandas for data science." />
-  <meta name="twitter:image"
-    content="https://www.tomasbeuzen.com/python-programming-for-data-science/_images/logo.png" />
-
-
-</head>
-
-<body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
 
 
-  <div class="container-xl">
-    <div class="row">
+<!-- Opengraph tags -->
+<meta property="og:url"         content="https://www.tomasbeuzen.com/python-programming-for-data-science/README.html" />
+<meta property="og:type"        content="article" />
+<meta property="og:title"       content="Python Programming for Data Science" />
+<meta property="og:description" content="Python Programming for Data Science  By Tomas Beuzen 🚀  Welcome to Python Programming for Data Science! With this website I aim to provide an introduction to ev" />
+<meta property="og:image"       content="https://www.tomasbeuzen.com/python-programming-for-data-science/_static/logo.png" />
 
-      <div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+<meta name="twitter:card" content="summary" />
 
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
         <div class="navbar-brand-box">
-          <a class="navbar-brand text-wrap" href="index.html">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  <img src="_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Python Programming for Data Science</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1 current active">
+  <a class="reference internal" href="#">
+   Python Programming for Data Science
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Chapters
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapters/chapter1-basics.html">
+   Chapter 1: Python Basics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapters/chapter2-loops-functions.html">
+   Chapter 2: Loops &amp; Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapters/chapter3-tests-classes.html">
+   Chapter 3: Unit Tests &amp; Classes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapters/chapter4-style-scripts-imports.html">
+   Chapter 4: Style Guides, Scripts, Imports
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapters/chapter5-numpy.html">
+   Chapter 5: Introduction to NumPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapters/chapter6-numpy-addendum.html">
+   Chapter 6: NumPy Implementation Details
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapters/chapter7-pandas.html">
+   Chapter 7: Introduction to Pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapters/chapter8-wrangling-basics.html">
+   Chapter 8: Basic Data Wrangling With Pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapters/chapter9-wrangling-advanced.html">
+   Chapter 9: Advanced Data Wrangling With Pandas
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Practice Exercises
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="practice-exercises/chapter1-basics-practice.html">
+   Python Basics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="practice-exercises/chapter2-loops-functions-practice.html">
+   Loops &amp; Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="practice-exercises/chapter3-tests-classes-practice.html">
+   Unit Tests &amp; Classes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="practice-exercises/chapter4-style-scripts-imports-practice.html">
+   Style Guides, Scripts, Imports
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="practice-exercises/chapter5-numpy-practice.html">
+   NumPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="practice-exercises/chapter7-pandas-practice.html">
+   Pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="practice-exercises/chapter8-wrangling-basics-practice.html">
+   Basic Wrangling With Pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="practice-exercises/chapter9-wrangling-advanced-practice.html">
+   Advanced Wrangling With Pandas
+  </a>
+ </li>
+</ul>
 
-            <img src="_static/logo.png" class="logo" alt="logo">
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  <a href="https://www.tomasbeuzen.com/">Tomas Beuzen</a>
+</div>
+
+</div>
 
 
-            <h1 class="site-logo" id="site-title">Python Programming for Data Science</h1>
+          
 
-          </a>
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/README.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/TomasBeuzen/python-programming-for-data-science"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
         </div>
-
-        <form class="bd-search d-flex align-items-center" action="search.html" method="get">
-          <i class="icon fas fa-search"></i>
-          <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..."
-            aria-label="Search this book..." autocomplete="off">
-        </form>
-
-        <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-          <ul class="nav sidenav_l1">
-            <li class="toctree-l1">
-              <a class="reference internal" href="#">
-                Python Programming for Data Science
-              </a>
-            </li>
-          </ul>
-          <p class="caption">
-            <span class="caption-text">
-              Chapters
-            </span>
-          </p>
-          <ul class="nav sidenav_l1">
-            <li class="toctree-l1">
-              <a class="reference internal" href="chapters/chapter1-basics.html">
-                Chapter 1: Python Basics
-              </a>
-            </li>
-            <li class="toctree-l1">
-              <a class="reference internal" href="chapters/chapter2-loops-functions.html">
-                Chapter 2: Loops &amp; Functions
-              </a>
-            </li>
-            <li class="toctree-l1">
-              <a class="reference internal" href="chapters/chapter3-tests-classes.html">
-                Chapter 3: Unit Tests &amp; Classes
-              </a>
-            </li>
-            <li class="toctree-l1">
-              <a class="reference internal" href="chapters/chapter4-style-scripts-imports.html">
-                Chapter 4: Style Guides, Scripts, Imports
-              </a>
-            </li>
-            <li class="toctree-l1">
-              <a class="reference internal" href="chapters/chapter5-numpy.html">
-                Chapter 5: Introduction to NumPy
-              </a>
-            </li>
-            <li class="toctree-l1">
-              <a class="reference internal" href="chapters/chapter6-numpy-addendum.html">
-                Chapter 6: NumPy Implementation Details
-              </a>
-            </li>
-            <li class="toctree-l1">
-              <a class="reference internal" href="chapters/chapter7-pandas.html">
-                Chapter 7: Introduction to Pandas
-              </a>
-            </li>
-            <li class="toctree-l1">
-              <a class="reference internal" href="chapters/chapter8-wrangling-basics.html">
-                Chapter 8: Basic Data Wrangling With Pandas
-              </a>
-            </li>
-            <li class="toctree-l1">
-              <a class="reference internal" href="chapters/chapter9-wrangling-advanced.html">
-                Chapter 9: Advanced Data Wrangling With Pandas
-              </a>
-            </li>
-          </ul>
-          <p class="caption">
-            <span class="caption-text">
-              Practice Exercises
-            </span>
-          </p>
-          <ul class="nav sidenav_l1">
-            <li class="toctree-l1">
-              <a class="reference internal" href="practice-exercises/chapter1-basics-practice.html">
-                Python Basics
-              </a>
-            </li>
-            <li class="toctree-l1">
-              <a class="reference internal" href="practice-exercises/chapter2-loops-functions-practice.html">
-                Loops &amp; Functions
-              </a>
-            </li>
-            <li class="toctree-l1">
-              <a class="reference internal" href="practice-exercises/chapter3-tests-classes-practice.html">
-                Unit Tests &amp; Classes
-              </a>
-            </li>
-            <li class="toctree-l1">
-              <a class="reference internal" href="practice-exercises/chapter4-style-scripts-imports-practice.html">
-                Style Guides, Scripts, Imports
-              </a>
-            </li>
-            <li class="toctree-l1">
-              <a class="reference internal" href="practice-exercises/chapter5-numpy-practice.html">
-                NumPy
-              </a>
-            </li>
-            <li class="toctree-l1">
-              <a class="reference internal" href="practice-exercises/chapter7-pandas-practice.html">
-                Pandas
-              </a>
-            </li>
-            <li class="toctree-l1">
-              <a class="reference internal" href="practice-exercises/chapter8-wrangling-basics-practice.html">
-                Basic Wrangling With Pandas
-              </a>
-            </li>
-            <li class="toctree-l1">
-              <a class="reference internal" href="practice-exercises/chapter9-wrangling-advanced-practice.html">
-                Advanced Wrangling With Pandas
-              </a>
-            </li>
-          </ul>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#key-learning-outcomes">
+   Key Learning Outcomes
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#getting-started">
+   Getting Started
+  </a>
+  <ul class="nav section-nav flex-column">
+  </ul>
+ </li>
+</ul>
 
         </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="python-programming-for-data-science">
+<h1>Python Programming for Data Science<a class="headerlink" href="#python-programming-for-data-science" title="Permalink to this headline">¶</a></h1>
+<p><strong>By <a class="reference external" href="https://www.tomasbeuzen.com/">Tomas Beuzen</a> 🚀</strong></p>
+<p>Welcome to Python Programming for Data Science! With this <a class="reference external" href="https://www.tomasbeuzen.com/python-programming-for-data-science/">website</a> I aim to provide an introduction to everything you need to know to start using Python for data science. We’ll cover topics such as data structures, basic programming, code testing and documentation, and using libraries like NumPy and Pandas for data exploration and analysis.</p>
+<div class="figure align-default" id="dlwpt">
+<a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" src="_images/logo.png" style="height: 250px;" /></a>
+</div>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>If you’re interested in learning more about Python packages, check out my and <a class="reference external" href="https://www.tiffanytimbers.com/">Tiffany Timber’s</a> book <a class="reference external" href="https://py-pkgs.org/"><strong>Python Packages</strong></a>. Or, if you’d like to learn more about using Python and PyTorch for deep learning, you can check out my other online material <a class="reference external" href="https://www.tomasbeuzen.com/deep-learning-with-pytorch/"><strong>Deep Learning with PyToch</strong></a>.</p>
+</div>
+<div class="admonition-attribution admonition">
+<p class="admonition-title">Attribution</p>
+<p>The content of this site is adapted from material I used to teach the 2020/2021 offering of the course “DSCI 511 Python Programming for Data Science” for the University of British Columbia’s Master of Data Science Program. That material has built upon previous course material developed by <a class="reference external" href="https://www.math.ubc.ca/~pwalls/">Patrick Walls</a> and <a class="reference external" href="https://www.mikegelbart.com/">Mike Gelbart</a>.</p>
+</div>
+<div class="section" id="key-learning-outcomes">
+<h2>Key Learning Outcomes<a class="headerlink" href="#key-learning-outcomes" title="Permalink to this headline">¶</a></h2>
+<p>These are the key learning outcomes for this material:</p>
+<ol class="simple">
+<li><p>Translate fundamental programming concepts such as loops, conditionals, etc into Python code.</p></li>
+<li><p>Understand the key data structures in Python.</p></li>
+<li><p>Understand how to write functions in Python and assess if they are correct via unit testing.</p></li>
+<li><p>Know when and how to abstract code (e.g., into functions, or classes) to make it more modular and robust.</p></li>
+<li><p>Produce human-readable code that incorporates best practices of programming, documentation, and coding style.</p></li>
+<li><p>Use NumPy perform common data wrangling and computational tasks in Python.</p></li>
+<li><p>Use Pandas to create and manipulate data structures like Series and DataFrames.</p></li>
+<li><p>Wrangle different types of data in Pandas including numeric data, strings, and datetimes.</p></li>
+</ol>
+</div>
+<div class="section" id="getting-started">
+<h2>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
+<p>The material on this site is written in Jupyter notebooks and rendered using <a class="reference external" href="https://jupyterbook.org/intro.html">Jupyter Book</a> to make it easily accessible. However, if you wish to run these notebooks on your local machine, you can do the following:</p>
+<ol>
+<li><p>Clone the GitHub repository:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/TomasBeuzen/python-programming-for-data-science.git
+</pre></div>
+</div>
+</li>
+<li><p>Install the conda environment by typing the following in your terminal:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>conda env create -f py4ds.yaml
+</pre></div>
+</div>
+</li>
+<li><p>Open the course in JupyterLab by typing the following in your terminal:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> python-programming-for-data-science
+jupyterlab
+</pre></div>
+</div>
+</li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If you’re not comfortable with <code class="docutils literal notranslate"><span class="pre">git</span></code>, <code class="docutils literal notranslate"><span class="pre">GitHub</span></code> or <code class="docutils literal notranslate"><span class="pre">conda</span></code>, feel free to just read through the material on this website - you’re not missing out on anything!</p>
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+</div>
 
-        <!-- To handle the deprecated key -->
-
-        <div class="navbar_extra_footer">
-          Tomas Beuzen <br>Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-        </div>
-
-      </div>
-
-
-
-
-
-
-      <main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-
-        <div class="row topbar fixed-top container-xl">
-          <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
-          </div>
-          <div class="col pl-2 topbar-main">
-
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-              data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-              aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-              title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-              <i class="fas fa-bars"></i>
-              <i class="fas fa-arrow-left"></i>
-              <i class="fas fa-arrow-up"></i>
-            </button>
-
-            <div class="dropdown-buttons-trigger">
-              <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-                aria-label="Download this page"><i class="fas fa-download"></i></button>
-
-
-              <div class="dropdown-buttons">
-                <!-- ipynb file if we had a myst markdown file -->
-
-                <!-- Download raw file -->
-                <a class="dropdown-buttons" href="_sources/README.md"><button type="button"
-                    class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                    data-placement="left">.md</button></a>
-                <!-- Download PDF via print -->
-                <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                  onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-              </div>
-
-            </div>
-            <!-- Source interaction buttons -->
-
-            <div class="dropdown-buttons-trigger">
-              <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-                aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-              <div class="dropdown-buttons sourcebuttons">
-                <a class="repository-button"
-                  href="https://github.com/TomasBeuzen/python-programming-for-data-science"><button type="button"
-                    class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                    title="Source repository"><i class="fab fa-github"></i>repository</button></a>
-                <a class="issues-button"
-                  href="https://github.com/TomasBeuzen/python-programming-for-data-science/issues/new?title=Issue%20on%20page%20%2FREADME.html&body=Your%20issue%20content%20here."><button
-                    type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                    title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-                <a class="edit-button"
-                  href="https://github.com/TomasBeuzen/python-programming-for-data-science/edit/master/README.md"><button
-                    type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                    title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
-              </div>
-            </div>
-
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
-                  class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-          </div>
-
-          <!-- Table of contents -->
-          <div class="d-none d-md-block col-md-2 bd-toc show">
-            <div class="tocsection onthispage pt-5 pb-3">
-              <i class="fas fa-list"></i> Contents
-            </div>
-            <nav id="bd-toc-nav">
-              <ul class="nav section-nav flex-column">
-                <li class="toc-h2 nav-item toc-entry">
-                  <a class="reference internal nav-link" href="#key-learning-outcomes">
-                    Key Learning Outcomes
-                  </a>
-                </li>
-                <li class="toc-h2 nav-item toc-entry">
-                  <a class="reference internal nav-link" href="#getting-started">
-                    Getting Started
-                  </a>
-                  <ul class="nav section-nav flex-column">
-                  </ul>
-                </li>
-              </ul>
-
-            </nav>
-          </div>
-        </div>
-        <div id="main-content" class="row">
-          <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-
-            <div>
-
-              <div class="section" id="python-programming-for-data-science">
-                <h1>Python Programming for Data Science<a class="headerlink" href="#python-programming-for-data-science"
-                    title="Permalink to this headline">¶</a></h1>
-                <p><strong>By <a class="reference external" href="https://www.tomasbeuzen.com/">Tomas Beuzen</a>
-                    🚀</strong></p>
-                <p>Welcome to Python Programming for Data Science! With this website I aim to provide an introduction to
-                  everything you need to know to start using Python for data science. We’ll cover topics such as data
-                  structures, basic programming, code testing and documentation, and using libraries like NumPy and
-                  Pandas for data exploration and analysis.</p>
-                <div class="figure align-default">
-                  <a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png"
-                      src="_images/logo.png" style="height: 250px;" /></a>
-                </div>
-                <div class="admonition-attribution admonition">
-                  <p class="admonition-title">Attribution</p>
-                  <p>The content of this site is adapted from material I used to teach the 2020/2021 offering of the
-                    course “DSCI 511 Python Programming for Data Science” for the University of British Columbia’s
-                    Master of Data Science Program. That material has built upon previous course material developed by
-                    <a class="reference external" href="https://www.math.ubc.ca/~pwalls/">Patrick Walls</a> and <a
-                      class="reference external" href="https://www.mikegelbart.com/">Mike Gelbart</a>.</p>
-                </div>
-                <div class="admonition hint">
-                  <p class="admonition-title">Hint</p>
-                  <p>If you’re interested in learning more about Python packages - check out my and <a
-                      class="reference external" href="https://www.tiffanytimbers.com/">Tiffany Timber’s</a> book <a
-                      class="reference external" href="https://py-pkgs.org/">Python Packages</a>.</p>
-                </div>
-                <div class="section" id="key-learning-outcomes">
-                  <h2>Key Learning Outcomes<a class="headerlink" href="#key-learning-outcomes"
-                      title="Permalink to this headline">¶</a></h2>
-                  <p>These are the key outcomes I’d hope you would know after reading through this website:</p>
-                  <ol class="simple">
-                    <li>
-                      <p>Translate fundamental programming concepts such as loops, conditionals, etc into Python code.
-                      </p>
-                    </li>
-                    <li>
-                      <p>Understand the key data structures in Python.</p>
-                    </li>
-                    <li>
-                      <p>Understand how to write functions in Python and assess if they are correct via unit testing.
-                      </p>
-                    </li>
-                    <li>
-                      <p>Know when and how to abstract code (e.g., into functions, or classes) to make it more modular
-                        and robust.</p>
-                    </li>
-                    <li>
-                      <p>Produce human-readable code that incorporates best practices of programming, documentation, and
-                        coding style.</p>
-                    </li>
-                    <li>
-                      <p>Use NumPy perform common data wrangling and computational tasks in Python.</p>
-                    </li>
-                    <li>
-                      <p>Use Pandas to create and manipulate data structures like Series and DataFrames.</p>
-                    </li>
-                    <li>
-                      <p>Wrangle different types of data in Pandas including numeric data, strings, and datetimes.</p>
-                    </li>
-                  </ol>
-                </div>
-                <div class="section" id="getting-started">
-                  <h2>Getting Started<a class="headerlink" href="#getting-started"
-                      title="Permalink to this headline">¶</a></h2>
-                  <p>I’ve rendered all of this material into website to make it easily accessible.</p>
-                  <p>However, if you wish to run code on your local machine as you read through the notes, you should
-                    open up a terminal and do the following:</p>
-                  <ol>
-                    <li>
-                      <p>Clone the GitHub repository:</p>
-                      <div class="highlight-sh notranslate">
-                        <div class="highlight">
-                          <pre><span></span>git clone https://github.com/TomasBeuzen/python-programming-for-data-science.git
-</pre>
-                        </div>
-                      </div>
-                    </li>
-                    <li>
-                      <p>Install the conda environment:</p>
-                      <div class="highlight-sh notranslate">
-                        <div class="highlight">
-                          <pre><span></span>conda env create -f py4ds.yaml
-</pre>
-                        </div>
-                      </div>
-                    </li>
-                    <li>
-                      <p>Open the course in JupyterLab:</p>
-                      <div class="highlight-sh notranslate">
-                        <div class="highlight">
-                          <pre><span></span>jupyterlab
-</pre>
-                        </div>
-                      </div>
-                    </li>
-                  </ol>
-                  <div class="admonition tip">
-                    <p class="admonition-title">Tip</p>
-                    <p>If you’re not comfortable with <code
-                        class="docutils literal notranslate"><span class="pre">git</span></code>, <code
-                        class="docutils literal notranslate"><span class="pre">GitHub</span></code> or <code
-                        class="docutils literal notranslate"><span class="pre">conda</span></code>, feel free to just
-                      read through the material on this website - you’re not missing out on anything!</p>
-                  </div>
-                  <div class="toctree-wrapper compound">
-                  </div>
-                  <div class="toctree-wrapper compound">
-                  </div>
-                </div>
-              </div>
-
-              <script type="text/x-thebe-config">
+    <script type="text/x-thebe-config">
     {
         requestKernel: true,
         binderOptions: {
@@ -438,38 +388,39 @@
         predefinedOutput: true
     }
     </script>
-              <script>kernelName = 'python3'</script>
+    <script>kernelName = 'python3'</script>
 
-            </div>
-
-          </div>
+              </div>
+              
         </div>
-
-
-        <div class='prev-next-bottom'>
-
-          <a class='right-next' id="next-link" href="chapters/chapter1-basics.html" title="next page">Chapter 1: Python
-            Basics</a>
-
-        </div>
-        <footer class="footer mt-5 mt-md-0">
-          <div class="container">
-            <p>
-
-              By Tomas Beuzen<br />
-
-              &copy; Copyright 2020.<br />
-            </p>
-          </div>
-        </footer>
-      </main>
-
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='right-next' id="next-link" href="chapters/chapter1-basics.html" title="next page">Chapter 1: Python Basics</a>
 
     </div>
-  </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Tomas Beuzen<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
 
-  <script src="_static/js/index.js"></script>
 
-</body>
+      </div>
+    </div>
 
+    
+  <script src="_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
 </html>
