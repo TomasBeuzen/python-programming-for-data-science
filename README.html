@@ -80,6 +80,42 @@
   <meta name="twitter:image"
     content="https://www.tomasbeuzen.com/python-programming-for-data-science/_images/logo.png" />
 
+  <!-- Tracking -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-157992550-2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    function trackOutboundLink(url, target) {
+      gtag('event', 'click', {
+        'event_category': 'outbound',
+        'event_label': url,
+        'transport_type': 'beacon',
+        'event_callback': function () {
+          if (target !== '_blank') {
+            document.location = url;
+          }
+        }
+      });
+      console.debug("Outbound link clicked: " + url);
+    }
+
+    function onClickCallback(event) {
+      if ((event.target.tagName !== 'A') || (event.target.host === window.location.host)) {
+        return;
+      }
+      trackOutboundLink(event.target, event.target.getAttribute('target'));
+    }
+
+    gtag('js', new Date());
+    gtag('config', 'UA-157992550-2', {});
+
+
+    document.addEventListener('click', onClickCallback, false);
+  </script>
 
 </head>
 
@@ -347,7 +383,8 @@
                     course “DSCI 511 Python Programming for Data Science” for the University of British Columbia’s
                     Master of Data Science Program. That material has built upon previous course material developed by
                     <a class="reference external" href="https://www.math.ubc.ca/~pwalls/">Patrick Walls</a> and <a
-                      class="reference external" href="https://www.mikegelbart.com/">Mike Gelbart</a>.</p>
+                      class="reference external" href="https://www.mikegelbart.com/">Mike Gelbart</a>.
+                  </p>
                 </div>
                 <div class="section" id="key-learning-outcomes">
                   <h2>Key Learning Outcomes<a class="headerlink" href="#key-learning-outcomes"
